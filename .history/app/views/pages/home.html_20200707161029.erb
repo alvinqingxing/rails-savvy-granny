@@ -1,0 +1,23 @@
+<%# Header %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/1366/400);">
+  <div class="container d-flex justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+    <h1>SavvyGranny</h1>
+    <p>Your parents’ personal tech support.</p>
+    <%= simple_form_for @user do |f| %>
+      <%= f.association :roles, class: 'select2' %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
+
+<%# Content %>
+<div class="container my-5">
+<div class="h1 text-center">It's simple to be savvy!</div>
+<div class="col-12 col-md-4">
+</div>
+<div class="col-12 col-md-4">
+</div>
+<div class="col-12 col-md-4">
+</div>
+</div>
