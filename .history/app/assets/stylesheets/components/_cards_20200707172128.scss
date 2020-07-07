@@ -3,6 +3,14 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+
+.card-pic {
+  text-align: center;
+  i {
+    font-size: 48px;
+  }
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
