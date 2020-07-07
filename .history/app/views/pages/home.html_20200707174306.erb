@@ -1,0 +1,104 @@
+<%# Header %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/1366/400);">
+  <div class="container d-flex justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+    <h1>SavvyGranny</h1>
+    <p>Your parents’ personal tech support.</p>
+    <%= form_for Booking.new, html: {class: "form-inline"} do |f| %>
+      <%= select_tag "job", options_from_collection_for_select(@jobs, 'id', 'name'),
+      prompt: 'Choose a task!',
+      class: 'select2 flex-fill' %>
+      <%= f.submit 'GO', class: 'btn btn-primary' %>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<%# Content %>
+<div class="container mt-5">
+<div class="h1 text-center">It's simple to be savvy!</div>
+<div class="h5 text-center mb-3">Let's say your mom or dad needs help with a tech related task... 
+for the tenth time. Now what?</div>
+<div class="container d-flex p-0 flex-wrap">
+  <div class="card col-12 col-md-6 col-lg-3 border-0" style="width: 18rem;">
+    <div class="card-pic display-3 text-center">
+    <i class="fas fa-question"></i>
+    </div>
+    <div class="card-body text-center d-flex flex-column justify-content-between">
+      <div class="card-title h5">1. Book a tutor<br></div>
+      <p class="card-text">Pick a task and a time - it takes seconds!</p>
+    </div>
+  </div>
+
+  <div class="card col-12 col-md-6 col-lg-3 border-0" style="width: 18rem;">
+    <div class="card-pic display-3 text-center">
+    <i class="fas fa-link"></i>
+    </div>
+    <div class="card-body text-center d-flex flex-column justify-content-between">
+      <div class="card-title h5">2. Get your parent connected</div>
+      <p class="card-text">Just send them a link - no downloads needed.</p>
+    </div>
+  </div>
+
+  <div class="card col-12 col-md-6 col-lg-3 border-0" style="width: 18rem;">
+    <div class="card-pic display-3 text-center">
+    <i class="fas fa-chalkboard-teacher"></i>
+    </div>
+    <div class="card-body text-center d-flex flex-column justify-content-between">
+      <div class="card-title h5">3. Stand by (or chill out!)</div>
+      <p class="card-text">Our friendly tutors will walk your parent through the task.</p>
+    </div>
+  </div>
+
+  <div class="card col-12 col-md-6 col-lg-3 border-0" style="width: 18rem;">
+    <div class="card-pic display-3 text-center">
+    <i class="far fa-laugh-beam"></i>
+    </div>
+    <div class="card-body text-center d-flex flex-column justify-content-between">
+      <div class="card-title h5">4. All done!</div>
+      <p class="card-text">Your mom or dad is now savvier than ever! Great job!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<%# Search by categories %>
+<div class="container mt-5">
+  <div class="h1 text-center mb-3">Search by categories</div>
+  <div class="cards">
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      Bills & Payments
+    </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      Transfers
+    </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      Software & Technology
+    </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      Government Related
+    </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      e-Commerce
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%# Sign up form %>
+<div class="container mt-5">
+
+</div>

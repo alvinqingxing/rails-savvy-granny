@@ -1,0 +1,72 @@
+<%# Header %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/1366/400);">
+  <div class="container d-flex justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+    <h1>SavvyGranny</h1>
+    <p>Your parents’ personal tech support.</p>
+    <%= select_tag "timezone", options_from_collection_for_select(
+          ActiveSupport::TimeZone.all.
+            map { |tz| tz.tzinfo }.
+            sort_by { |tzinfo| tzinfo.name },
+          :name, :name),
+          class: 'select2 w-75' %>
+    <%= link_to "GO", root_path, class: 'btn btn-primary'%>
+    </div>
+  </div>
+</div>
+
+<%# Content %>
+<div class="container mt-5">
+<div class="h1 text-center">It's simple to be savvy!</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-art">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">What's the problem?</h5>
+    <p class="card-text">Your mom or dad needs help with a task.</p>
+  </div>
+</div>
+
+<div class="col-12 col-md-4">
+</div>
+<div class="col-12 col-md-4">
+</div>
+</div>
+
+<%# Search by categories %>
+<div class="container mt-5">
+  <div class="h1 text-center">Search by categories</div>
+  <div class="cards">
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      Bills & Payments
+    </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      Transfers
+    </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      Software & Technology
+    </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      Government Related
+    </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+      e-Commerce
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%# Sign up form %>
