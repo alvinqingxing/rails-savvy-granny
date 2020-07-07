@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
-  belongs_to :job
-  belongs_to :user
-  has_many :chatrooms
-  has_many :reviews
+  has_one :chatroom
+  has_one :user
+  has_one :review
+  has_one :job
 end
