@@ -3,13 +3,12 @@
     <div class="col-12 col-md-10 col-lg-8">
     <h1>Savvy Granny</h1>
     <p>Your parents' personal tech support.</p>
-    <%= select_tag "timezone", options_from_collection_for_select(
-          ActiveSupport::TimeZone.all.
-            map { |tz| tz.tzinfo }.
-            sort_by { |tzinfo| tzinfo.name },
-          :name, :name),
-          class: 'select2' %>
-
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+   <%= f.select :task, placeholder: 'Type a task here!' %>
+  <%= f.button :submit %>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>
