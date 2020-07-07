@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_080352) do
+ActiveRecord::Schema.define(version: 2020_07_07_081631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2020_07_07_080352) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_chatrooms_on_booking_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "name"
     t.decimal "duration"
@@ -52,6 +59,8 @@ ActiveRecord::Schema.define(version: 2020_07_07_080352) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -73,6 +82,8 @@ ActiveRecord::Schema.define(version: 2020_07_07_080352) do
   add_foreign_key "bookings", "jobs"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "users", column: "user1_id"
+  add_foreign_key "chatrooms", "bookings"
   add_foreign_key "jobs", "categories"
+  add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
 end
