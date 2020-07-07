@@ -1,0 +1,14 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/1366/400);">
+  <div class="container d-flex justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+    <h1>Savvy Granny</h1>
+    <p>Your parents' personal tech support.</p>
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+      <%= f.select :task, placeholder: 'Type a task here!' %>
+      <%= f.button :submit %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
