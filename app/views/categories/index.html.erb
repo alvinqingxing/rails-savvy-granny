@@ -1,60 +1,40 @@
 <head>
 </head>
 <body>
+
+<div class="container">
+<h1 class="mt-4">Choose job, be savvy!</h1>
+<%# PILLS LINKS TO WRAPPERS START HERE %>
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">All Jobs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-bills-tab" data-toggle="pill" href="#pills-bills" role="tab" aria-controls="pills-bills" aria-selected="false">Pay Bills & Transfer $</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-accounts-tab" data-toggle="pill" href="#pills-accounts" role="tab" aria-controls="pills-accounts" aria-selected="false">Accounts & Troubleshooting</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" id="pills-government-tab" data-toggle="pill" href="#pills-government" role="tab" aria-controls="pills-government" aria-selected="false">Government Related</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" id="pills-software-tab" data-toggle="pill" href="#pills-software" role="tab" aria-controls="pills-software" aria-selected="false">Software</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" id="pills-commerce-tab" data-toggle="pill" href="#pills-commerce" role="tab" aria-controls="pills-commerce" aria-selected="false">e-Commerce</a>
+  </li>
+</ul>
+<%# PILLS LINKS TO WRAPPERS END HERE %>
+
+
+<%# START OF PILL CONTENT WRAPPER %> <div class="tab-content" id="pills-tabContent">
+
+<%# START CONTENT OF TAB/PILL FOR ALL JOBS %>
+  <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+
             <section class="pricing py-4">
             <div class="container">
-<h1 class="mt-4">List of Jobs</h1>
-
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">All Jobs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-bills-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Pay Bills</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-?-tab" data-toggle="pill" href="#pills-?" role="tab" aria-controls="pills-?" aria-selected="false">Transfer Money</a>
-    </li>
-        <li class="nav-item">
-        <a class="nav-link" id="pills-?-tab" data-toggle="pill" href="#pills-?" role="tab" aria-controls="pills-?" aria-selected="false">Accounts & Troubleshooting</a>
-    </li>
-        <li class="nav-item">
-        <a class="nav-link" id="pills-?-tab" data-toggle="pill" href="#pills-?" role="tab" aria-controls="pills-?" aria-selected="false">Government Related</a>
-    </li>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" id="pills-?-tab" data-toggle="pill" href="#pills-?" role="tab" aria-controls="pills-?" aria-selected="false">Softwares</a>
-    </li>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" id="pills-?-tab" data-toggle="pill" href="#pills-?" role="tab" aria-controls="pills-?" aria-selected="false">e-Commerce</a>
-    </li>
-    </ul>
-
-
-
-    <%# Tabs container %> <div class="tab-content" id="pills-tabContent"> 
-
-    <%# TAB WRAPPER for all jobs %>
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-    
-    </div>
-    <%# END OF TAB WRAPPER for all jobs %>
-
-    <%# TAB WRAPPER for all bill payment %>
-    <div class="tab-pane fade" id="pills-bills" role="tabpanel" aria-labelledby="pills-bills-tab">.bbb..
-    
-    </div>
-    <%# END OF TAB WRAPPER for bill payment %>
-
-    <%# TAB WRAPPER for %>
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">ccc...
-    
-    </div>
-        <%# TAB WRAPPER for all bill payment %>
-
-    </div>    <%# END OF TAB WRAPPERS %>
-
             <%# <---CARDS -- > %>
 
                 <div class="row">
@@ -137,7 +117,7 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Fines</h5>
+                        <h5 class="card-title text-uppercase text-center">Fines</h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
@@ -162,14 +142,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Cash Transfer</h5>
+                        <h5 class="card-title text-uppercase text-center">Cash Transfer</h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Paynow / Paylah / PayAnyone</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Includes setup</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -187,12 +167,12 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Forgot ID/Password</h5>
+                        <h5 class="card-title text-uppercase text-center">Forgot ID/Password</h5>
                         <h6 class="card-price text-center">$8<span class="period text-muted"> (10 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -210,13 +190,13 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Create, Sign Up, Reset Account</h5>
+                        <h5 class="card-title text-uppercase text-center">Create, Sign Up, Reset Account</h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>For existing users of services</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -234,14 +214,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Singpass related</h5>
+                        <h5 class="card-title text-uppercase text-center">Singpass related</h5>
                         <h6 class="card-price text-center">$8<span class="period text-muted"> (10 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Forgot account ID/Password</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Accessing Singpass services</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -259,14 +239,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">CPF & Tax Queries</h5>
+                        <h5 class="card-title text-uppercase text-center">CPF & Tax Queries</h5>
                         <h6 class="card-price text-center">$8<span class="period text-muted"> (10 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Basic CPF / Tax Q&A</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Viewing CPF / Tax accounts</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -284,14 +264,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Welfare & Subsidies</h5>
+                        <h5 class="card-title text-uppercase text-center">Welfare & Subsidies</h5>
                         <h6 class="card-price text-center">$12<span class="period text-muted"> (20 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Grant eligibility (CHAS, etc)</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Social support applications</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -308,14 +288,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">One Motoring</h5>
+                        <h5 class="card-title text-uppercase text-center">One Motoring</h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Vehicle related Q&A</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>PARF value, road tax, estate parking</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -332,13 +312,13 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Zoom & Video Calls</h5>
+                        <h5 class="card-title text-uppercase text-center">Zoom & Video Calls</h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>How to use Zoom / Skype, etc</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -355,14 +335,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Text Messaging</h5>
+                        <h5 class="card-title text-uppercase text-center">Text Messaging</h5>
                         <h6 class="card-price text-center">$8<span class="period text-muted"> (10 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Sign-up of accounts</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>How to type, send photos, emojis</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -379,14 +359,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Emails</h5>
+                        <h5 class="card-title text-uppercase text-center">Emails</h5>
                         <h6 class="card-price text-center">$20<span class="period text-muted"> (30 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>New email account</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Basic functions</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -403,14 +383,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Microsoft Office</h5>
+                        <h5 class="card-title text-uppercase text-center">Microsoft Office</h5>
                         <h6 class="card-price text-center">$20<span class="period text-muted"> (30 min for each software)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Word, Excel, Powerpoint</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>File saving and attachments</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -427,7 +407,7 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Buy Stuff Online</h5>
+                        <h5 class="card-title text-uppercase text-center">Buy Stuff Online</h5>
                         <h6 class="card-price text-center">$20<span class="period text-muted"> (30 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
@@ -435,7 +415,7 @@
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Food Delivery (Grabfood, etc)</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Returns and Tracking</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -452,13 +432,13 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Transport</h5>
+                        <h5 class="card-title text-uppercase text-center">Transport</h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Using Grab / Gojek / Comfort</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
                     </div>
                     </div>
                 </div>
@@ -468,6 +448,21 @@
             </div > 
             </section>
                 <!-------------- END OF CARDS ------------->
+
+  </div>
+
+<%# TAB/PILL FOR "ALL JOBS" END HERE %>
+
+
+  <div class="tab-pane fade" id="pills-bills" role="tabpanel" aria-labelledby="pills-bills-tab">...</div>
+  <div class="tab-pane fade" id="pills-accounts" role="tabpanel" aria-labelledby="pills-accounts-tab">...</div>
+  <div class="tab-pane fade" id="pills-government" role="tabpanel" aria-labelledby="pills-government-tab">...</div>
+  <div class="tab-pane fade" id="pills-software" role="tabpanel" aria-labelledby="pills-software-tab">...</div>
+  <div class="tab-pane fade" id="pills-commerce" role="tabpanel" aria-labelledby="pills-commerce-tab">...</div>
+</div><%# END OF PILL CONTENT WRAPPERS %>
+</div><%# /DIV END OF PILL CONTAINER %>
+
+
 
 
 <%# Alert info below %>
