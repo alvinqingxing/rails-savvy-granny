@@ -1,9 +1,14 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+
   def index
+    @bookings = policy_scope(Booking)
   end
 
   def new
-    @booking = Booking.new
+    @booking = current_user.bookings.new
+    authorize @booking
     @job = Job.find(params[:job])
     if @job.duration == 10
       @cost = 5
@@ -19,6 +24,8 @@ class BookingsController < ApplicationController
     @booking.price = params[:price].to_i
     @booking.status = 'pending'
     @booking.chatroom = Chatroom.create
+    authorize @booking
+   
     if @booking.save
       redirect_to dashboard_path
     else
@@ -33,9 +40,29 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking.update(booking_params)
+
+    if @booking.save
+      redirect_to @booking
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @booking.destroy
+    redirect_to bookings_path
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_time, :price, :status, :transaction_id)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   private
