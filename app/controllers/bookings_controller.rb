@@ -1,9 +1,8 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).where(status: "pending")
   end
 
   def new
@@ -14,6 +13,19 @@ class BookingsController < ApplicationController
       @cost = 5
     else
       @cost = @job.duration / 3
+    end
+  end
+
+  def apply
+    @booking = Booking.find(params[:id])
+    @booking.tutor = current_user
+    @booking.status = "upcoming"
+
+    skip_authorization
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      redirect_to bookings_path
     end
   end
 
@@ -54,18 +66,13 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
-  private
 
-  def booking_params
-    params.require(:booking).permit(:start_time, :price, :status, :transaction_id)
-  end
+  private
 
   def set_booking
     @booking = Booking.find(params[:id])
     authorize @booking
   end
-
-  private
 
   def booking_params
     params.require(:booking).permit(:start_date, :start_time, :job, :price, :transaction_id, :user, :tutor)

@@ -1,2 +1,20 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="container">
+  <div class="col-12 col-md-10 col-lg-8">
+  <h1>Job Board</h1>
+  </div>
+
+  <div>
+  <% @bookings.each do |booking| %>
+    <li>
+    Task: <%= booking.job.name %><br>
+    Date: <%= booking.start_date %><br>
+    Start Time: <%= booking.start_time.strftime("%I:%M%p") %><br>
+    Duration: <%= booking.job.duration %> mins<br>
+    Payment: $<%= booking.price.round %><br>
+    User: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+    <%= link_to 'Apply', apply_booking_path(booking), class: 'btn btn-primary' %>
+    </li>
+  <% end %>
+  <div>
+
+</div>
