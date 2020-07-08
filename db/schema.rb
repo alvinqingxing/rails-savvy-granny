@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_083019) do
+
+ActiveRecord::Schema.define(version: 2020_07_08_082008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +23,12 @@ ActiveRecord::Schema.define(version: 2020_07_07_083019) do
     t.bigint "transaction_id"
     t.bigint "job_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "tutor"
+    t.bigint "tutor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "start_date"
     t.index ["job_id"], name: "index_bookings_on_job_id"
-    t.index ["tutor"], name: "index_bookings_on_tutor"
+    t.index ["tutor_id"], name: "index_bookings_on_tutor_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -58,10 +60,10 @@ ActiveRecord::Schema.define(version: 2020_07_07_083019) do
     t.boolean "read"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "sender", null: false
+    t.bigint "sender_id", null: false
     t.bigint "chatroom_id", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.index ["sender"], name: "index_messages_on_sender"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -84,16 +86,17 @@ ActiveRecord::Schema.define(version: 2020_07_07_083019) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "tutor"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bookings", "jobs"
   add_foreign_key "bookings", "users"
-  add_foreign_key "bookings", "users", column: "tutor"
+  add_foreign_key "bookings", "users", column: "tutor_id"
   add_foreign_key "chatrooms", "bookings"
   add_foreign_key "jobs", "categories"
   add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users", column: "sender"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "reviews", "bookings"
 end

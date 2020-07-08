@@ -18,7 +18,7 @@
           <%= link_to "Browse Tasks", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Bookings", "#", class: "nav-link" %>
+          <%= link_to "My Bookings", dashboard_path, class: "nav-link" %>
         </li>
         <% if current_user.tutor? %>
         <li class="nav-item">

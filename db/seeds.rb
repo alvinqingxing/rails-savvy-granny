@@ -15,11 +15,14 @@
 require "open-uri"
 
 puts "Cleaning database..."
-User.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
+Review.destroy_all
+Booking.destroy_all
 Job.destroy_all
 Category.destroy_all
-Booking.destroy_all
-Chatroom.destroy_all
+User.destroy_all
+
 
 
 
@@ -131,52 +134,55 @@ categories_with_jobs.each_pair do |category, job_array|
       Job.create!(
         name: job_name,
         category: new_category,
+        duration: [10,30,60].sample,
         description: Faker::Job.key_skill
         )
     end
 end
 
-# 4.times do 
-#   puts "Making a booking..."
-#   booking = Booking.create!(
-#     user: User.where(tutor: false).sample,   
-#     tutor: User.where(tutor: true).sample,
-#     job: Job.all.sample,
-#     start_date: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
-#     status: ["Pending", "Accepted","Cancelled", "Completed"].sample,
-#     price: rand(10..100)
-#   )
-#  
-#   puts "Making a review"
-#   review = Review.create!(
-#     content: Faker::Quote.famous_last_words,
-#     rating: rand(0..5),
-#     booking: booking
-#   )
+4.times do 
+  puts "Making a booking..."
+  booking = Booking.create!(
+    user: User.where(tutor: false).sample,   
+    tutor: User.where(tutor: true).sample,
+    job: Job.all.sample,
+    start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
+    status: ["Pending", "Accepted","Cancelled", "Completed"].sample,
+    price: rand(10..100)
+  )
+ 
+  puts "Making a review"
+  review = Review.create!(
+    content: Faker::Quote.famous_last_words,
+    rating: rand(0..5),
+    booking: booking
+  )
 
-#   puts "Making a chatroom..."
-#   chatroom = Chatroom.create!(
-#     booking: booking
-#   )
+  puts "Making a chatroom..."
+  chatroom = Chatroom.create!(
+    booking: booking
+  )
   
-#   puts "Making messages..."
-#   3.times do
-#   Message.create(
-#       content: Faker::Quote.matz,
-#       sender: chatroom.booking.user,
-#       chatroom: chatroom,
-#       read: true
-#     )
-#   end
+  puts "Making messages..."
+  3.times do
+  Message.create!(
+      content: Faker::Quote.matz,
+      sender: chatroom.booking.user,
+      chatroom: chatroom,
+      read: true
+    )
+  end
 
-#   3.times do
-#     Message.create(
-#         content: Faker::Quote.matz,
-#         sender: chatroom.booking.tutor,
-#         chatroom: chatroom,
-#         read: true
-#       )
-#   end
-# end
+  
+
+  3.times do
+    Message.create!(
+        content: Faker::Quote.matz,
+        sender: chatroom.booking.tutor,
+        chatroom: chatroom,
+        read: true
+      )
+  end
+end
 
 puts "Finished!"
