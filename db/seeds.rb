@@ -117,7 +117,7 @@ tutor_5 = User.create(
 puts "Making a category  & job..."
 
 categories_with_jobs = {
-    "Pay Bills & Transfer Money" => ["Water / Electric / Gas Bills", "Insurance Premiums", "Fines", "Cash Transfers"],
+    "Pay Bills & Transfer Money" => ["Water / Electric / Gas Bills", "Fines", "Insurance Premiums", "Cash Transfers"],
     "Accounts & Troubleshooting" => ["Forgot ID / password","Reset account / password"],
     "Government" => ["Singpass Related","CPF / Tax Q&A","Welfare and Subsidy support","One Motoring"],
     "Software" => ["Zoom / Video calls","Messaging","Sending/replying emails", "Microsoft Word / Excel"],
