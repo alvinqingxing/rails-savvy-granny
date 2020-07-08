@@ -142,13 +142,15 @@ end
 
 4.times do 
   puts "Making a booking..."
+  job = Job.all.sample
   booking = Booking.create!(
     user: User.where(tutor: false).sample,   
     tutor: User.where(tutor: true).sample,
-    job: Job.all.sample,
+    job: job,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
+    start_date: Faker::Date.forward(days: 100),
     status: ["Pending", "Accepted","Cancelled", "Completed"].sample,
-    price: rand(10..100)
+    price: job.price
   )
  
   puts "Making a review"

@@ -17,6 +17,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def apply
+    @booking = Booking.find[params[:id]]
+    fail
+
+    redirect_to dashboard_path
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user

@@ -16,7 +16,7 @@
         </li>
         <% if current_user.tutor? %>
         <li class="nav-item">
-          <%= link_to "Job Board", "#", class: "nav-link" %>
+          <%= link_to "Job Board", bookings_path, class: "nav-link" %>
         </li>
         <% end %>
         <li class="nav-item">
