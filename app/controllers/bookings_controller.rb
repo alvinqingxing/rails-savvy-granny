@@ -5,6 +5,11 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @job = Job.find(params[:job])
+    if @job.duration == 10
+      @cost = 5
+    else
+      @cost = @job.duration / 3
+    end
   end
 
   def create

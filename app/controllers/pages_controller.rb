@@ -4,6 +4,5 @@ class PagesController < ApplicationController
   def home
     @jobs = Job.all
     @new_user = User.new
-    @booking = Booking.new
   end
 end

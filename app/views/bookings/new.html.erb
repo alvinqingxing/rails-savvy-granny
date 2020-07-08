@@ -1,10 +1,25 @@
 <div class="container mt-5">
 <h1>Book a Tutor</h1>
 
-<h2>The Task</h2>
-<%= params.to_s %>
-Category: <%= @job.category %><br>
-Job: <%= @job.name %><br>
-Time: <%= @job.name %><br>
+<div class="d-flex">
+<%# The job card goes here %>
+<div class="col-12 col-md-6">
+<h2>Task</h2>
+Category: <%= @job.category.name %><br>
+Task: <strong><%= @job.name %></strong> - <%= @job.description %><br>
+Time: <%= @job.duration.round %> mins <br>
+Cost: $<%= @cost %>
+</div>
+
+<div class="col-12 col-md-6">
+<h2>When would you like a tutor?</h2>
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :start_date, label: false %>
+  <%= f.input :start_time, minute_step: 10, label: false %>
+  <%= hidden_field_tag(:job, @job) %>
+  <%= f.button :submit, class: 'btn btn-success btn-block' %>
+<% end %>
+</div>
+</div>
 
 </div>
