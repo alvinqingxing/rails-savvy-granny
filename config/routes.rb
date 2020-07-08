@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :categories, only: [ :index ]
   resources :bookings do
     member do
-      get :apply, as: :apply
+      get :apply
     end
   end
   resources :chatrooms, only: [ :show ]
