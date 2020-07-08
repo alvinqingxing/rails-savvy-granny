@@ -20,7 +20,7 @@
         <li class="nav-item">
           <%= link_to "My Bookings", "#", class: "nav-link" %>
         </li>
-        <% if current_user.is_tutor? %>
+        <% if current_user.tutor? %>
         <li class="nav-item">
           <%= link_to "Job Board", "#", class: "nav-link" %>
         </li>
