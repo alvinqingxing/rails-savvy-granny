@@ -8,7 +8,7 @@
       <%= select_tag "job", options_from_collection_for_select(@jobs, 'id', 'name'),
       prompt: 'Choose a task!',
       class: 'select2 flex-fill' %>
-      <%= submit_tag("GO", class: 'btn btn-primary') %>
+      <%= submit_tag("GO", name: nil, class: 'btn btn-primary') %>
     <% end %>
     </div>
   </div>

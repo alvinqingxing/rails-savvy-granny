@@ -14,6 +14,16 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.job = Job.find(params[:job_id])
+    @booking.price = params[:price].to_i
+    @booking.status = 'pending'
+    @booking.chatroom = Chatroom.create
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -31,6 +41,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :price, :status, :transaction_id, :job, :user, :tutor)
+    params.require(:booking).permit(:start_date, :start_time, :job, :price, :transaction_id, :user, :tutor)
   end
 end

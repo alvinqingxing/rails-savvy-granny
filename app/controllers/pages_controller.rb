@@ -5,4 +5,9 @@ class PagesController < ApplicationController
     @jobs = Job.all
     @new_user = User.new
   end
+
+  def dashboard
+    @user = current_user
+    @bookings = @user.bookings
+  end
 end
