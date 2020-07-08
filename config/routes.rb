@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [ :show ]
   resources :messages, only: [ :create, :show ]
   resources :reviews, only: [ :create, :show, :destroy ]
+  get "dashboard", to: "pages#dashboard", as: :dashboard
+  get '/user' => "pages#dashboard", :as => :user_root
 end

@@ -134,6 +134,7 @@ categories_with_jobs.each_pair do |category, job_array|
       Job.create!(
         name: job_name,
         category: new_category,
+        duration: [10,30,60].sample,
         description: Faker::Job.key_skill
         )
     end

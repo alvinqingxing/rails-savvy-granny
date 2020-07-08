@@ -9,16 +9,27 @@ class BookingsController < ApplicationController
   def new
     @booking = current_user.bookings.new
     authorize @booking
+    @job = Job.find(params[:job])
+    if @job.duration == 10
+      @cost = 5
+    else
+      @cost = @job.duration / 3
+    end
   end
 
   def create
-    @booking = current_user.bookings.new(booking_params)
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.job = Job.find(params[:job_id])
+    @booking.price = params[:price].to_i
+    @booking.status = 'pending'
+    @booking.chatroom = Chatroom.create
     authorize @booking
-
+   
     if @booking.save
-      redirect_to @booking
+      redirect_to dashboard_path
     else
-      render :new
+      redirect_to root_path
     end
   end
 
@@ -52,5 +63,11 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
     authorize @booking
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :start_time, :job, :price, :transaction_id, :user, :tutor)
   end
 end
