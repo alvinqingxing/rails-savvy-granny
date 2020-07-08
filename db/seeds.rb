@@ -117,12 +117,11 @@ tutor_5 = User.create(
 puts "Making a category  & job..."
 
 categories_with_jobs = {
-    "Bills & Payment" => ["Water / Electric / Gas", "Insurance Premiums", "Fines"],
-    "Transfer Money" => ["Direct cash transfer (paynow / paylah)", "International"],
-    "Accounts & Computer troubleshooting" => ["Forgot ID / password","Reset account / password"],
-    "Government" => ["Singpass","CPF Q&A","Elderly support","Other services"],
-    "Software" => ["Sign up","Zoom / Video calls","Messaging","Sending/replying emails", "Microsoft Word / Excel","Download software","Netflix / Youtube"],
-    "e-Commerce" => ["Sign up","Delivery/returns","Selling items"]
+    "Pay Bills & Transfer Money" => ["Water / Electric / Gas Bills", "Fines", "Insurance Premiums", "Cash Transfers"],
+    "Accounts & Troubleshooting" => ["Forgot ID / password","Reset account / password"],
+    "Government" => ["Singpass Related","CPF / Tax Q&A","Welfare and Subsidy support","One Motoring"],
+    "Software" => ["Zoom / Video calls","Messaging","Sending/replying emails", "Microsoft Word / Excel"],
+    "e-Commerce" => ["Delivery/returns","Transport / Grab"]
     }
 
 categories_with_jobs.each_pair do |category, job_array|
