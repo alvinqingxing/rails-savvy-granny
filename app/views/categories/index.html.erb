@@ -48,14 +48,14 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Utility Bills</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[0].name %></h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Water / Electric / Gas</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Internet / Phone bills</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[0].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -69,14 +69,14 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Fine Payments</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[1].name %></h5>
                         <h6 class="card-price text-center">$12<span class="period text-muted"> (20 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Parking fines</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>LTA / NEA / Govt fines</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[1].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Insurance Premiums</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[2].name %></h5>
                         <h6 class="card-price text-center">$20<span class="period text-muted"> (30 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
@@ -98,7 +98,7 @@
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>GIRO walkthroughs</li>
                         <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Insurer information not required</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[2].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -117,14 +117,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Fines</h5>
-                        <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[3].name %></h5>
+                        <h6 class="card-price text-center">$30<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Parking & LTA</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>HDB/URA/NEA & AXS</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[3].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -142,14 +142,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Cash Transfer</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[4].name %></h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Paynow / Paylah / PayAnyone</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Includes setup</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[4].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -167,12 +167,12 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Forgot ID/Password</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[5].name %></h5>
                         <h6 class="card-price text-center">$8<span class="period text-muted"> (10 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[5].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -190,13 +190,13 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Create, Sign Up, Reset Account</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[6].name %></h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>For existing users of services</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[6].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -214,14 +214,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Singpass related</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[7].name %></h5>
                         <h6 class="card-price text-center">$8<span class="period text-muted"> (10 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Forgot account ID/Password</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Accessing Singpass services</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[7].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -239,14 +239,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">CPF & Tax Queries</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[8].name %></h5>
                         <h6 class="card-price text-center">$8<span class="period text-muted"> (10 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Basic CPF / Tax Q&A</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Viewing CPF / Tax accounts</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[8].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -264,14 +264,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Welfare & Subsidies</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[9].name %></h5>
                         <h6 class="card-price text-center">$12<span class="period text-muted"> (20 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Grant eligibility (CHAS, etc)</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Social support applications</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[9].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -288,14 +288,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">One Motoring</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[10].name %></h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Vehicle related Q&A</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>PARF value, road tax, estate parking</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[10].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -312,13 +312,13 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Zoom & Video Calls</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[11].name %></h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>How to use Zoom / Skype, etc</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[11].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -335,14 +335,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Text Messaging</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[12].name %></h5>
                         <h6 class="card-price text-center">$8<span class="period text-muted"> (10 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Sign-up of accounts</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>How to type, send photos, emojis</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[12].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -359,14 +359,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Emails</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[13].name %></h5>
                         <h6 class="card-price text-center">$20<span class="period text-muted"> (30 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>New email account</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Basic functions</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[13].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -383,14 +383,14 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Microsoft Office</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[14].name %></h5>
                         <h6 class="card-price text-center">$20<span class="period text-muted"> (30 min for each software)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Word, Excel, Powerpoint</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>File saving and attachments</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[14].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -407,7 +407,7 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Buy Stuff Online</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[15].name %></h5>
                         <h6 class="card-price text-center">$20<span class="period text-muted"> (30 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
@@ -415,7 +415,7 @@
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Food Delivery (Grabfood, etc)</li>
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Returns and Tracking</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[15].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -432,13 +432,13 @@
                     </div>
                     <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase text-center">Transport</h5>
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[16].name %></h5>
                         <h6 class="card-price text-center">$10<span class="period text-muted"> (15 min)</span></h6>
                         <hr>
                         <ul class="fa-ul">
                         <li><span class="fa-li"><i class="fas fa-check"></i></span>Using Grab / Gojek / Comfort</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Book a Slot</a>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[16].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
                     </div>
                 </div>
@@ -454,6 +454,7 @@
 <%# TAB/PILL FOR "ALL JOBS" END HERE %>
 
 
+<%# Other tab/pills to be filled %>
   <div class="tab-pane fade" id="pills-bills" role="tabpanel" aria-labelledby="pills-bills-tab">...</div>
   <div class="tab-pane fade" id="pills-accounts" role="tabpanel" aria-labelledby="pills-accounts-tab">...</div>
   <div class="tab-pane fade" id="pills-government" role="tabpanel" aria-labelledby="pills-government-tab">...</div>
@@ -461,6 +462,8 @@
   <div class="tab-pane fade" id="pills-commerce" role="tabpanel" aria-labelledby="pills-commerce-tab">...</div>
 </div><%# END OF PILL CONTENT WRAPPERS %>
 </div><%# /DIV END OF PILL CONTAINER %>
+
+
 
 
 
