@@ -4,7 +4,7 @@
     <div class="col-12 col-md-10 col-lg-8">
     <h1>SavvyGranny</h1>
     <p>Your parents’ personal tech support.</p>
-    <%= form_for Booking.new, html: {class: "form-inline"} do |f| %>
+    <%= form_for @booking, html: {class: "form-inline"} do |f| %>
       <%= select_tag "job", options_from_collection_for_select(@jobs, 'id', 'name'),
       prompt: 'Choose a task!',
       class: 'select2 flex-fill' %>
