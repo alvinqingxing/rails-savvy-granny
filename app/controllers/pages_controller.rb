@@ -8,6 +8,8 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-    @bookings = @user.bookings
+    @pending = Booking.where(user: current_user, status: "pending")
+    @upcoming = Booking.where(user: current_user, status: "upcoming")
+    @completed = Booking.where(user: current_user, status: "completed")
   end
 end
