@@ -3,7 +3,8 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).where(status: "pending")
+    @all_bookings = policy_scope(Booking)
   end
 
   def new
@@ -18,8 +19,10 @@ class BookingsController < ApplicationController
   end
 
   def apply
-    @booking = Booking.find[params[:id]]
-    fail
+    @booking = Booking.find(params[:id])
+    @booking.tutor = current_user
+    @booking.status = "upcoming"
+    @booking.save
 
     redirect_to dashboard_path
   end

@@ -4,11 +4,12 @@
   </div>
 
   <div>
-  <% @bookings.each do |booking| %>
+  <% @all_bookings.each do |booking| %>
     <li>
     Task: <%= booking.job.name %><br>
     Date: <%= booking.start_date %><br>
     Time: <%= booking.start_time.strftime("%I:%M%p") %><br>
+    Payment: $<%= booking.price.round %><br>
     <%= link_to "Apply for this job", apply_booking_url(booking) %>
     </li>
   <% end %>
