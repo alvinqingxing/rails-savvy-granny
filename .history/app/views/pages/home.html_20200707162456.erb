@@ -1,0 +1,52 @@
+<%# Header %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/1366/400);">
+  <div class="container d-flex justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+    <h1>SavvyGranny</h1>
+    <p>Your parents’ personal tech support.</p>
+    <%= select_tag "timezone", options_from_collection_for_select(
+          ActiveSupport::TimeZone.all.
+            map { |tz| tz.tzinfo }.
+            sort_by { |tzinfo| tzinfo.name },
+          :name, :name),
+          class: 'select2 w-75' %>
+    <%= link_to "GO", root_path, class: 'btn btn-primary'%>
+    </div>
+  </div>
+</div>
+
+<%# Content %>
+<div class="container my-5">
+<div class="h1 text-center">It's simple to be savvy!</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-art">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Mom needs </h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<div class="col-12 col-md-4">
+</div>
+<div class="col-12 col-md-4">
+</div>
+</div>
+
+<%# Search by categories %>
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Bills & Payments
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+    Transfers
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Dinner
+  </div>
+</div>
+
+
+<%# Sign up form %>
