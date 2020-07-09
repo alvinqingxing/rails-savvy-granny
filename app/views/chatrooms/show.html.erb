@@ -1,9 +1,9 @@
+<div>
 <% @messages.each do |message| %>
-    <%= message.sender.first_name %> <%= message.chatroom.booking.user.last_name %><br>
-    <%= message.content %><br>
-    <%= message.created_at.strftime("%H:%M") %>
-    <%= message.read %>
+     <%= message.created_at.strftime("%H:%M") %> <%= message.sender.first_name %> <%= message.chatroom.booking.user.last_name %> <%= message.content %><%= message.sender != current_user ? "" : message.read %>
+     
     <% message.update(read: true) if current_user != message.sender %>
+    <br>
 <% end %>
 
 
@@ -15,3 +15,5 @@
         <%= f.button :submit, "SEND", class: 'btn btn-primary btn-block' %>
     </div>
 <% end %>
+
+</div>
