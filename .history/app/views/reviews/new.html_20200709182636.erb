@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+  The Booking
+
+    <div class="col-xs-4">
+      <%= simple_form_for @review do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+        <%= f.submit "Send your review" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+<h1>Book a Tutor</h1>
+
+<div class="d-flex">
+<%# The job card goes here %>
+<div class="col-12 col-md-6">
+<h2>Task</h2>
+Category: <%= @booking.job.category.name %><br>
+Task: <strong><%= @booking.job.name %></strong> - <%= @booking.job.description %><br>
+Time: <%= @booking.job.duration.round %> mins <br>
+Cost: $<%= @booking.job.price %><br>
+Tutor: <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}", booking.tutor %>
+</div>
+
+<div class="col-12 col-md-6">
+<h2>Rate this booking!</h2>
+<%= simple_form_for @booking do |f| %>
+  <div class="form-row">
+  <%= f.input :start_date, html5: true, label: false, input_html: { value: Date.today} %>
+  <%= f.input :start_time, html5: true, label: false, input_html: { value: "20:00" } %>
+  <%= hidden_field_tag(:job_id, @job.id) %>
+  <%= hidden_field_tag(:price, @cost) %>
+  </div>
+  <%= f.button :submit, class: 'btn btn-success btn-block' %>
+<% end %>
+</div>
+</div>
+
+</div>

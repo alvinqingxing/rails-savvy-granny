@@ -1,0 +1,81 @@
+<div class="container d-flex justify-content-center">
+  <div class="col-12 col-md-10 col-lg-8">
+  <h1>My Bookings</h1>
+
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <% if current_user.tutor? == false %>
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Pending</a>
+    <% end %>
+    <% if current_user.tutor? %>
+      <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Upcoming</a>
+    <% else %>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Upcoming</a>
+    <% end %>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Completed</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <% if current_user.tutor? == false %>
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <% if @pending.length == 0 %>
+      No upcoming bookings!
+      <% else %>
+        <% @pending.each do |booking| %>
+          <li>
+          Task: <%= booking.job.name %><br>
+          Date: <%= booking.start_date %><br>
+          Time: <%= booking.start_time.strftime("%I:%M%p") %><br>
+          <%= link_to 'Cancel', cancel_booking_path(booking), class: 'btn btn-danger' %>
+          </li>
+        <% end %>
+      <% end %>
+      </div>
+    <% end %>
+    <% if current_user.tutor? %>
+      <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <% else %>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <% end %>
+    <% if @upcoming.length == 0 %>
+    No upcoming bookings!
+    <% else %>
+      <% @upcoming.each do |booking| %>
+        <li>
+        Task: <%= booking.job.name %><br>
+        Date: <%= booking.start_date %><br>
+        Time: <%= booking.start_time.strftime("%I:%M%p") %><br>
+        <% if current_user.tutor? %>
+          User: <%= "#{booking.user.first_name} #{booking.user.last_name}" %><br>
+          <% else %>
+          Tutor: <%= "#{booking.tutor.first_name} #{booking.tutor.last_name}" %><br>
+        <% end %>
+        <%= link_to 'Go to Chatroom', booking_chatroom_path(booking.chatroom), class: 'btn btn-secondary' %>
+        <%= link_to 'Cancel', cancel_booking_path(booking), class: 'btn btn-danger' %>
+        </li>
+      <% end %>
+    <% end %>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <% if @completed.length == 0 %>
+    No completed bookings!
+    <% else %>
+      <% @completed.each do |booking| %>
+        <li>
+        Task: <%= booking.job.name %><br>
+        Date: <%= booking.start_date %><br>
+        Time: <%= booking.start_time.strftime("%I:%M%p") %> <br>
+        <% if current_user.tutor? %>
+          User: <%= "#{booking.user.first_name} #{booking.user.last_name}" %><br>
+          <% else %>
+          Tutor: <%= "#{booking.tutor.first_name} #{booking.tutor.last_name}" %><br>
+        <% end %>
+        <% if booking.review %>
+        </li>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+  </div>
+</div>
