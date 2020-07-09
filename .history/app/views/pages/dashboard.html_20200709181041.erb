@@ -67,18 +67,10 @@
         Time: <%= booking.start_time.strftime("%I:%M%p") %> <br>
         <% if current_user.tutor? %>
           User: <%= "#{booking.user.first_name} #{booking.user.last_name}" %><br>
-          <% if booking.review.nil? %>
-          Waiting for a review!
           <% else %>
-          Reviwed: <%= booking.review.rating %> stars
-          <% end %>
-        <% else %>
           Tutor: <%= "#{booking.tutor.first_name} #{booking.tutor.last_name}" %><br>
           <% if booking.review.nil? %>
-          <%= link_to 'Review Tutor', new_review_path(booking), class: 'btn btn-primary' %>
-          <% else %>
-          Reviwed: <%= booking.review.rating %> stars
-          <% end %>
+          <%= link_to 'Review Tutor', new_review(booking), class: 'btn btn-danger' %>
         <% end %>
         </li>
       <% end %>

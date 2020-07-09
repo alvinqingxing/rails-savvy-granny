@@ -68,7 +68,7 @@
         <% if current_user.tutor? %>
           User: <%= "#{booking.user.first_name} #{booking.user.last_name}" %><br>
           <% if booking.review.nil? %>
-          Waiting for a review!
+          <%= link_to 'Review Tutor', new_review_path(booking), class: 'btn btn-primary' %>
           <% else %>
           Reviwed: <%= booking.review.rating %> stars
           <% end %>
