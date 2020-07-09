@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_082008) do
+ActiveRecord::Schema.define(version: 2020_07_09_084019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.time "start_time"
-    t.decimal "price"
     t.string "status"
     t.bigint "transaction_id"
     t.bigint "job_id", null: false
@@ -26,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_082008) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "start_date"
+    t.integer "price_cents", default: 0, null: false
     t.index ["job_id"], name: "index_bookings_on_job_id"
     t.index ["tutor_id"], name: "index_bookings_on_tutor_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
@@ -56,13 +56,26 @@ ActiveRecord::Schema.define(version: 2020_07_08_082008) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.boolean "read"
+    t.boolean "read", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "sender_id", null: false
     t.bigint "chatroom_id", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "booking_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_orders_on_booking_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -97,5 +110,7 @@ ActiveRecord::Schema.define(version: 2020_07_08_082008) do
   add_foreign_key "jobs", "categories"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users", column: "sender_id"
+  add_foreign_key "orders", "bookings"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "bookings"
 end
