@@ -140,13 +140,13 @@ categories_with_jobs.each_pair do |category, job_array|
     end
 end
 
-4.times do 
+10.times do 
   puts "Making a booking..."
   booking = Booking.create!(
     user: User.where(tutor: false).sample,   
     tutor: User.where(tutor: true).sample,
     job: Job.all.sample,
-    start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
+    start_time: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all),
     status: ["Pending", "Accepted","Cancelled", "Completed"].sample,
     price: rand(10..100)
   )

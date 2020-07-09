@@ -11,5 +11,7 @@ class PagesController < ApplicationController
     @pending = Booking.where(user: current_user, status: "pending")
     @upcoming = Booking.where(user: current_user, status: "upcoming")
     @completed = Booking.where(user: current_user, status: "completed")
+
+    @chatroom = Chatroom.find(params[:booking_id])
   end
 end

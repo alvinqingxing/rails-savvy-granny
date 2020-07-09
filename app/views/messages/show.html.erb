@@ -1,2 +1,48 @@
-<h1>Messages#show</h1>
-<p>Find me in app/views/messages/show.html.erb</p>
+<div class="container">
+  <div class="col-6 offset-3 py-5">
+    <div class="border-bottom mb-3">
+      <h1>BOOKING #<%= @conversation.booking.id %></h1>
+      <%= @conversation.booking.lair.name %> <br>
+      <strong>From:</strong> <%= @conversation.booking.start_date %><br>
+      <strong>To:</strong> <%= @conversation.booking.end_date %><br>
+    </div>
+    <% if @over_ten %>
+      <%= link_to 'Show Previous', '?m=all' %>
+    <% end %>
+    <div class="ui segment">
+      <% @messages.each do |message| %>
+        <% if message.body %>
+          <% user = User.find(message.user_id) %>
+          <div class="item">
+            <div class="content">
+              <div class="header d-flex justify-content-between">
+              <div><strong><%= user.title %></strong> <%= message.message_time %></div>
+              <div>
+              <%= link_to "delete", conversation_message_path(id: message.id), method: :delete, class: 'text-warning', remote: true %>
+              <% if message.read %>
+              <i class="far fa-eye"></i>
+              <% else %>
+              <i class="far fa-eye-slash"></i>
+              <% end %>
+              </div>
+              </div>
+              <div class="list">
+                <div class="item" id="message-<%= message.id %>">
+                  <i class="right triangle icon"></i>
+                  <%= message.body %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%= simple_form_for([ @conversation, @message ], remote: true) do |f| %>
+    <div class="form-group" id="submit-box">
+      <%= f.input :body, label: false, placeholder: 'Your message here', wrapper_html: { class: 'flex-fill p-0 m-0' } %>
+      <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
+      <%= f.button :submit, "SEND", class: 'btn btn-primary btn-block' %>
+    </div>
+    <% end %>
+  </div>
+</div>

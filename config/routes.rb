@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :jobs, only: [ :index, :show ]
   resources :categories, only: [ :index ]
   resources :bookings
-  resources :chatrooms, only: [ :show ]
-  resources :messages, only: [ :create, :show ]
+  resources :chatrooms, only: [:index] do
+    resources :messages, only: [:index, :new, :create, :destroy]
+  end
   resources :reviews, only: [ :create, :show, :destroy ]
   get "dashboard", to: "pages#dashboard", as: :dashboard
   get '/user' => "pages#dashboard", :as => :user_root
