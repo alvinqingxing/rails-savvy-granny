@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :bookings do
     member do
       get :apply
-      get :cancel
     end
   end
   resources :chatrooms, only: [ :show ]

@@ -28,9 +28,7 @@ class BookingsController < ApplicationController
   end
 
   def cancel
-    @booking.status = "cancelled"
-    @booking.save
-    redirect_to dashboard_path
+    @booking
   end
 
   def create
@@ -41,7 +39,12 @@ class BookingsController < ApplicationController
     @booking.status = 'pending'
     @booking.chatroom = Chatroom.create
     authorize @booking
-    @booking.save ? (redirect_to dashboard_path) : (redirect_to root_path)
+   
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -64,6 +67,7 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path
   end
+
 
   private
 

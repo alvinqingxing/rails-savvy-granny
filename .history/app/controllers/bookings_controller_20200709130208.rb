@@ -41,7 +41,12 @@ class BookingsController < ApplicationController
     @booking.status = 'pending'
     @booking.chatroom = Chatroom.create
     authorize @booking
-    @booking.save ? (redirect_to dashboard_path) : (redirect_to root_path)
+
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      redirect_to root_path
+    end
   end
 
   def show
