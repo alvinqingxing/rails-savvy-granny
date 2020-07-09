@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   def create
     booking = Booking.find(params[:booking_id])
     order = Order.create!(booking: booking, booking_sku: booking.sku, amount: booking.price, state: 'pending', user: current_user)
+    authorize @order
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
@@ -19,5 +20,6 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
+    authorize @order
   end
 end
