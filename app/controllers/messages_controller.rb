@@ -1,4 +1,17 @@
 class MessagesController < ApplicationController
+  
+  before_action do
+    @chatroom = chatroom.find(params[:chatroom_id])
+  end
+
+  def index
+    @message = @chatroom.messages
+    if
+      
+  end
+
+  
+  
   def create
     @message = current_user.messages.new(message_params)
     authorize @message

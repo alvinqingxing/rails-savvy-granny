@@ -9,8 +9,13 @@ Rails.application.routes.draw do
       get :apply
     end
   end
-  resources :chatrooms, only: [ :show ]
-  resources :messages, only: [ :create, :show ]
+ 
+  resources :chatrooms, only: [] do
+    resources :messages, only: [:create, :destroy]
+  end
+
+  get "/bookings/:booking_id/chatroom", to: "chatrooms#show", as: :booking_chatroom
+
   resources :reviews, only: [ :create, :show, :destroy ]
   get "dashboard", to: "pages#dashboard", as: :dashboard
   get '/user' => "pages#dashboard", :as => :user_root
