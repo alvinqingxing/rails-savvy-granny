@@ -1,11 +1,11 @@
-class ReviewPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def new?
+  def show?
     record.user == user
   end
 
@@ -13,11 +13,19 @@ class ReviewPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def show?
+  def update?
     record.user == user
   end
 
   def destroy?
+    record.user == user
+  end
+
+  def apply?
+    record.tutor == user
+  end
+
+  def cancel?
     record.user == user
   end
 end
