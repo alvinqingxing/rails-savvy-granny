@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :job
   belongs_to :tutor, class_name: "User", optional: true
-
+  monetize :price_cents
   after_validation :create_chatroom, on: :update
 
   def create_chatroom
@@ -13,5 +13,4 @@ class Booking < ApplicationRecord
       Chatroom.create(booking_id: self.id)
     end
   end
-
 end
