@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy, :apply, :cancel]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     @bookings = policy_scope(Booking).where(status: "pending")
@@ -17,20 +17,16 @@ class BookingsController < ApplicationController
   end
 
   def apply
+    @booking = Booking.find(params[:id])
     @booking.tutor = current_user
     @booking.status = "upcoming"
 
+    skip_authorization
     if @booking.save
       redirect_to dashboard_path
     else
       redirect_to bookings_path
     end
-  end
-
-  def cancel
-    @booking.status = "cancelled"
-    @booking.save
-    redirect_to dashboard_path
   end
 
   def create
@@ -41,7 +37,12 @@ class BookingsController < ApplicationController
     @booking.status = 'pending'
     @booking.chatroom = Chatroom.create
     authorize @booking
-    @booking.save ? (redirect_to dashboard_path) : (redirect_to root_path)
+   
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -64,6 +65,7 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path
   end
+
 
   private
 
