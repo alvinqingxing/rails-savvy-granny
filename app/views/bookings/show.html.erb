@@ -1,2 +1,8 @@
 <h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<!-- Use this to display price -->
+<p>Amount: <%= humanized_money_with_symbol(@booking.price) %></p>
+<!-- This is the order form -->
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'booking_id', @booking.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
