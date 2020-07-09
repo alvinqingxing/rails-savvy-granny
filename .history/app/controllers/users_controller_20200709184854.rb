@@ -7,6 +7,5 @@ class UsersController < ApplicationController
     @completed.each do |booking|
       @rating << booking.review.rating unless booking.review.nil?
     end
-    @rating = @rating.reduce(:+).to_f / @rating.size
   end
 end

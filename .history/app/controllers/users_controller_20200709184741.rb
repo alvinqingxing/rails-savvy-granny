@@ -5,8 +5,9 @@ class UsersController < ApplicationController
     @completed = Booking.where(tutor: @user, status: "completed")
     @rating = []
     @completed.each do |booking|
-      @rating << booking.review.rating unless booking.review.nil?
+      if booking.review.rating.nil? == false
+        @rating << booking.review.rating
+      end
     end
-    @rating = @rating.reduce(:+).to_f / @rating.size
   end
 end
