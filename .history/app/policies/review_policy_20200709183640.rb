@@ -5,10 +5,6 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
-  def create?
-    user
-  end
-
   def show?
     record.user == user
   end

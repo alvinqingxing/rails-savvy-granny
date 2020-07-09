@@ -4,7 +4,7 @@
 <div class="d-flex">
 <%# The job card goes here %>
 <div class="col-12 col-md-6">
-<h2>The Task</h2>
+<h2>Task</h2>
 Category: <%= @booking.job.category.name %><br>
 Task: <strong><%= @booking.job.name %></strong> - <%= @booking.job.description %><br>
 Time: <%= @booking.job.duration.round %> mins <br>
@@ -21,7 +21,6 @@ Tutor: <%= link_to "#{@booking.tutor.first_name} #{@booking.tutor.last_name}", @
   <div class="form-row">
   <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
   </div>
-  <%= hidden_field_tag(:booking_id, @booking.id) %>
   <%= f.submit "Send your review" %>
 <% end %>
 </div>

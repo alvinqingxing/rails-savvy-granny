@@ -5,8 +5,12 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    Booking.find(params[:booking]).user == user
+  end
+
   def create?
-    user
+    record.user == user
   end
 
   def show?

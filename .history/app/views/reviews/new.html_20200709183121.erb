@@ -21,7 +21,6 @@ Tutor: <%= link_to "#{@booking.tutor.first_name} #{@booking.tutor.last_name}", @
   <div class="form-row">
   <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
   </div>
-  <%= hidden_field_tag(:booking_id, @booking.id) %>
   <%= f.submit "Send your review" %>
 <% end %>
 </div>

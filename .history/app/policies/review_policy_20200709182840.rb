@@ -5,8 +5,12 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    @booking.user == user
+  end
+
   def create?
-    user
+    record.user == user
   end
 
   def show?

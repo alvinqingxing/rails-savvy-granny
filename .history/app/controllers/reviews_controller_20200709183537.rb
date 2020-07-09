@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
-      redirect_to dashboard_path
+      redirect_to @review
     else
       flash[:alert] = "Something went wrong."
       render :new

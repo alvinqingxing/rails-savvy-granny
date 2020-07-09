@@ -3,17 +3,17 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @booking = Booking.find(params[:booking])
+    @job = Booking.find(params[:booking])
+    @review.booking = @job
     authorize @review
   end
 
   def create
     @review = current_user.reviews.new(review_params)
-    @review.booking = Booking.find(params[:booking_id])
     authorize @review
 
     if @review.save
-      redirect_to dashboard_path
+      redirect_to @review
     else
       flash[:alert] = "Something went wrong."
       render :new

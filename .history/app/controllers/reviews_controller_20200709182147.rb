@@ -2,18 +2,16 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :destroy]
 
   def new
-    @review = Review.new
-    @booking = Booking.find(params[:booking])
+    @review = Review.new(review_params)
     authorize @review
   end
 
   def create
     @review = current_user.reviews.new(review_params)
-    @review.booking = Booking.find(params[:booking_id])
     authorize @review
 
     if @review.save
-      redirect_to dashboard_path
+      redirect_to @review
     else
       flash[:alert] = "Something went wrong."
       render :new
