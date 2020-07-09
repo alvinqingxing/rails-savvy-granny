@@ -22,6 +22,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def apply?
-    record.tutor == user
+    record.user == user
   end
 end
