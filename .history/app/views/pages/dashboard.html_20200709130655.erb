@@ -32,11 +32,7 @@
       <% end %>
       </div>
     <% end %>
-    <% if current_user.tutor? %>
-      <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-    <% else %>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-    <% end %>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
     <% if @upcoming.length == 0 %>
     No upcoming bookings!
     <% else %>

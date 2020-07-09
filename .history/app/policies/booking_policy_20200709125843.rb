@@ -26,6 +26,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def cancel?
-    user
+    user.tutor? || user
   end
 end
