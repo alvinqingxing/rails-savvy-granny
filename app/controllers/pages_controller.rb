@@ -16,7 +16,5 @@ class PagesController < ApplicationController
       @upcoming = Booking.where(user: current_user, status: "upcoming")
       @completed = Booking.where(user: current_user, status: "completed")
     end
-
-    # @chatrooom = Chatrooom.create(booking: ##) 
   end
 end
