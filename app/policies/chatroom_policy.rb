@@ -6,6 +6,6 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def show?
-    record.booking.user_id == user.id || record.booking.tutor_id == user.id
+    record.user == user
   end
 end
