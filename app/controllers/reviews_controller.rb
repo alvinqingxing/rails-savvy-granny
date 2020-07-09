@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :destroy]
 
+  def new
+    @review = current_user.reviews.new
+    authorize @review
+  end
+
   def create
     @review = current_user.reviews.new(review_params)
     authorize @review
@@ -8,6 +13,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to @review
     else
+      flash[:alert] = "Something went wrong."
       render :new
     end
   end
