@@ -6,10 +6,8 @@ class MessagePolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    record.chatroom.booking.user_id == user.id || record.chatroom.booking.tutor_id == user.id
   end
 
-  def show?
-    record.user == user
-  end
+
 end
