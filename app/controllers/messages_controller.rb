@@ -1,33 +1,23 @@
 class MessagesController < ApplicationController
-  
-#do we need this? I am bit confused? 
-
-
   def create
-  
-    @message = Message.new(message_params) 
-    @message.sender = current_user
-    @chatroom = Chatroom.find(params[:chatroom_id])
-    @message.chatroom = @chatroom
-
+    @message = current_user.messages.new(message_params)
     authorize @message
 
-    @message.save
-
-        
-    redirect_to booking_chatroom_path(@chatroom.booking)
-    
+    if @message.save
+      redirect_to @message
+    else
+      render :new
+    end
   end
 
-  def destroy
+  def show
     @message = Message.find(params[:id])
-    @review.destroy
-  end 
-
+    authorize @message
+  end
 
   private
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :read)
   end
 end
