@@ -2,7 +2,7 @@
   <div class="col-6 offset-3 py-5">
     <div class="border-bottom mb-3">
       <h1>BOOKING #<%= @chatroom.booking.id %></h1>
-      TASK: <%= @chatroom.booking.job.name %><br>
+      TASK: <br>
       AT: <%= @chatroom.booking.start_date %><br>
     </div>
     <% if @over_ten %>
@@ -32,7 +32,6 @@
               </div>
             </div>
           </div>
-          <hr>
         <% end %>
       <% end %>
     </div>
