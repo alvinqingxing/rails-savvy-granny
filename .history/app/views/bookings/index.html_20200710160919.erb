@@ -4,6 +4,15 @@
   
   <div>
   <% @bookings.each do |booking| %>
+    <li>
+    Task: <%= booking.job.name %><br>
+    Date: <%= booking.start_date %><br>
+    Start Time: <%= booking.start_time.strftime("%I:%M%p") %><br>
+    Duration: <%= booking.job.duration %> mins<br>
+    Payment: <%= humanized_money_with_symbol(booking.price) %><br>
+    User: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+    <%= link_to 'Apply', apply_booking_path(booking), class: 'btn btn-primary' %>
+    </li>
     <div class="row">
           <div class="col-12 mb-3">
               <div class="card shadow-sm">
@@ -18,8 +27,8 @@
                           <i class="fas fa-calendar-day"></i> <%= booking.start_date %><br>
                           <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
                           <i class="fas fa-hourglass-half"></i> <%= booking.job.duration %> mins<br>
-                          <i class="fas fa-money-bill-wave-alt"></i> <%= humanized_money_with_symbol(booking.price) %><br>
-                          <i class="fas fa-user"></i> <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+                          <i class="fas fa-money-bill-wave-alt"></i> <%= humanized_money_with_symbol(booking.price) %>
+
                           </p>
                           </div>
                           <div>
@@ -33,5 +42,6 @@
         </div>
   <% end %>
   </div>
+
   <div>
 </div>
