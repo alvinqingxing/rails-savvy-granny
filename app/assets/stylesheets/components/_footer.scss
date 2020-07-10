@@ -1,18 +1,17 @@
 .footer {
-  background: black;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px;
   padding: 0px 30px;
-  color: white;
+  color: black;
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: white;
   opacity: 0.7;
   text-decoration: none;
   font-size: 24px;
@@ -21,6 +20,4 @@
 .footer-links a:hover {
   opacity: 1;
 }
-.footer .fa-heart {
-  color: white;
-}
+
