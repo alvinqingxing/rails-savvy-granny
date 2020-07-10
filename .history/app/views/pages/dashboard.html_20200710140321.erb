@@ -24,12 +24,12 @@
         <% @pending.each do |booking| %>
         <div class="row">
           <div class="col-12 my-3">
-              <div class="card shadow-sm">
+              <div class="card">
                   <div class="d-flex">
                       <div class="img-square-wrapper">
                           <img class="" src="https://picsum.photos/200" alt="Card image cap">
                       </div>
-                      <div class="card-body d-flex flex-column justify-content-between">
+                      <div class="card-body">
                           <div>
                           <h4 class="card-title"><%= booking.job.name %></h4>
                           <p class="card-text">
@@ -37,7 +37,7 @@
                           <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
                           </p>
                           </div>
-                          <div><%= link_to 'Cancel Booking', cancel_booking_path(booking), class: 'btn btn-danger' %></div>
+                          <div><%= link_to 'Cancel', cancel_booking_path(booking), class: 'btn btn-danger' %></div>
                       </div>
                   </div>
               </div>
