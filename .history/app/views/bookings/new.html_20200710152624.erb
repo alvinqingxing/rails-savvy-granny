@@ -1,0 +1,70 @@
+<div class="container mt-5">
+<h1>Book a Tutor</h1>
+
+<div class="d-flex">
+<%# The job card goes here %>
+<div class="col-12 col-md-6">
+<h2>The Task</h2>
+Category: <%= @job.category.name %><br>
+Task: <strong><%= @job.name %></strong> - <%= @job.description %><br>
+Time: <%= @job.duration.round %> mins <br>
+Cost: $<%= @cost %>
+</div>
+
+<div class="card shadow-sm">
+    <div class="d-flex flex-wrap">
+        <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
+        </div>
+        <div class="card-body d-flex flex-column justify-content-between">
+            <h4 class="card-title"><%= @job.name %></h4>
+            <div class="d-flex justify-content-between">
+            <div>
+            <p class="card-text">
+            <i class="fas fa-cogs"></i> <%= @job.category.name %><br>
+            <i class="fas fa-tasks"></i> <%= @job.description %>
+            <i class="far fa-clock"></i> <%= @job.duration.round %><br>
+            <% if current_user.tutor? %>
+              <i class="fas fa-user"></i> <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+              <% else %>
+              <i class="fas fa-chalkboard-teacher"></i> <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}", booking.tutor %><br>
+            <% end %>
+            </p>
+            </div>
+            <div class="d-flex flex-column">
+            <% if booking.review.nil? %>
+              <% if current_user.tutor? %>
+                Waiting for a review!
+              <% else %>
+                <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
+              <% end %>
+            <% else %>
+              <div>
+                <% booking.review.rating.times do %>
+                <i class="fas fa-star text-warning"></i>
+                <% end %>
+              </div>
+            <% end %>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="col-12 col-md-6">
+<h2>When would you like a tutor?</h2>
+<%= simple_form_for @booking do |f| %>
+  <div class="form-row">
+  <%= f.input :start_date, html5: true, label: false, input_html: { value: Date.today} %>
+  <%= f.input :start_time, html5: true, label: false, input_html: { value: "20:00" } %>
+  <%= hidden_field_tag(:job_id, @job.id) %>
+  <%= hidden_field_tag(:price, @cost) %>
+  </div>
+  <%= f.button :submit, class: 'btn btn-success btn-block' %>
+<% end %>
+</div>
+</div>
+
+</div>
