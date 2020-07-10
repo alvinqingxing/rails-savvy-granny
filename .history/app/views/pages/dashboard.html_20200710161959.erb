@@ -126,11 +126,11 @@
                             <% end %>
                           <% else %>
                             <div>
-                              <% booking.review.rating.times do %>
+                              <% booking.review.rating.times - 5 do %>
                               <i class="fas fa-star text-warning"></i>
                               <% end %>
-                              <% (5 - booking.review.rating).times do %>
-                              <i class="fas fa-star text-dark"></i>
+                              <% 5 - booking.review.rating.times do %>
+                              <i class="fas fa-star"></i>
                               <% end %>
                             </div>
                           <% end %>
