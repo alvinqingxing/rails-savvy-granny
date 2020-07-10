@@ -3,7 +3,7 @@
   <h1>My Bookings</h1>
 
   <nav>
-    <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <% if current_user.tutor? == false %>
       <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Pending</a>
     <% end %>
@@ -23,7 +23,7 @@
       <% else %>
         <% @pending.each do |booking| %>
         <div class="row">
-          <div class="col-12 mb-3">
+          <div class="col-12 my-3">
               <div class="card shadow-sm">
                   <div class="d-flex flex-wrap">
                       <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
@@ -60,7 +60,7 @@
     <% else %>
       <% @upcoming.each do |booking| %>
         <div class="row">
-          <div class="col-12 mb-3">
+          <div class="col-12 my-3">
               <div class="card shadow-sm">
                   <div class="d-flex flex-wrap">
                       <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
@@ -97,8 +97,58 @@
     No completed bookings!
     <% else %>
       <% @completed.each do |booking| %>
+        <li>
+        Task: <%= booking.job.name %><br>
+        Date: <%= booking.start_date %><br>
+        Time: <%= booking.start_time.strftime("%I:%M%p") %> <br>
+        <% if current_user.tutor? %>
+          User: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+          <% if booking.review.nil? %>
+          Waiting for a review!
+          <% else %>
+          Reviwed: <%= booking.review.rating %> stars
+          <% end %>
+        <% else %>
+          Tutor: <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}", booking.tutor %><br>
+          <% if booking.review.nil? %>
+          <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
+          <% else %>
+          Reviwed: <%= booking.review.rating %> stars
+          <% end %>
+        <% end %>
+        </li>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+        <li>
+        Task: <%= booking.job.name %><br>
+        Date: <%= booking.start_date %><br>
+        Time: <%= booking.start_time.strftime("%I:%M%p") %> <br>
+        <% if current_user.tutor? %>
+          User: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+          <% if booking.review.nil? %>
+          Waiting for a review!
+          <% else %>
+          Reviwed: <%= booking.review.rating %> stars
+          <% end %>
+        <% else %>
+          Tutor: <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}", booking.tutor %><br>
+          <% if booking.review.nil? %>
+          <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
+          <% else %>
+          Reviwed: <%= booking.review.rating %> stars
+          <% end %>
+        <% end %>
+        </li>
+
+
         <div class="row">
-          <div class="col-12 mb-3">
+          <div class="col-12 my-3">
               <div class="card shadow-sm">
                   <div class="d-flex flex-wrap">
                       <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
@@ -122,10 +172,7 @@
                             <% if current_user.tutor? %>
                               Waiting for a review!
                             <% else %>
-                              <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
-                            <% end %>
                           <% else %>
-                            <div><%= booking.review.rating %> <i class="fas fa-star"></i></div>
                           <% end %>
                           </div>
                           </div>
@@ -134,10 +181,3 @@
               </div>
           </div>
         </div>
-      <% end %>
-    <% end %>
-    </div>
-  </div>
-
-  </div>
-</div>
