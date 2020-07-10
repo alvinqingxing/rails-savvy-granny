@@ -125,11 +125,7 @@
                               <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
                             <% end %>
                           <% else %>
-                            <div>
-                              <% booking.review.rating.times do %>
-                              <i class="fas fa-star text-warning"></i>
-                              <% end %>
-                            </div>
+                            <div><%= "<i class="fas fa-star text-warning"></i>" * booking.review.rating %> </div>
                           <% end %>
                           </div>
                           </div>

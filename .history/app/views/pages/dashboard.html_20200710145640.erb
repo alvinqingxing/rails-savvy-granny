@@ -3,7 +3,7 @@
   <h1>My Bookings</h1>
 
   <nav>
-    <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <% if current_user.tutor? == false %>
       <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Pending</a>
     <% end %>
@@ -23,7 +23,7 @@
       <% else %>
         <% @pending.each do |booking| %>
         <div class="row">
-          <div class="col-12 mb-3">
+          <div class="col-12 my-3">
               <div class="card shadow-sm">
                   <div class="d-flex flex-wrap">
                       <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
@@ -60,7 +60,7 @@
     <% else %>
       <% @upcoming.each do |booking| %>
         <div class="row">
-          <div class="col-12 mb-3">
+          <div class="col-12 my-3">
               <div class="card shadow-sm">
                   <div class="d-flex flex-wrap">
                       <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
@@ -98,7 +98,7 @@
     <% else %>
       <% @completed.each do |booking| %>
         <div class="row">
-          <div class="col-12 mb-3">
+          <div class="col-12 my-3">
               <div class="card shadow-sm">
                   <div class="d-flex flex-wrap">
                       <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
@@ -123,13 +123,8 @@
                               Waiting for a review!
                             <% else %>
                               <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
-                            <% end %>
                           <% else %>
-                            <div>
-                              <% booking.review.rating.times do %>
-                              <i class="fas fa-star text-warning"></i>
-                              <% end %>
-                            </div>
+                            <%= <i class="fas fa-star"></i> * booking.review.rating %> 
                           <% end %>
                           </div>
                           </div>
