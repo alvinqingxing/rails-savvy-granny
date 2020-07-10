@@ -26,21 +26,18 @@
           <div class="col-12 my-3">
               <div class="card shadow-sm">
                   <div class="d-flex flex-wrap">
-                      <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
+                      <div class="img-square-wrapper col-4 p-0 style="background-image: url('<%= image_path "https://picsum.photos/300" %>')>">
+                          <%= image_tag "https://picsum.photos/300", class: "img-fluid" %>
                       </div>
                       <div class="card-body d-flex flex-column justify-content-between">
-                          <h4 class="card-title"><%= booking.job.name %></h4>
-                          <div class="d-flex justify-content-between">
                           <div>
+                          <h4 class="card-title"><%= booking.job.name %></h4>
                           <p class="card-text">
                           <i class="fas fa-calendar-day"></i> <%= booking.start_date %><br>
                           <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
                           </p>
                           </div>
-                          <div>
-                          <%= link_to 'Cancel Booking', cancel_booking_path(booking), class: 'btn btn-danger' %>
-                          </div>
-                          </div>
+                          <div><%= link_to 'Cancel Booking', cancel_booking_path(booking), class: 'btn btn-danger' %></div>
                       </div>
                   </div>
               </div>
@@ -63,12 +60,12 @@
           <div class="col-12 my-3">
               <div class="card shadow-sm">
                   <div class="d-flex flex-wrap">
-                      <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
+                      <div class="img-square-wrapper col-4 p-0">
+                          <%= image_tag "https://picsum.photos/300", class: "img-fluid" %>
                       </div>
                       <div class="card-body d-flex flex-column justify-content-between">
-                          <h4 class="card-title"><%= booking.job.name %></h4>
-                          <div class="d-flex justify-content-between">
                           <div>
+                          <h4 class="card-title"><%= booking.job.name %></h4>
                           <p class="card-text">
                           <i class="fas fa-calendar-day"></i> <%= booking.start_date %><br>
                           <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
@@ -79,10 +76,9 @@
                           <% end %>
                           </p>
                           </div>
-                          <div class="d-flex flex-column">
-                          <%= link_to 'Go to Chatroom', booking_chatroom_path(booking.chatroom), class: 'btn btn-secondary mb-1' %>
-                          <%= link_to 'Cancel Booking', cancel_booking_path(booking), class: 'btn btn-danger' %>
-                          </div>
+                          <div>
+                          <%= link_to 'Go to Chatroom', booking_chatroom_path(booking.chatroom), class: 'btn btn-secondary' %>
+                          <%= link_to 'Cancel', cancel_booking_path(booking), class: 'btn btn-danger' %>
                           </div>
                       </div>
                   </div>
