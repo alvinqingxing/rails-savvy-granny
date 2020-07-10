@@ -1,11 +1,11 @@
 <div class="container mt-5">
-<h1 class="text-center">Book a Tutor</h1>
+<h1>Book a Tutor</h1>
 
 <div class="d-flex">
 <%# The job card goes here %>
 <div class="col-12 col-md-6">
 <h2>The Task</h2>
-<div class="card shadow-sm mb-3">
+<div class="card shadow-sm">
     <div class="d-flex flex-wrap">
         <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
         </div>
@@ -17,7 +17,7 @@
             <i class="fas fa-cogs"></i> <%= @job.category.name %><br>
             <i class="fas fa-tasks"></i> <%= @job.description %><br>
             <i class="far fa-clock"></i> <%= @job.duration.round %> mins<br>
-            <i class="fas fa-money-bill-wave-alt"></i> $<%= @cost %>
+            <i class="fas fa-dollar-sign"></i> $<%= @cost %>
             </p>
             </div>
             </div>
