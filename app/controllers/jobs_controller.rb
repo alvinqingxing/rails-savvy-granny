@@ -9,4 +9,5 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     authorize @job
   end
+
 end

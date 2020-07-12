@@ -1,23 +1,8 @@
 <div  class="container mt-5">
-
     <div class="h1 text-center mb-3">See all tasks or Search!
-
-        <div class ="form-inline" >
-            <%= form_tag jobs_path, method: :get do %>
-            <%= text_field_tag :query, params[:query],class: "form-control", placeholder: "Find a task"%>
-            <%= submit_tag "Search", class: "btn btn-primary" %> 
-            <% end %>
-        </div>
-
-
-            <% if @jobs.empty? %>
-            <p> None </p>
-            <%= link_to "Go back to previous page", :back , class: "btn btn-info"  %>
-            <%end%>
-        </div>
+      
 
         <div class="cards">
-
             <% @jobs.each do |job| %>
                 <div  class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
                 Task: <%= job.name %><br>
@@ -25,14 +10,15 @@
                 Duration: <%= job.duration %> mins<br>    
                 </div>
             <% end %>
-
+        </div>
+      </div>
 </div>
 
 
   <div class="row flex-column">
     <div class="d-flex justify-content-center">
     <% if user_signed_in? %>
-    <%= link_to "BOOK A TUTOR", "#", class: "btn btn-success"  %>
+    <%= link_to "BOOK A TUTOR", "/bookings", class: "btn btn-success"  %>
     <% else %>
     <%= link_to "SIGN UP TODAY",  "/users/sign_up", class: "btn btn-success"  %>
     <% end %>
