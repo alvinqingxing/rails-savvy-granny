@@ -1,0 +1,13 @@
+<div class="container">
+<h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+<% if @user.tutor %>
+  Bookings Completed: <%= @completed.count %><br>
+  <% if @rating.nan? %>
+    No ratings yet!
+  <% else %>
+    Average Rating: <%= @rating %> stars
+  <% end %>
+<% else %>
+  Bookings Made: <%= @user.bookings.count %>
+<% end %>
+</div>

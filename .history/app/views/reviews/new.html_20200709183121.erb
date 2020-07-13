@@ -1,0 +1,29 @@
+<div class="container mt-5">
+<h1 class="text-center">Rate Your Booking</h1>
+
+<div class="d-flex">
+<%# The job card goes here %>
+<div class="col-12 col-md-6">
+<h2>The Task</h2>
+Category: <%= @booking.job.category.name %><br>
+Task: <strong><%= @booking.job.name %></strong> - <%= @booking.job.description %><br>
+Time: <%= @booking.job.duration.round %> mins <br>
+Cost: $<%= @booking.job.price %><br>
+Tutor: <%= link_to "#{@booking.tutor.first_name} #{@booking.tutor.last_name}", @booking.tutor %>
+</div>
+
+<div class="col-12 col-md-6">
+<h2>Rate this booking!</h2>
+<%= simple_form_for @review do |f| %>
+  <div class="form-row">
+  <%= f.input :content %>
+  </div>
+  <div class="form-row">
+  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+  </div>
+  <%= f.submit "Send your review" %>
+<% end %>
+</div>
+</div>
+
+</div>

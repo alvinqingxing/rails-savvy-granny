@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message = Message.find(params[:id])
-    @review.destroy
+    @message.destroy
   end 
 
 

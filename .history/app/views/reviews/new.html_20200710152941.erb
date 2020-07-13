@@ -1,0 +1,49 @@
+<div class="container mt-5">
+<h1 class="text-center">Rate Your Booking</h1>
+
+<div class="d-flex">
+<%# The job card goes here %>
+<div class="col-12 col-md-6">
+<h2>The Task</h2>
+Category: <%= @booking.job.category.name %><br>
+Task: <strong><%= @booking.job.name %></strong> - <%= @booking.job.description %><br>
+Time: <%= @booking.job.duration.round %> mins <br>
+Cost: $<%= @booking.job.price %><br>
+Tutor: <%= link_to "#{@booking.tutor.first_name} #{@booking.tutor.last_name}", @booking.tutor %>
+<div class="card shadow-sm mb-3">
+    <div class="d-flex flex-wrap">
+        <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
+        </div>
+        <div class="card-body d-flex flex-column justify-content-between">
+            <h4 class="card-title"><%= @job.name %></h4>
+            <div class="d-flex justify-content-between">
+            <div>
+            <p class="card-text">
+            <i class="fas fa-cogs"></i> <%= @job.category.name %><br>
+            <i class="fas fa-tasks"></i> <%= @job.description %><br>
+            <i class="far fa-clock"></i> <%= @job.duration.round %> mins<br>
+            <i class="fas fa-money-bill-wave-alt"></i> $<%= @cost %>
+            </p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="col-12 col-md-6">
+<h2>Rate this booking!</h2>
+<%= simple_form_for @review do |f| %>
+  <div class="form-row">
+  <%= f.input :content %>
+  </div>
+  <div class="form-row">
+  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+  </div>
+  <%= hidden_field_tag(:booking_id, @booking.id) %>
+  <%= f.submit "Send your review" %>
+<% end %>
+</div>
+</div>
+
+</div>

@@ -1,0 +1,185 @@
+<div class="container d-flex justify-content-center">
+  <div class="col-12 col-md-10 col-lg-8">
+  <h1>My Bookings</h1>
+
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <% if current_user.tutor? == false %>
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Pending</a>
+    <% end %>
+    <% if current_user.tutor? %>
+      <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Upcoming</a>
+    <% else %>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Upcoming</a>
+    <% end %>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Completed</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <% if current_user.tutor? == false %>
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <% if @pending.length == 0 %>
+      No bookings pending!
+      <% else %>
+        <% @pending.each do |booking| %>
+        <div class="row">
+          <div class="col-12 my-3">
+              <div class="card shadow-sm">
+                  <div class="d-flex flex-wrap">
+                      <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-between">
+                          <h4 class="card-title"><%= booking.job.name %></h4>
+                          <div class="d-flex justify-content-between">
+                          <div>
+                          <p class="card-text">
+                          <i class="fas fa-calendar-day"></i> <%= booking.start_date %><br>
+                          <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
+                          </p>
+                          </div>
+                          <div>
+                          <%= link_to 'Cancel Booking', cancel_booking_path(booking), class: 'btn btn-danger' %>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      </div>
+    <% end %>
+    <% if current_user.tutor? %>
+      <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <% else %>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <% end %>
+    <% if @upcoming.length == 0 %>
+    No upcoming bookings!
+    <% else %>
+      <% @upcoming.each do |booking| %>
+        <div class="row">
+          <div class="col-12 my-3">
+              <div class="card shadow-sm">
+                  <div class="d-flex flex-wrap">
+                      <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-between">
+                          <h4 class="card-title"><%= booking.job.name %></h4>
+                          <div class="d-flex justify-content-between">
+                          <div>
+                          <p class="card-text">
+                          <i class="fas fa-calendar-day"></i> <%= booking.start_date %><br>
+                          <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
+                          <% if current_user.tutor? %>
+                            <i class="fas fa-user"></i> <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+                            <% else %>
+                            <i class="fas fa-chalkboard-teacher"></i> <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}", booking.tutor %><br>
+                          <% end %>
+                          </p>
+                          </div>
+                          <div class="d-flex flex-column">
+                          <%= link_to 'Go to Chatroom', booking_chatroom_path(booking.chatroom), class: 'btn btn-secondary mb-1' %>
+                          <%= link_to 'Cancel Booking', cancel_booking_path(booking), class: 'btn btn-danger' %>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <% if @completed.length == 0 %>
+    No completed bookings!
+    <% else %>
+      <% @completed.each do |booking| %>
+        <li>
+        Task: <%= booking.job.name %><br>
+        Date: <%= booking.start_date %><br>
+        Time: <%= booking.start_time.strftime("%I:%M%p") %> <br>
+        <% if current_user.tutor? %>
+          User: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+          <% if booking.review.nil? %>
+          Waiting for a review!
+          <% else %>
+          Reviwed: <%= booking.review.rating %> stars
+          <% end %>
+        <% else %>
+          Tutor: <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}", booking.tutor %><br>
+          <% if booking.review.nil? %>
+          <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
+          <% else %>
+          Reviwed: <%= booking.review.rating %> stars
+          <% end %>
+        <% end %>
+        </li>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+        <li>
+        Task: <%= booking.job.name %><br>
+        Date: <%= booking.start_date %><br>
+        Time: <%= booking.start_time.strftime("%I:%M%p") %> <br>
+        <% if current_user.tutor? %>
+          User: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+          <% if booking.review.nil? %>
+          Waiting for a review!
+          <% else %>
+          Reviwed: <%= booking.review.rating %> stars
+          <% end %>
+        <% else %>
+          Tutor: <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}", booking.tutor %><br>
+          <% if booking.review.nil? %>
+          <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
+          <% else %>
+          Reviwed: <%= booking.review.rating %> stars
+          <% end %>
+        <% end %>
+        </li>
+
+
+        <div class="row">
+          <div class="col-12 my-3">
+              <div class="card shadow-sm">
+                  <div class="d-flex flex-wrap">
+                      <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= image_path "https://picsum.photos/300" %>'); background-size: cover">
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-between">
+                          <h4 class="card-title"><%= booking.job.name %></h4>
+                          <div class="d-flex justify-content-between">
+                          <div>
+                          <p class="card-text">
+                          <i class="fas fa-calendar-day"></i> <%= booking.start_date %><br>
+                          <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
+                          <% if current_user.tutor? %>
+                            <i class="fas fa-user"></i> <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
+                            <% else %>
+                            <i class="fas fa-chalkboard-teacher"></i> <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}", booking.tutor %><br>
+                          <% end %>
+                          </p>
+                          </div>
+                          <div class="d-flex flex-column">
+                          <% if booking.review.nil? %>
+                            <% if current_user.tutor? %>
+                              Waiting for a review!
+                            <% else %>
+                              <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
+                          <% else %>
+                            <%= <i class="fas fa-star"></i> * booking.review.rating %> 
+                          <% end %>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
