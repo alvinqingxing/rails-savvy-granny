@@ -57,7 +57,7 @@
                         <hr>
                         <ul class="fa-ul">
                         <% des = JSON.parse job.description %>
-                        <% des.each do |thing| %>
+                        <% des.description.each do |thing| %>
                             <% if thing[0] %>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span><%= thing[1] %></li>
                             <% else %>

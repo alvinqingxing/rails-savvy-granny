@@ -46,7 +46,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                     <div class="view overlay">
-                    <%= cl_image_tag job.photo.key, crop: :fill, class: 'card-img-top' %>
+                    <%= image_tag 'https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/bills.jpg', class: 'card-img-top' %>
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -56,14 +56,8 @@
                         <h6 class="card-price text-center"><%= job.duration.round %> mins</h6>
                         <hr>
                         <ul class="fa-ul">
-                        <% des = JSON.parse job.description %>
-                        <% des.each do |thing| %>
-                            <% if thing[0] %>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span><%= thing[1] %></li>
-                            <% else %>
-                            <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span><%= thing[1] %></li>
-                            <% end %>
-                        <% end %>
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Water / Electric / Gas</li>
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Internet / Phone bills</li>
                         </ul>
                         <%= link_to "Book a Slot", bookings_new_path(:job => job.id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
