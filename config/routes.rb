@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   root to: 'pages#home'
   resources :users, only: [ :show ]
   resources :jobs, only: [ :index, :show ]
@@ -25,5 +27,6 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard", as: :dashboard
   get '/user' => "pages#dashboard", :as => :user_root
   get "/bookings/new" => "bookings#new", :as => :bookings_new
+
 
 end

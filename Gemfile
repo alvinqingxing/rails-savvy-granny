@@ -31,6 +31,9 @@ gem 'pg_search', '~> 2.3.0'
 #add faker for seed
 gem 'faker'
 
+#facebook log_in helper
+gem 'omniauth-facebook'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -71,3 +74,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'cloudinary', '~> 1.12.0'
