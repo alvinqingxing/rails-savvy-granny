@@ -77,7 +77,7 @@ tutor_3 = User.create(
 puts "Making categories & jobs..."
 
 cat1 = Category.create!(
-  name: "Bill Payments"
+  name: "Bill Payments",
   job1 = Job.create!(
     name: 'Utility Bills',
     description: [[true, 'Water / Electric / Gas bills'], [true, 'Internet / Phone bils'], [true, 'GIRO walkthroughs']],
@@ -102,14 +102,6 @@ cat1 = Category.create!(
     duration: [10,30,60].sample,
     category: cat1 
   )
-  pic1 = URI.open('https://res.cloudinary.com/dqywsmiax/image/upload/v1594613318/savvy%20granny/bills_zj1uuo.jpg')
-  pic2 = URI.open('https://res.cloudinary.com/dqywsmiax/image/upload/v1594613319/savvy%20granny/insurance_jugfes.jpg')
-  pic3 = URI.open('https://res.cloudinary.com/dqywsmiax/image/upload/v1594613320/savvy%20granny/parking_xxfjda.jpg')
-  pic4 = URI.open('https://res.cloudinary.com/dqywsmiax/image/upload/v1594613320/savvy%20granny/transfer_oxme9d.jpg')
-  job1.photo.attach(io: pic1, filename: 'bills.jpg', content_type: 'image/jpg')
-  job2.photo.attach(io: pic2, filename: 'insurance.jpg', content_type: 'image/jpg')
-  job3.photo.attach(io: pic3, filename: 'parking.jpg', content_type: 'image/jpg')
-  job4.photo.attach(io: pic4, filename: 'transfer.jpg', content_type: 'image/jpg')
 )
 
 cat2 = 

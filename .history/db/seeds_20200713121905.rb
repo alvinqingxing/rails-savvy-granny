@@ -107,9 +107,7 @@ cat1 = Category.create!(
   pic3 = URI.open('https://res.cloudinary.com/dqywsmiax/image/upload/v1594613320/savvy%20granny/parking_xxfjda.jpg')
   pic4 = URI.open('https://res.cloudinary.com/dqywsmiax/image/upload/v1594613320/savvy%20granny/transfer_oxme9d.jpg')
   job1.photo.attach(io: pic1, filename: 'bills.jpg', content_type: 'image/jpg')
-  job2.photo.attach(io: pic2, filename: 'insurance.jpg', content_type: 'image/jpg')
-  job3.photo.attach(io: pic3, filename: 'parking.jpg', content_type: 'image/jpg')
-  job4.photo.attach(io: pic4, filename: 'transfer.jpg', content_type: 'image/jpg')
+
 )
 
 cat2 = 
