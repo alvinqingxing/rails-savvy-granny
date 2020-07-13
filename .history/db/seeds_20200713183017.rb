@@ -262,7 +262,7 @@ chatroom = Chatroom.create!(
 
 puts "Making messages..."
 Message.create!(
-    content: "Hi, thanks for taking this booking. Are you familiar with this technology?",
+    content: "Hi Ashley, thanks for taking this booking. Are you familiar with this technology?",
     sender: chatroom.booking.user,
     chatroom: chatroom,
     read: true
@@ -380,11 +380,11 @@ end
   job = Job.all.sample
   booking = Booking.create!(
     user: user_2,
-    job: job,
+    job: job4,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "pending",
-    price: job.price,
+    price: job4.price,
     language: "Chinese"
   )
 
@@ -399,11 +399,11 @@ end
   job = Job.all.sample
   booking = Booking.create!(
     user: user_3,
-    job: job,
+    job: job4,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "pending",
-    price: job.price,
+    price: job4.price,
     language: "Malay"
   )
 
@@ -418,11 +418,11 @@ end
   job = Job.all.sample
   booking = Booking.create!(
     user: user_4,
-    job: job,
+    job: job4,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "pending",
-    price: job.price,
+    price: job4.price,
     language: "Tamil"
   )
 
