@@ -92,7 +92,7 @@ cat1 = Category.create!(
   ),
   Job.create!(
     name: 'Fines',
-    description: [[true, 'Parking & LTA fines'], [true, 'Internet / Phone Bils']],
+    description: [[true, 'Parking & LTA'], [true, 'Internet / Phone Bils']],
     duration: [10,30,60].sample,
     category: cat1 
   ),

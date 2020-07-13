@@ -76,34 +76,6 @@ tutor_3 = User.create(
 
 puts "Making categories..."
 
-cat1 = Category.create!(
-  name: "Bill Payments",
-  Job.create!(
-    name: 'Utility Bills',
-    description: [[true, 'Water / Electric / Gas bills'], [true, 'Internet / Phone bils'], [true, 'GIRO walkthroughs']],
-    duration: [10,30,60].sample,
-    category: cat1 
-  ),
-  Job.create!(
-    name: 'Insurance Premiums',
-    description: [[true, 'Life / Health / Medical insurance'], [true, 'GIRO walkthroughs'], [false, 'Insurer information not required']],
-    duration: [10,30,60].sample,
-    category: cat1 
-  ),
-  Job.create!(
-    name: 'Fines',
-    description: [[true, 'Parking & LTA fines'], [true, 'Internet / Phone Bils']],
-    duration: [10,30,60].sample,
-    category: cat1 
-  ),
-  Job.create!(
-    name: 'Cash Transfers',
-    description: [[true, 'Water / Electric / Gas Bills'], [true, 'Internet / Phone Bils']],
-    duration: [10,30,60].sample,
-    category: cat1 
-  )
-)
-
 categories_with_jobs = {
     "Pay Bills & Transfer Money" => ["Water / Electric / Gas Bills", "Fines", "Insurance Premiums", "Cash Transfers"],
     "Accounts & Troubleshooting" => ["Forgot ID / password","Reset account / password"],

@@ -86,13 +86,13 @@ cat1 = Category.create!(
   ),
   Job.create!(
     name: 'Insurance Premiums',
-    description: [[true, 'Life / Health / Medical insurance'], [true, 'GIRO walkthroughs'], [false, 'Insurer information not required']],
+    description: [[true, 'Life / Health / Medical insurance'], [true, 'GIRO walkthroughs']],
     duration: [10,30,60].sample,
     category: cat1 
   ),
   Job.create!(
     name: 'Fines',
-    description: [[true, 'Parking & LTA fines'], [true, 'Internet / Phone Bils']],
+    description: [[true, 'Water / Electric / Gas Bills'], [true, 'Internet / Phone Bils']],
     duration: [10,30,60].sample,
     category: cat1 
   ),
