@@ -42,9 +42,27 @@
 
                 <div class="row">
                 <!------------------------- NEW CARD ------------------------------->
-                <% @jobs.each do |job| %>
-                <%= job.name %>
-                <% end %>
+                <% %>
+                <div class="col-lg-4 mb-5">
+                    <div class="card mb-lg-0">
+                    <div class="view overlay">
+                    <%= image_tag 'https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/bills.jpg', class: 'card-img-top' %>
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase text-center"><%= Job.all[0].name %></h5>
+                        <h6 class="card-price text-center"><%= Job.all[0].duration.round %> mins</h6>
+                        <hr>
+                        <ul class="fa-ul">
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Water / Electric / Gas</li>
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Internet / Phone bills</li>
+                        </ul>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[0].id), class: "btn btn-block btn-primary text-uppercase" %>
+                    </div>
+                    </div>
+                </div>
                 <!-------------- Last card ends here ------------->
 
             </div > 

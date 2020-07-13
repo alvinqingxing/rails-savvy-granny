@@ -106,7 +106,7 @@ job4 = Job.create!(
 )
 pic1 = URI.open('https://i.imgur.com/YQhdvmf.jpg')
 pic2 = URI.open('https://i.imgur.com/zmP8Yl6.jpg')
-pic3 = URI.open('https://i.imgur.com/ZbomQWx.jpg')
+pic3 = URI.open('https://res.cloudinary.com/dqywsmiax/image/upload/v1594613320/savvy%20granny/parking_xxfjda.jpg')
 pic4 = URI.open('https://i.imgur.com/ZlMMiH5.jpg')
 job1.photo.attach(io: pic1, filename: 'bills.jpg', content_type: 'image/jpg')
 job2.photo.attach(io: pic2, filename: 'insurance.jpg', content_type: 'image/jpg')
