@@ -7,10 +7,6 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find_by(booking_id: params[:booking_id])
     @messages = @chatroom.messages
-    @messages.each do |message|
-      message.read = true if message.sender_id != current_user.id
-      message.save
-    end
     @message = Message.new
     authorize @chatroom
   end

@@ -8,7 +8,7 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find_by(booking_id: params[:booking_id])
     @messages = @chatroom.messages
     @messages.each do |message|
-      message.read = true if message.sender_id != current_user.id
+      message.read = true if message.user_id != current_user.id
       message.save
     end
     @message = Message.new

@@ -13,5 +13,6 @@ class ChatroomsController < ApplicationController
     end
     @message = Message.new
     authorize @chatroom
+    redirect_to conversation_messages_path(@chatroom, anchor: "message-#{@message.id}")
   end
 end

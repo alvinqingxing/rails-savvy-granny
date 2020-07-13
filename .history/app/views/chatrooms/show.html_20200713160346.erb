@@ -4,7 +4,6 @@
       <h1>BOOKING #<%= @chatroom.booking.id %></h1>
       TASK: <%= @chatroom.booking.job.name %><br>
       SCHEDULED DATE: <%= @chatroom.booking.start_date %><br>
-      TUTOR: <%= link_to "#{@chatroom.booking.tutor.first_name} #{@chatroom.booking.tutor.last_name}", @chatroom.booking.tutor %>
     </div>
     <% if @over_ten %>
       <%= link_to 'Show Previous', '?m=all' %>
@@ -13,11 +12,11 @@
       <% @messages.each do |message| %>
         <% if message.content %>
           <% user = User.find(message.sender_id) %>
-          <div class="item mb-3" id="message-<%= message.id %>">
+          <div class="item">
             <% if user = current_user %>
-            <div class="content bg-primary text-light p-3 rounded">
+            <div class="content">
             <% else %>
-            <div class="content bg-secondary text-light p-3 rounded">
+            <div class="content">
             <% end %>
               <div class="header d-flex justify-content-between">
               <div><strong><%= user.first_name %></strong> <%= message.created_at %></div>
@@ -37,6 +36,7 @@
               </div>
             </div>
           </div>
+          <hr>
         <% end %>
       <% end %>
     </div>

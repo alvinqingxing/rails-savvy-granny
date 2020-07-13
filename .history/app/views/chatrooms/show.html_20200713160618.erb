@@ -13,11 +13,11 @@
       <% @messages.each do |message| %>
         <% if message.content %>
           <% user = User.find(message.sender_id) %>
-          <div class="item mb-3" id="message-<%= message.id %>">
+          <div class="item">
             <% if user = current_user %>
-            <div class="content bg-primary text-light p-3 rounded">
+            <div class="content bg-primary text-light p-3">
             <% else %>
-            <div class="content bg-secondary text-light p-3 rounded">
+            <div class="content bg-secondary text-light p-3">
             <% end %>
               <div class="header d-flex justify-content-between">
               <div><strong><%= user.first_name %></strong> <%= message.created_at %></div>
@@ -37,6 +37,7 @@
               </div>
             </div>
           </div>
+          <hr>
         <% end %>
       <% end %>
     </div>

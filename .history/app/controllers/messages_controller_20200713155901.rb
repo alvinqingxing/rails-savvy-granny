@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
 
     @message.save
 
-    redirect_to booking_chatroom_path(@chatroom.booking, anchor: "message-#{@message.id}")
+    redirect_to booking_chatroom_path(@chatroom.booking)
   end
 
   def destroy
