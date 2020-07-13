@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   belongs_to :job
   belongs_to :tutor, class_name: "User", optional: true
   monetize :price_cents
-  validates :language, inclusion: %w(Chinese English Malay Tamil)
+  validates :language,   inclusion: %w(male female)
   after_validation :create_chatroom, on: :update
 
   def create_chatroom
