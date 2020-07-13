@@ -33,6 +33,7 @@ user_1 = User.create(
   tutor: false
 )
 
+
 user_2 = User.create(
   first_name: "Nicholas",
   last_name: "Lim", 
@@ -242,59 +243,15 @@ job15.photo.attach(io: pic15, filename: 'accounts.jpg', content_type: 'image/jpg
 job16.photo.attach(io: pic16, filename: 'passwords.jpg', content_type: 'image/jpg')
 
 # BOOKINGS BELOW
-puts "Making an upcoming booking with messages..."
-job = Job.all.sample
-booking = Booking.create!(
-  user: user_1,   
-  tutor: tutor_1,
-  job: job,
-  start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
-  start_date: Faker::Date.forward(days: 30),
-  status: "upcoming",
-  price: job.price,
-  language: "Chinese"
-)
 
-puts "Making a chatroom..."
-chatroom = Chatroom.create!(
-  booking: booking
-)
-
-puts "Making messages..."
-Message.create!(
-    content: "Hi, thanks for taking this booking. Are you familiar with this technology?",
-    sender: chatroom.booking.user,
-    chatroom: chatroom,
-    read: true
-)
-
-Message.create!(
-      content: "Yes, you can trust me! (:",
-      sender: chatroom.booking.tutor,
-      chatroom: chatroom,
-      read: true
-)
-
-Message.create!(
-    content: "That's good to know. It's the first time for my mother, so please don't rush.",
-    sender: chatroom.booking.user,
-    chatroom: chatroom,
-    read: true
-)
-
-  Message.create!(
-      content: "I'll be careful to take things slowly, don't worry about it.",
-      sender: chatroom.booking.tutor,
-      chatroom: chatroom,
-      read: true
-)
+lang = %w[Chinese English Malay Tamil]
 
 3.times do 
   puts "Making upcoming bookings..."
   job = Job.all.sample
   booking = Booking.create!(
     user: user_1,   
-    tutor: [tutor_1, tutor_2].sample,
+    tutor: User.where(tutor: true).sample,
     job: job,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.forward(days: 30),
@@ -307,6 +264,35 @@ Message.create!(
   chatroom = Chatroom.create!(
     booking: booking
   )
+  
+  puts "Making messages..."
+  Message.create!(
+      content: "Hi, thanks for taking this booking. Are you familiar with this technology?",
+      sender: chatroom.booking.user,
+      chatroom: chatroom,
+      read: true
+  )
+
+  Message.create!(
+        content: "Yes, you can trust me! (:",
+        sender: chatroom.booking.tutor,
+        chatroom: chatroom,
+        read: true
+  )
+
+  Message.create!(
+      content: "That's good to know. It's the first time for my mother, so please don't rush.",
+      sender: chatroom.booking.user,
+      chatroom: chatroom,
+      read: true
+  )
+
+    Message.create!(
+        content: "I'll be careful to take things slowly, don't worry about it.",
+        sender: chatroom.booking.tutor,
+        chatroom: chatroom,
+        read: true
+      )
 end
 
 2.times do 
@@ -314,13 +300,13 @@ end
   job2 = Job.all.sample
   booking2 = Booking.create!(
     user: user_1,
-    tutor: [tutor_1, tutor_2].sample,   
+    tutor: User.where(tutor: true).sample,   
     job: job2,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "completed",
     price: job2.price,
-    language: "Chinese"
+    language: lang.sample
   )
 
   puts "Making a chatroom..."
@@ -341,13 +327,13 @@ end
   job3 = Job.all.sample
   booking3 = Booking.create!(
     user: user_1,
-    tutor: [tutor_1, tutor_2].sample,   
+    tutor: User.where(tutor: true).sample,   
     job: job3,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "completed",
     price: job3.price,
-    language: "Chinese"
+    language: lang.sample
   )
 
   puts "Making a chatroom..."
@@ -361,12 +347,13 @@ end
   job4 = Job.all.sample
   booking4 = Booking.create!(
     user: user_1,
+    tutor: User.where(tutor: true).sample,   
     job: job4,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "pending",
     price: job4.price,
-    language: "Chinese"
+    language: lang.sample
   )
 
   puts "Making a chatroom..."
@@ -380,11 +367,12 @@ end
   job = Job.all.sample
   booking = Booking.create!(
     user: user_2,
-    job: job,
+    tutor: User.where(tutor: true).sample,   
+    job: job4,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "pending",
-    price: job.price,
+    price: job4.price,
     language: "Chinese"
   )
 
@@ -392,91 +380,5 @@ end
   chatroom = Chatroom.create!(
     booking: booking
   )
-end
-
-2.times do 
-  puts "Making a pending booking..."
-  job = Job.all.sample
-  booking = Booking.create!(
-    user: user_3,
-    job: job,
-    start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
-    start_date: Faker::Date.backward(days: 100),
-    status: "pending",
-    price: job.price,
-    language: "Malay"
-  )
-
-  puts "Making a chatroom..."
-  chatroom = Chatroom.create!(
-    booking: booking
-  )
-end
-
-1.times do 
-  puts "Making a pending booking..."
-  job = Job.all.sample
-  booking = Booking.create!(
-    user: user_4,
-    job: job,
-    start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
-    start_date: Faker::Date.backward(days: 100),
-    status: "pending",
-    price: job.price,
-    language: "Tamil"
-  )
-
-  puts "Making a chatroom..."
-  chatroom = Chatroom.create!(
-    booking: booking
-  )
-end
-
-3.times do 
-  puts "Making a completed booking..."
-  job2 = Job.all.sample
-  booking2 = Booking.create!(
-    user: [user_1, user_2].sample,
-    tutor: tutor_1,   
-    job: job2,
-    start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
-    start_date: Faker::Date.backward(days: 100),
-    status: "completed",
-    price: job2.price,
-    language: "Chinese"
-  )
-
-  puts "Making a chatroom..."
-  chatroom2 = Chatroom.create!(
-    booking: booking2
-  )
-  
-  puts "Making a review"
-  review2 = Review.create!(
-    content: Faker::Quote.famous_last_words,
-    rating: rand(0..5),
-    booking: booking2
-  )
-end
-
-2.times do 
-  puts "Making a completed booking..."
-  job2 = Job.all.sample
-  booking2 = Booking.create!(
-    user: user_2,
-    tutor: tutor_1,   
-    job: job2,
-    start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
-    start_date: Faker::Date.backward(days: 100),
-    status: "completed",
-    price: job2.price,
-    language: "Chinese"
-  )
-
-  puts "Making a chatroom..."
-  chatroom2 = Chatroom.create!(
-    booking: booking2
-  )
-end
 
 puts "Finished!"

@@ -1,0 +1,47 @@
+<div class="container mt-5">
+<h1 class="text-center">Rate Your Booking</h1>
+
+<div class="d-flex flex-wrap">
+<%# The job card goes here %>
+<div class="col-12 col-md-8 offset-md-2">
+<div class="card shadow-sm mb-3">
+    <div class="d-flex flex-wrap">
+          <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= cl_image_path(@job.photo.key, :crop => :fill) %>'); background-size: cover">
+          </div>
+        <div class="card-body d-flex flex-column justify-content-between">
+            <h4 class="card-title"><%= @booking.job.name %></h4>
+            <div class="d-flex justify-content-between">
+            <div>
+            <p class="card-text">
+            <i class="fas fa-cogs"></i> <%= @booking.job.category.name %><br>
+                  <i class="fas fa-tasks"></i>
+                  <% des = JSON.parse @booking.job.description %>
+                  <% arr = [] %>
+                  <% des.each { |thing| arr << thing[1] }  %>
+                  <%= arr.join(', ') %><br>
+            <i class="far fa-clock"></i> <%= @booking.job.duration.round %> mins<br>
+            <i class="fas fa-chalkboard-teacher"></i> <%= link_to "#{@booking.tutor.first_name} #{@booking.tutor.last_name}", @booking.tutor %>
+            </p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="col-12 col-md-8 offset-md-2">
+<h2>Rate this booking!</h2>
+<%= simple_form_for @review do |f| %>
+  <div class="form-group form-inline">
+  <%= f.input :rating, collection: (1..5).to_a, label: "Your rating" %>
+  </div>
+  <div class="form-row">
+  <%= f.input :content, label: false, placeholder: "Any comments?" %>
+  </div>
+  <%= hidden_field_tag(:booking_id, @booking.id) %>
+  <%= f.button :submit, "SUBMIT REVIEW", class: "btn-primary btn-block" %>
+<% end %>
+</div>
+</div>
+
+</div>

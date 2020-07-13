@@ -1,7 +1,6 @@
 <div class="container mt-5">
   <h1 class="text-center">Book a Tutor</h1>
   <div class="d-flex flex-wrap">
-    <%# The job card goes here %>
     <div class="col-12 col-md-8 offset-md-2">
       <div class="card shadow-sm mb-3">
         <div class="d-flex flex-wrap">
@@ -29,7 +28,7 @@
     </div>
     <div class="col-12 col-md-8 offset-md-2">
     <h2>When would you like a tutor?</h2>
-    <%= simple_form_for(@booking, as: :booking, method: :post, url: orders_path) do |f| %>
+    <%= simple_form_for @booking do |f| %>
       <div class="form-row">
       <%= f.input :start_date, html5: true, label: false, input_html: { value: Date.today} %>
       <%= f.input :start_time, html5: true, label: false, input_html: { value: "20:00" } %>
@@ -39,7 +38,9 @@
         <%= f.input :language, collection: %w[English Chinese Malay Tamil], include_blank: false, label: false %>
         <%= hidden_field_tag(:job_id, @job.id) %>
         <%= hidden_field_tag(:price, @cost) %>
-        <%= f.button :submit, class: "btn-primary" %>
+        <%= hidden_field_tag(:booking_id, @booking.id) %>
+      </div>
+        <%= f.button :submit, "PURCHASE", class: "btn-primary" %>
       </div>
     <% end %>
     </div>

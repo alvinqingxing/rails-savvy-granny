@@ -31,7 +31,7 @@
       <h2>Rate this booking!</h2>
       <%= simple_form_for @review do |f| %>
         <div class="form-group">
-          <%= f.input :rating, collection: (1..5).to_a, label: false %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
         </div>
         <div class="form-row">
           <%= f.input :content, label: false, placeholder: "Any comments?" %>
