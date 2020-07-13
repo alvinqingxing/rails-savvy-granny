@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_072430) do
     t.datetime "updated_at", precision: 6, null: false
     t.date "start_date"
     t.integer "price_cents", default: 0, null: false
+    t.string "language"
     t.string "sku"
     t.index ["job_id"], name: "index_bookings_on_job_id"
     t.index ["tutor_id"], name: "index_bookings_on_tutor_id"
