@@ -19,7 +19,6 @@
                           <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
                           <i class="fas fa-hourglass-half"></i> <%= booking.job.duration.round %> mins<br>
                           <i class="fas fa-money-bill-wave-alt"></i> <%= humanized_money_with_symbol(booking.price) %><br>
-                          <i class="fas fa-comment-dots"></i> <%= booking.language %><br>
                           <i class="fas fa-user"></i> <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
                           </p>
                           </div>
