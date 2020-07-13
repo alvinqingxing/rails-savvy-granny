@@ -127,6 +127,13 @@ for the tenth time this month. Now what?</div>
   <div class="form-actions">
     <%= f.button :submit, "Sign up", class: 'btn btn-success btn-block' %>
   </div>
+  
+  <p>Or</p>
+
+    <%= link_to "Continue with facebook", omniauth_authorize_path(:user, :facebook), class: 'btn btn-secondary btn-block mb-3' %>
+
+
+
 <% end %>
 </div>
 </div>
