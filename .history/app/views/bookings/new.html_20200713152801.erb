@@ -33,8 +33,8 @@
 <h2>When would you like a tutor?</h2>
 <%= simple_form_for @booking do |f| %>
   <div class="form-row">
-  <%= f.input :start_date, html5: true, label: false, input_html: { value: Date.today} %>
-  <%= f.input :start_time, html5: true, label: false, input_html: { value: "20:00" } %>
+  <%= f.input :start_date, html5: true, input_html: { value: Date.today} %>
+  <%= f.input :start_time, html5: true, input_html: { value: "20:00" } %>
   </div>
 <h2>What language would you prefer?</h2>
   <div class="form-row">

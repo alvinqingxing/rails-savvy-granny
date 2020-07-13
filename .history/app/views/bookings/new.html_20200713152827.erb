@@ -38,7 +38,7 @@
   </div>
 <h2>What language would you prefer?</h2>
   <div class="form-row">
-  <%= f.input :language, collection: %w[English Chinese Malay Tamil], include_blank: false, label: false %>
+  <%= f.input :language, collection: %w[English Chinese Malay Tamil], include_blank: false, label: false, class: 'flex-fill' %>
   <%= hidden_field_tag(:job_id, @job.id) %>
   <%= hidden_field_tag(:price, @cost) %>
   </div>
