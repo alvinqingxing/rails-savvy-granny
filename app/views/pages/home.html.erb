@@ -1,7 +1,7 @@
 <%# Header %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/1366/400);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dnxszleia/image/upload/v1594365259/photo-of-woman-showing-her-cellphone-to-her-grandmother-3768140_xaa4zu.jpg); >
   <div class="container d-flex justify-content-center">
-    <div class="col-12 col-md-10 col-lg-8">
+    <div class="col-12 col-md-10 col-lg-8 message">
     <h1>SavvyGranny</h1>
     <p>Your parents’ personal tech support.</p>
     <%= form_tag("/bookings/new", method: "get") do %>
@@ -16,21 +16,21 @@
 
 <%# Content %>
 <div class="container mt-5">
-<div class="h1 text-center">It's simple to be savvy!</div>
-<div class="h5 text-center mb-5">Let's say your mom or dad needs help with a tech related task... 
+<div class="h1 text-center message">It's simple to be savvy!</div>
+<div class="h5 text-center mb-5 message">Let's say your mom or dad needs help with a tech related task...
 for the tenth time this month. Now what?</div>
 <div class="container d-flex p-0 flex-wrap">
-  <div class="card col-12 col-md-6 col-lg-3 border-0" style="width: 18rem;">
+  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <i class="fas fa-question"></i>
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
       <div class="card-title h5">1. Book a tutor<br></div>
-      <p class="card-text">Pick a task and a time - it takes seconds!</p>
+      <p class="card-text message">Pick a task and a time - it takes seconds!</p>
     </div>
   </div>
 
-  <div class="card col-12 col-md-6 col-lg-3 border-0" style="width: 18rem;">
+  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <i class="fas fa-link"></i>
     </div>
@@ -40,7 +40,7 @@ for the tenth time this month. Now what?</div>
     </div>
   </div>
 
-  <div class="card col-12 col-md-6 col-lg-3 border-0" style="width: 18rem;">
+  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <i class="fas fa-chalkboard-teacher"></i>
     </div>
@@ -50,7 +50,7 @@ for the tenth time this month. Now what?</div>
     </div>
   </div>
 
-  <div class="card col-12 col-md-6 col-lg-3 border-0" style="width: 18rem;">
+  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <i class="far fa-laugh-beam"></i>
     </div>
@@ -64,34 +64,34 @@ for the tenth time this month. Now what?</div>
 
 <%# Search by categories %>
 <div class="container mt-5">
-  <div class="h1 text-center mb-3">Search by categories</div>
+  <div class="h1 text-center mb-3 message">Search by categories</div>
   <div class="cards">
     <%= link_to root_path do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
       Bills & Payments
     </div>
     <% end %>
 
     <%= link_to root_path do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
       Transfers
     </div>
     <% end %>
 
     <%= link_to root_path do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
       Software & Technology
     </div>
     <% end %>
 
     <%= link_to root_path do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
       Government Related
     </div>
     <% end %>
 
     <%= link_to root_path do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
+    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
       e-Commerce
     </div>
     <% end %>
@@ -105,7 +105,7 @@ for the tenth time this month. Now what?</div>
 </div>
 
 <%# Sign up form %>
-<div class="container my-5 d-flex flex-column">
+<div class="container my-5 d-flex flex-column message">
   <div class="h1 text-center mb-3">Sign up for free today!</div>
 <div class="col-12 col-md-8 col-lg-4 align-self-center">
 <%= simple_form_for new_user_registration_path(@new_user) do |f| %>
