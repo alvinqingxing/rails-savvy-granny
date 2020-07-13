@@ -165,12 +165,12 @@ job10 = Job.create!(
   duration: [10,30,60].sample,
   category: cat3
 )
-pic7 = URI.open('https://i.imgur.com/Tvx0XXi.jpg')
-pic8 = URI.open('https://i.imgur.com/yWgY4xv.jpg')
+pic7 = URI.open('https://i.imgur.com/kYsqOXT.png')
+pic8 = URI.open('https://i.imgur.com/xuA8Rp9.png')
 pic9 = URI.open('https://i.imgur.com/Eckxu9f.jpg')
 pic10 = URI.open('https://i.imgur.com/9bFqvOE.jpg')
-job7.photo.attach(io: pic7, filename: 'singpass.jpg', content_type: 'image/jpg')
-job8.photo.attach(io: pic8, filename: 'cpftax.jpg', content_type: 'image/jpg')
+job7.photo.attach(io: pic7, filename: 'singpass.jpg', content_type: 'image/png')
+job8.photo.attach(io: pic8, filename: 'cpftax.jpg', content_type: 'image/png')
 job9.photo.attach(io: pic9, filename: 'welfare.jpg', content_type: 'image/jpg')
 job10.photo.attach(io: pic10, filename: 'onemotoring.jpg', content_type: 'image/jpg')
 

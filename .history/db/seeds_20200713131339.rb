@@ -76,7 +76,6 @@ tutor_3 = User.create(
 
 puts "Making categories & jobs..."
 
-puts "Making Bill Payments"
 cat1 = Category.create!(
   name: "Bill Payments"
 )
@@ -114,7 +113,6 @@ job2.photo.attach(io: pic2, filename: 'insurance.jpg', content_type: 'image/jpg'
 job3.photo.attach(io: pic3, filename: 'parking.jpg', content_type: 'image/jpg')
 job4.photo.attach(io: pic4, filename: 'transfer.jpg', content_type: 'image/jpg')
 
-puts "Making Accounts & Troubleshooting"
 cat2 = Category.create!(
   name: "Accounts & Troubleshooting"
 )
@@ -136,7 +134,6 @@ pic6 = URI.open('https://i.imgur.com/aaMCFQ9.jpg')
 job5.photo.attach(io: pic5, filename: 'accounts.jpg', content_type: 'image/jpg')
 job6.photo.attach(io: pic6, filename: 'passwords.jpg', content_type: 'image/jpg')
 
-puts "Making Government Services"
 cat3 = Category.create!(
   name: "Government Services"
 )
@@ -165,8 +162,8 @@ job10 = Job.create!(
   duration: [10,30,60].sample,
   category: cat3
 )
-pic7 = URI.open('https://i.imgur.com/Tvx0XXi.jpg')
-pic8 = URI.open('https://i.imgur.com/yWgY4xv.jpg')
+pic7 = URI.open('https://i.imgur.com/kYsqOXT.png')
+pic8 = URI.open('https://i.imgur.com/xuA8Rp9.png')
 pic9 = URI.open('https://i.imgur.com/Eckxu9f.jpg')
 pic10 = URI.open('https://i.imgur.com/9bFqvOE.jpg')
 job7.photo.attach(io: pic7, filename: 'singpass.jpg', content_type: 'image/jpg')
@@ -174,7 +171,6 @@ job8.photo.attach(io: pic8, filename: 'cpftax.jpg', content_type: 'image/jpg')
 job9.photo.attach(io: pic9, filename: 'welfare.jpg', content_type: 'image/jpg')
 job10.photo.attach(io: pic10, filename: 'onemotoring.jpg', content_type: 'image/jpg')
 
-puts "Making Commonly Used Software"
 cat4 = Category.create!(
   name: "Commonly Used Software"
 )
@@ -212,7 +208,6 @@ job12.photo.attach(io: pic12, filename: 'whatsapp.jpg', content_type: 'image/jpg
 job13.photo.attach(io: pic13, filename: 'email.jpg', content_type: 'image/jpg')
 job14.photo.attach(io: pic14, filename: 'office.jpg', content_type: 'image/jpg')
 
-puts "Making e-Commerce"
 cat5 = Category.create!(
   name: "e-Commerce"
 )

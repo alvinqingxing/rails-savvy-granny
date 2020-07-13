@@ -165,8 +165,8 @@ job10 = Job.create!(
   duration: [10,30,60].sample,
   category: cat3
 )
-pic7 = URI.open('https://i.imgur.com/Tvx0XXi.jpg')
-pic8 = URI.open('https://i.imgur.com/yWgY4xv.jpg')
+pic7 = URI.open('https://i.imgur.com/kYsqOXT.png')
+pic8 = URI.open('https://i.imgur.com/xuA8Rp9.png')
 pic9 = URI.open('https://i.imgur.com/Eckxu9f.jpg')
 pic10 = URI.open('https://i.imgur.com/9bFqvOE.jpg')
 job7.photo.attach(io: pic7, filename: 'singpass.jpg', content_type: 'image/jpg')
