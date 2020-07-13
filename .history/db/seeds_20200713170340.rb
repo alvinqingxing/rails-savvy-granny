@@ -238,8 +238,8 @@ job16.photo.attach(io: pic16, filename: 'passwords.jpg', content_type: 'image/jp
 
 lang = %w[Chinese English Malay Tamil]
 
-35.times do 
-  puts "Making upcoming bookings..."
+5.times do 
+  puts "Making a booking..."
   job = Job.all.sample
   booking = Booking.create!(
     user: user_1,   
@@ -247,9 +247,9 @@ lang = %w[Chinese English Malay Tamil]
     job: job,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.forward(days: 30),
-    status: "upcoming",
+    status: ["upcoming","cancelled"].sample,
     price: job.price,
-    language: "Chinese"
+    language: lang.sample
   )
 
   puts "Making a chatroom..."
