@@ -1,0 +1,28 @@
+<div  class="container mt-5">
+    <div class="h1 text-center mb-3">See all tasks or Search!
+      
+
+        <div class="cards">
+            <% @jobs.each do |job| %>
+                <div  class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+                Task: <%= job.name %><br>
+                Detail: <%= job.description %><br>
+                Duration: <%= job.duration %> mins<br>    
+                </div>
+            <% end %>
+        </div>
+      </div>
+</div>
+
+
+  <div class="row flex-column">
+    <div class="d-flex justify-content-center">
+    <% if user_signed_in? %>
+    <%= link_to "BOOK A TUTOR", "/bookings", class: "btn btn-success"  %>
+    <% else %>
+    <%= link_to "SIGN UP TODAY",  "/users/sign_up", class: "btn btn-success"  %>
+    <% end %>
+    </div>
+  </div>
+
+</div>
