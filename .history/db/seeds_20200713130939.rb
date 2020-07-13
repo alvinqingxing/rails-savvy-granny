@@ -224,8 +224,8 @@ job16 = Job.create!(
   duration: [10,30,60].sample,
   category: cat5
 )
-pic15 = URI.open('https://i.imgur.com/rYBiI69.jpg')
-pic16 = URI.open('https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Grab_%28application%29_logo.svg/500px-Grab_%28application%29_logo.svg.png')
+pic15 = URI.open('https://i.imgur.com/XA7piE3.jpg')
+pic16 = URI.open('https://i.imgur.com/dEpMyO8.jpg')
 job15.photo.attach(io: pic15, filename: 'accounts.jpg', content_type: 'image/jpg')
 job16.photo.attach(io: pic16, filename: 'passwords.jpg', content_type: 'image/jpg')
 

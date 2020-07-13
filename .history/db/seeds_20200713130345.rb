@@ -130,7 +130,7 @@ job6 = Job.create!(
   category: cat2 
 )
 pic5 = URI.open('https://i.imgur.com/XA7piE3.jpg')
-pic6 = URI.open('https://i.imgur.com/aaMCFQ9.jpg')
+pic6 = URI.open('https://i.imgur.com/dEpMyO8.jpg')
 job5.photo.attach(io: pic5, filename: 'accounts.jpg', content_type: 'image/jpg')
 job6.photo.attach(io: pic6, filename: 'passwords.jpg', content_type: 'image/jpg')
 
@@ -195,39 +195,18 @@ job13 = Job.create!(
 )
 job14 = Job.create!(
   name: 'Microsoft Office',
-  description: [[true, 'Word, Excel, Powerpoint'], [true, 'File saving or converting to PDF']],
+  description: [[true, 'Website walkthroughs and Q&A'], [true, 'PARF value, road taxes, estate parking']],
   duration: [10,30,60].sample,
   category: cat4
 )
-pic11 = URI.open('https://i.imgur.com/01FtFnO.jpg')
-pic12 = URI.open('https://i.imgur.com/vkK6DLO.jpg')
-pic13 = URI.open('https://i.imgur.com/dEpMyO8.jpg')
-pic14 = URI.open('https://i.imgur.com/DVnYkfp.jpg')
-job11.photo.attach(io: pic11, filename: 'zoom.jpg', content_type: 'image/jpg')
-job12.photo.attach(io: pic12, filename: 'whatsapp.jpg', content_type: 'image/jpg')
-job13.photo.attach(io: pic13, filename: 'email.jpg', content_type: 'image/jpg')
-job14.photo.attach(io: pic14, filename: 'office.jpg', content_type: 'image/jpg')
-
-cat5 = Category.create!(
-  name: "e-Commerce"
-)
-
-job15 = Job.create!(
-  name: 'Orders, Delivery & Returns',
-  description: [[true, 'Lazada / Redmart / Amazon sign ups'], [true, 'Food Delivery (Grabfood, etc)'], [true, 'Returns and Tracking']],
-  duration: [10,30,60].sample,
-  category: cat5
-)
-job16 = Job.create!(
-  name: 'Transport / Grab',
-  description: [[true, 'Using Grab / Gojek / Comfort']],
-  duration: [10,30,60].sample,
-  category: cat5
-)
-pic15 = URI.open('https://i.imgur.com/rYBiI69.jpg')
-pic16 = URI.open('https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Grab_%28application%29_logo.svg/500px-Grab_%28application%29_logo.svg.png')
-job15.photo.attach(io: pic15, filename: 'accounts.jpg', content_type: 'image/jpg')
-job16.photo.attach(io: pic16, filename: 'passwords.jpg', content_type: 'image/jpg')
+pic11 = URI.open('https://i.imgur.com/kYsqOXT.png')
+pic12 = URI.open('https://i.imgur.com/xuA8Rp9.png')
+pic13 = URI.open('https://i.imgur.com/Eckxu9f.jpg')
+pic14 = URI.open('https://i.imgur.com/9bFqvOE.jpg')
+job11.photo.attach(io: pic11, filename: 'singpass.jpg', content_type: 'image/jpg')
+job12.photo.attach(io: pic12, filename: 'cpftax.jpg', content_type: 'image/jpg')
+job13.photo.attach(io: pic13, filename: 'welfare.jpg', content_type: 'image/jpg')
+job14.photo.attach(io: pic14, filename: 'onemotoring.jpg', content_type: 'image/jpg')
 
 5.times do 
   puts "Making a booking..."

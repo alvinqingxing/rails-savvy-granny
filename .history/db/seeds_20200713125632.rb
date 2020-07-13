@@ -130,7 +130,7 @@ job6 = Job.create!(
   category: cat2 
 )
 pic5 = URI.open('https://i.imgur.com/XA7piE3.jpg')
-pic6 = URI.open('https://i.imgur.com/aaMCFQ9.jpg')
+pic6 = URI.open('https://i.imgur.com/dEpMyO8.jpg')
 job5.photo.attach(io: pic5, filename: 'accounts.jpg', content_type: 'image/jpg')
 job6.photo.attach(io: pic6, filename: 'passwords.jpg', content_type: 'image/jpg')
 
@@ -146,88 +146,30 @@ job7 = Job.create!(
 )
 job8 = Job.create!(
   name: 'CPF / Tax Q&A',
-  description: [[true, 'CPF / IRAS website walkthroughs'], [true, 'Viewing CPF / Tax accounts']],
+  description: [[true, 'Life / Health / Medical insurance'], [true, 'GIRO walkthroughs'], [false, 'Insurer information not required']],
   duration: [10,30,60].sample,
   category: cat3
 )
 job9 = Job.create!(
   name: 'Welfare & Subsidy Support',
-  description: [[true, 'Understanding grant eligibility (e.g. CHAS)'], [true, 'Online applications for ocial support']],
+  description: [[true, 'Parking & LTA fines'], [true, 'HDB/URA/NEA & AXS walkthroughs']],
   duration: [10,30,60].sample,
   category: cat3
 )
 job10 = Job.create!(
   name: 'One Motoring',
-  description: [[true, 'Website walkthroughs and Q&A'], [true, 'PARF value, road taxes, estate parking']],
+  description: [[true, 'Paynow / Paylah / PayAnyone'], [true, 'Includes account setup']],
   duration: [10,30,60].sample,
   category: cat3
 )
-pic7 = URI.open('https://i.imgur.com/kYsqOXT.png')
-pic8 = URI.open('https://i.imgur.com/xuA8Rp9.png')
-pic9 = URI.open('https://i.imgur.com/Eckxu9f.jpg')
-pic10 = URI.open('https://i.imgur.com/9bFqvOE.jpg')
-job7.photo.attach(io: pic7, filename: 'singpass.jpg', content_type: 'image/jpg')
-job8.photo.attach(io: pic8, filename: 'cpftax.jpg', content_type: 'image/jpg')
-job9.photo.attach(io: pic9, filename: 'welfare.jpg', content_type: 'image/jpg')
-job10.photo.attach(io: pic10, filename: 'onemotoring.jpg', content_type: 'image/jpg')
-
-cat4 = Category.create!(
-  name: "Commonly Used Software"
-)
-
-job11 = Job.create!(
-  name: 'Zoom / Video Calls',
-  description: [[true, 'How to use Zoom / Skype, etc.'], [true, 'Accounts and personal info']],
-  duration: [10,30,60].sample,
-  category: cat4
-)
-job12 = Job.create!(
-  name: 'Messaging Apps',
-  description: [[true, 'WhatsApp Web, FB Messenger, etc.'], [true, 'Customising keyboards, sending photos, emojis']],
-  duration: [10,30,60].sample,
-  category: cat4
-)
-job13 = Job.create!(
-  name: 'Sending / Replying emails',
-  description: [[true, 'Creating new accounts, navigating Gmail'], [true, 'Attaching files and images']],
-  duration: [10,30,60].sample,
-  category: cat4
-)
-job14 = Job.create!(
-  name: 'Microsoft Office',
-  description: [[true, 'Word, Excel, Powerpoint'], [true, 'File saving or converting to PDF']],
-  duration: [10,30,60].sample,
-  category: cat4
-)
-pic11 = URI.open('https://i.imgur.com/01FtFnO.jpg')
-pic12 = URI.open('https://i.imgur.com/vkK6DLO.jpg')
-pic13 = URI.open('https://i.imgur.com/dEpMyO8.jpg')
-pic14 = URI.open('https://i.imgur.com/DVnYkfp.jpg')
-job11.photo.attach(io: pic11, filename: 'zoom.jpg', content_type: 'image/jpg')
-job12.photo.attach(io: pic12, filename: 'whatsapp.jpg', content_type: 'image/jpg')
-job13.photo.attach(io: pic13, filename: 'email.jpg', content_type: 'image/jpg')
-job14.photo.attach(io: pic14, filename: 'office.jpg', content_type: 'image/jpg')
-
-cat5 = Category.create!(
-  name: "e-Commerce"
-)
-
-job15 = Job.create!(
-  name: 'Orders, Delivery & Returns',
-  description: [[true, 'Lazada / Redmart / Amazon sign ups'], [true, 'Food Delivery (Grabfood, etc)'], [true, 'Returns and Tracking']],
-  duration: [10,30,60].sample,
-  category: cat5
-)
-job16 = Job.create!(
-  name: 'Transport / Grab',
-  description: [[true, 'Using Grab / Gojek / Comfort']],
-  duration: [10,30,60].sample,
-  category: cat5
-)
-pic15 = URI.open('https://i.imgur.com/rYBiI69.jpg')
-pic16 = URI.open('https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Grab_%28application%29_logo.svg/500px-Grab_%28application%29_logo.svg.png')
-job15.photo.attach(io: pic15, filename: 'accounts.jpg', content_type: 'image/jpg')
-job16.photo.attach(io: pic16, filename: 'passwords.jpg', content_type: 'image/jpg')
+pic7 = URI.open('https://i.imgur.com/YQhdvmf.jpg')
+pic8 = URI.open('https://i.imgur.com/zmP8Yl6.jpg')
+pic9 = URI.open('https://i.imgur.com/ZbomQWx.jpg')
+pic10 = URI.open('https://i.imgur.com/ZlMMiH5.jpg')
+job7.photo.attach(io: pic7, filename: 'bills.jpg', content_type: 'image/jpg')
+job8.photo.attach(io: pic8, filename: 'insurance.jpg', content_type: 'image/jpg')
+job9.photo.attach(io: pic9, filename: 'parking.jpg', content_type: 'image/jpg')
+job10.photo.attach(io: pic10, filename: 'transfer.jpg', content_type: 'image/jpg')
 
 5.times do 
   puts "Making a booking..."

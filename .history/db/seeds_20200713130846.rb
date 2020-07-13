@@ -214,18 +214,18 @@ cat5 = Category.create!(
 
 job15 = Job.create!(
   name: 'Orders, Delivery & Returns',
-  description: [[true, 'Lazada / Redmart / Amazon sign ups'], [true, 'Food Delivery (Grabfood, etc)'], [true, 'Returns and Tracking']],
+  description: [[true, 'Login page walkthroughs'], [true, 'Creating secure passwords']],
   duration: [10,30,60].sample,
   category: cat5
 )
 job16 = Job.create!(
   name: 'Transport / Grab',
-  description: [[true, 'Using Grab / Gojek / Comfort']],
+  description: [[true, 'For already existing accounts'], [true, 'Resetting passwords or updating info']],
   duration: [10,30,60].sample,
   category: cat5
 )
-pic15 = URI.open('https://i.imgur.com/rYBiI69.jpg')
-pic16 = URI.open('https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Grab_%28application%29_logo.svg/500px-Grab_%28application%29_logo.svg.png')
+pic15 = URI.open('https://i.imgur.com/XA7piE3.jpg')
+pic16 = URI.open('https://i.imgur.com/dEpMyO8.jpg')
 job15.photo.attach(io: pic15, filename: 'accounts.jpg', content_type: 'image/jpg')
 job16.photo.attach(io: pic16, filename: 'passwords.jpg', content_type: 'image/jpg')
 
