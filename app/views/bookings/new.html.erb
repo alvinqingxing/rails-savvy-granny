@@ -1,28 +1,31 @@
 <div class="container mt-5">
 <h1>Book a Tutor</h1>
-
-<div class="d-flex">
-<%# The job card goes here %>
-<div class="col-12 col-md-6">
-<h2>Task</h2>
-Category: <%= @job.category.name %><br>
-Task: <strong><%= @job.name %></strong> - <%= @job.description %><br>
-Time: <%= @job.duration.round %> mins <br>
-Cost: $<%= @cost %>
-</div>
-
-<div class="col-12 col-md-6">
-<h2>When would you like a tutor?</h2>
-<%= simple_form_for @booking do |f| %>
-  <div class="form-row">
-  <%= f.input :start_date, html5: true, label: false, input_html: { value: Date.today} %>
-  <%= f.input :start_time, html5: true, label: false, input_html: { value: "20:00" } %>
-  <%= hidden_field_tag(:job_id, @job.id) %>
-  <%= hidden_field_tag(:price, @cost) %>
+  <div class="d-flex">
+  <%# The job card goes here %>
+    <div class="col-12 col-md-6">
+    <h2>Task</h2>
+    Category: <%= @job.category.name %><br>
+    Task: <strong><%= @job.name %></strong> - <%= @job.description %><br>
+    Time: <%= @job.duration.round %> mins <br>
+    Cost: $<%= @cost %>
+    </div>
+    <div class="col-12 col-md-6">
+    <h2>When would you like a tutor?</h2>
+    <%= simple_form_for @booking do |f| %>
+      <div class="form-row">
+        <%= f.input :start_date, html5: true, label: false, input_html: { value: Date.today} %>
+        <%= f.input :start_time, html5: true, label: false, input_html: { value: "20:00" } %>
+        <%= hidden_field_tag(:job_id, @job.id) %>
+        <%= hidden_field_tag(:price, @cost) %>
+      </div>
+      <%= f.button :submit, class: 'btn btn-success btn-block' %>
+    <% end %>
+    </div>
+    <div>
+      <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'booking_id', @booking.id %>
+      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
-  <%= f.button :submit, class: 'btn btn-success btn-block' %>
-<% end %>
-</div>
-</div>
-
 </div>
