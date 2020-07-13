@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get :cancel
     end
   end
- 
+
   resources :chatrooms, only: [] do
     resources :messages, only: [:create, :destroy]
   end
