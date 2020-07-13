@@ -121,18 +121,18 @@ job5 = Job.create!(
   name: 'New Accounts or Signups',
   description: [[true, 'Login page walkthroughs'], [true, 'Creating secure passwords']],
   duration: [10,30,60].sample,
-  category: cat2
+  category: cat1
 )
 job6 = Job.create!(
   name: 'Forgotten Information or Passwords',
   description: [[true, 'For already existing accounts'], [true, 'Resetting passwords or updating info']],
   duration: [10,30,60].sample,
-  category: cat2 
+  category: cat1 
 )
-pic5 = URI.open('https://i.imgur.com/XA7piE3.jpg')
-pic6 = URI.open('https://i.imgur.com/dEpMyO8.jpg')
-job5.photo.attach(io: pic5, filename: 'accounts.jpg', content_type: 'image/jpg')
-job6.photo.attach(io: pic6, filename: 'passwords.jpg', content_type: 'image/jpg')
+pic1 = URI.open('https://i.imgur.com/XA7piE3.jpg')
+pic2 = URI.open('https://i.imgur.com/zmP8Yl6.jpg')
+job1.photo.attach(io: pic1, filename: 'accounts.jpg', content_type: 'image/jpg')
+job2.photo.attach(io: pic2, filename: 'passwords.jpg', content_type: 'image/jpg')
 
 
 5.times do 

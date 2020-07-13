@@ -113,26 +113,7 @@ job2.photo.attach(io: pic2, filename: 'insurance.jpg', content_type: 'image/jpg'
 job3.photo.attach(io: pic3, filename: 'parking.jpg', content_type: 'image/jpg')
 job4.photo.attach(io: pic4, filename: 'transfer.jpg', content_type: 'image/jpg')
 
-cat2 = Category.create!(
-  name: "Accounts & Troubleshooting"
-)
 
-job5 = Job.create!(
-  name: 'New Accounts or Signups',
-  description: [[true, 'Login page walkthroughs'], [true, 'Creating secure passwords']],
-  duration: [10,30,60].sample,
-  category: cat2
-)
-job6 = Job.create!(
-  name: 'Forgotten Information or Passwords',
-  description: [[true, 'For already existing accounts'], [true, 'Resetting passwords or updating info']],
-  duration: [10,30,60].sample,
-  category: cat2 
-)
-pic5 = URI.open('https://i.imgur.com/XA7piE3.jpg')
-pic6 = URI.open('https://i.imgur.com/dEpMyO8.jpg')
-job5.photo.attach(io: pic5, filename: 'accounts.jpg', content_type: 'image/jpg')
-job6.photo.attach(io: pic6, filename: 'passwords.jpg', content_type: 'image/jpg')
 
 
 5.times do 
