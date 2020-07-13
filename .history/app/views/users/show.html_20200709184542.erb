@@ -1,0 +1,8 @@
+<h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+<% if @user.tutor %>
+  Bookings Completed: <%= @completed.count %>
+  Average Rating: <%= @rating %>
+<% else %>
+  Bookings Made: <%= @user.bookings.count %>
+<% end %>
+<hr>
