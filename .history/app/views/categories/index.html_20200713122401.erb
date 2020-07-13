@@ -1,0 +1,79 @@
+<head>
+</head>
+<body>
+
+<div class="container">
+
+<h1 class="mt-4">Choose job, be savvy! </h1>
+<%# <% render "app/views/categories/renders" %>
+
+  <%# PILLS LINKS TO WRAPPERS START HERE %>
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">All Jobs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-bills-tab" data-toggle="pill" href="#pills-bills" role="tab" aria-controls="pills-bills" aria-selected="false">Pay Bills & Transfer $</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-accounts-tab" data-toggle="pill" href="#pills-accounts" role="tab" aria-controls="pills-accounts" aria-selected="false">Accounts & Troubleshooting</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" id="pills-government-tab" data-toggle="pill" href="#pills-government" role="tab" aria-controls="pills-government" aria-selected="false">Government Related</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" id="pills-software-tab" data-toggle="pill" href="#pills-software" role="tab" aria-controls="pills-software" aria-selected="false">Software</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" id="pills-commerce-tab" data-toggle="pill" href="#pills-commerce" role="tab" aria-controls="pills-commerce" aria-selected="false">e-Commerce</a>
+  </li>
+</ul>
+<%# PILLS LINKS TO WRAPPERS END HERE %>
+
+
+<%# START OF PILL CONTENT WRAPPER %> <div class="tab-content" id="pills-tabContent">
+
+<%# START CONTENT OF TAB/PILL FOR ALL JOBS %>
+  <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+
+            <section class="pricing py-4">
+            <div class="container">
+            <%# <---CARDS -- > %>
+
+                <div class="row">
+                <!------------------------- NEW CARD ------------------------------->
+                <% @jobs.each do |job| %>
+                <%= job.name %>
+                <!-------------- Last card ends here ------------->
+
+            </div > 
+            </section>
+                <!-------------- END OF CARDS ------------->
+
+  </div>
+
+<%# TAB/PILL FOR "ALL JOBS" END HERE %>
+
+
+<%# Other tab/pills to be filled %>
+  <div class="tab-pane fade" id="pills-bills" role="tabpanel" aria-labelledby="pills-bills-tab">...</div>
+  <div class="tab-pane fade" id="pills-accounts" role="tabpanel" aria-labelledby="pills-accounts-tab">...</div>
+  <div class="tab-pane fade" id="pills-government" role="tabpanel" aria-labelledby="pills-government-tab">...</div>
+  <div class="tab-pane fade" id="pills-software" role="tabpanel" aria-labelledby="pills-software-tab">...</div>
+  <div class="tab-pane fade" id="pills-commerce" role="tabpanel" aria-labelledby="pills-commerce-tab">...</div>
+</div><%# END OF PILL CONTENT WRAPPERS %>
+</div><%# /DIV END OF PILL CONTAINER %>
+
+
+
+
+
+
+<%# Alert info below %>
+<div class="alert alert-light alert-dismissible text-muted" role="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+    Our tutors will never ask for any personal data or information such as passwords.
+</div>
+<%# End of alert info below %>
+
+</body>

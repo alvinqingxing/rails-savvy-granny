@@ -1,0 +1,95 @@
+<head>
+</head>
+<body>
+
+<div class="container">
+
+<h1 class="mt-4">Choose job, be savvy! </h1>
+<%# <% render "app/views/categories/renders" %>
+
+  <%# PILLS LINKS TO WRAPPERS START HERE %>
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+    <a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">All Jobs</a>
+    </li>
+    <% @categories.each do |category| %>
+    <li class="nav-item">
+        <a class="nav-link" id="pills-bills-tab" data-toggle="pill" href="#pills-bills" role="tab" aria-controls="pills-bills" aria-selected="false"><%= category.name%></a>
+    </li>
+    <% end %>
+</ul>
+<%# PILLS LINKS TO WRAPPERS END HERE %>
+
+
+<%# START OF PILL CONTENT WRAPPER %> <div class="tab-content" id="pills-tabContent">
+
+<%# START CONTENT OF TAB/PILL FOR ALL JOBS %>
+  <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+
+            <section class="pricing py-4">
+            <div class="container">
+            <%# <---CARDS -- > %>
+
+                <div class="row">
+                <!------------------------- NEW CARD ------------------------------->
+                <% @jobs.each do |job| %>
+                <div class="col-lg-4 mb-5">
+                    <div class="card mb-lg-0">
+                    <div class="view overlay">
+                    <%= cl_image_tag job.photo.key, crop: :fill, class: 'card-img-top' %>
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase text-center"><%= job.name %></h5>
+                        <h6 class="card-price text-center"><%= job.duration.round %> mins</h6>
+                        <hr>
+                        <ul class="fa-ul">
+                        <% des = JSON.parse job.description %>
+                        <% des.each do |thing| %>
+                            <% if thing[0] %>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span><%= thing[1] %></li>
+                            <% else %>
+                            <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span><%= thing[1] %></li>
+                            <% end %>
+                        <% end %>
+                        </ul>
+                        <%= link_to "Book a Slot", bookings_new_path(:job => job.id), class: "btn btn-block btn-primary text-uppercase" %>
+                    </div>
+                    </div>
+                </div>
+                <% end %>
+                <!-------------- Last card ends here ------------->
+
+            </div > 
+            </section>
+                <!-------------- END OF CARDS ------------->
+
+  </div>
+
+<%# TAB/PILL FOR "ALL JOBS" END HERE %>
+
+
+<%# Other tab/pills to be filled %>
+  <div class="tab-pane fade" id="pills-bills" role="tabpanel" aria-labelledby="pills-bills-tab">...</div>
+  <div class="tab-pane fade" id="pills-accounts" role="tabpanel" aria-labelledby="pills-accounts-tab">...</div>
+  <div class="tab-pane fade" id="pills-government" role="tabpanel" aria-labelledby="pills-government-tab">...</div>
+  <div class="tab-pane fade" id="pills-software" role="tabpanel" aria-labelledby="pills-software-tab">...</div>
+  <div class="tab-pane fade" id="pills-commerce" role="tabpanel" aria-labelledby="pills-commerce-tab">...</div>
+</div><%# END OF PILL CONTENT WRAPPERS %>
+</div><%# /DIV END OF PILL CONTAINER %>
+
+
+
+
+
+
+<%# Alert info below %>
+<div class="alert alert-light alert-dismissible text-muted" role="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+    Our tutors will never ask for any personal data or information such as passwords.
+</div>
+<%# End of alert info below %>
+
+</body>
