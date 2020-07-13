@@ -2,21 +2,24 @@
   <div class="col-6 offset-3 py-5">
     <div class="border-bottom mb-3">
       <h1>BOOKING #<%= @chatroom.booking.id %></h1>
+
+      <%# videocall daily.co link %>
+      Copy the video-call invitation and share with your parent: <br>
+      <% if @chatroom.booking.id <= 30 %>
+        <% videolink = "https://savvygranny.daily.co/#{@chatroom.booking.id}" %>
+        <% else %>
+          <% videolink = "https://savvygranny.daily.co/#{@chatroom.booking.id - 30}" %>
+      <% end %>
+      
+          <input type="text" value="<%= videolink %>" id="invitation">
+          <button id="copy">Copy</button>
+        <br>
+
+       <%# end of videocall link %>
+
       TASK: <%= @chatroom.booking.job.name %><br>
       AT: <%= @chatroom.booking.start_date %><br>
-      <%# videocall daily.co link %>
-      COPY THIS VIDEO-CALL LINK: <br>
-      <% if @chatroom.booking.id <= 50%>
-      <a href="https://savvygranny.daily.co/<%= @chatroom.booking.id %>">
-        <h4> https://savvygranny.daily.co/<%= @chatroom.booking.id %></h4>
-          <% else %>
-            <a href="https://savvygranny.daily.co/<%= @chatroom.booking.id - 50 %>">
-            <h4> https://savvygranny.daily.co/<%= @chatroom.booking.id - 50 %></h4>
-          <%# add copy to clipboard +  link to whatsapp select contact %>
-          <% end %>
-      </a>
       <br>
-      <%# end of videocall link %>
     </div>
     <% if @over_ten %>
       <%= link_to 'Show Previous', '?m=all' %>
