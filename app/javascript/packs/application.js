@@ -27,10 +27,12 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initSelect2 } from '../components/init_select2';
+import { copy } from '../components/init_videocall';
 import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSelect2();
   initStarRating();
+  copy();
 });
