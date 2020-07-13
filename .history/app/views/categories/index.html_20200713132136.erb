@@ -13,9 +13,21 @@
     <a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">All Jobs</a>
     </li>
     <% @categories.each do |category| %>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-bills-tab" data-toggle="pill" href="#pills-bills" role="tab" aria-controls="pills-bills" aria-selected="false">Pay Bills & Transfer $</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-accounts-tab" data-toggle="pill" href="#pills-accounts" role="tab" aria-controls="pills-accounts" aria-selected="false">Accounts & Troubleshooting</a>
+  </li>
     <li class="nav-item">
-        <a class="nav-link" id="pills-bills-tab" data-toggle="pill" href="#pills-bills" role="tab" aria-controls="pills-bills" aria-selected="false"><%= category.name %></a>
-    </li>
+    <a class="nav-link" id="pills-government-tab" data-toggle="pill" href="#pills-government" role="tab" aria-controls="pills-government" aria-selected="false">Government Related</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" id="pills-software-tab" data-toggle="pill" href="#pills-software" role="tab" aria-controls="pills-software" aria-selected="false">Software</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" id="pills-commerce-tab" data-toggle="pill" href="#pills-commerce" role="tab" aria-controls="pills-commerce" aria-selected="false">e-Commerce</a>
+  </li>
     <% end %>
 </ul>
 <%# PILLS LINKS TO WRAPPERS END HERE %>
