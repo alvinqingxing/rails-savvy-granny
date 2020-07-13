@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <h1 class="text-center">Book a Tutor</h1>
-  <div class="d-flex flex-wrap">
+  <div class="d-flex">
     <div class="col-12 col-md-8 offset-md-2">
       <div class="card shadow-sm mb-3">
         <div class="d-flex flex-wrap">
@@ -39,9 +39,7 @@
         <%= hidden_field_tag(:job_id, @job.id) %>
         <%= hidden_field_tag(:price, @cost) %>
         <%= hidden_field_tag(:booking_id, @booking.id) %>
-      </div>
-      <div class="form-row">
-        <%= f.button :submit, "PURCHASE", class: "btn-primary btn-block" %>
+        <%= f.button :submit, "PURCHASE", class: "btn-primary" %>
       </div>
     <% end %>
     </div>
