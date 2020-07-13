@@ -3,28 +3,11 @@
 <body>
 
 <div class="container">
-<h1 class="mt-4">Choose or Search job, be savvy! </h1>
-<%# search bar for category & jobs%>
-    <div class ="form-inline mg-auto" >
-        <%= form_tag categories_path, method: :get do %>
-        <%= text_field_tag :query, params[:query],class: "form-control", placeholder: "Find a task"%>
-        <%= submit_tag "Search", class: "btn btn-primary" %> 
-        <% end %>
-    </div>
 
-  <% if @jobs.empty? %>
-    No Results
-  <% else %>
-    <% @jobs.each do |job| %>
-      <%= job.searchable.name %>
-    <% end %>
-  <% end %>
-
-
+<h1 class="mt-4">Choose job, be savvy! </h1>
 <%# <% render "app/views/categories/renders" %>
-     
 
-<%# PILLS LINKS TO WRAPPERS START HERE %>
+  <%# PILLS LINKS TO WRAPPERS START HERE %>
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">All Jobs</a>
@@ -62,7 +45,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                     <div class="view overlay">
-                        <img class="card-img-top" src="https://picsum.photos/300/200">
+                    <%= image_tag 'https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/bills.jpg', class: 'card-img-top' %>
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -83,7 +66,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/parking.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -93,9 +76,8 @@
                         <h6 class="card-price text-center"><%= Job.all[1].duration.round %> mins</h6>
                         <hr>
                         <ul class="fa-ul">
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Life, health, medical</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>GIRO walkthroughs</li>
-                        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Insurer information not required</li>
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Parking & LTA</li>
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span>HDB/URA/NEA & AXS</li>
                         </ul>
                         <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[1].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
@@ -109,7 +91,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/insurance.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -120,8 +102,9 @@
                         <h6 class="card-price text-center"><%= Job.all[2].duration.round %> mins</h6>
                         <hr>
                         <ul class="fa-ul">
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Parking & LTA</li>
-                        <li><span class="fa-li"><i class="fas fa-check"></i></span>HDB/URA/NEA & AXS</li>
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Life, health, medical</li>
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span>GIRO walkthroughs</li>
+                        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Insurer information not required</li>
                         </ul>
                         <%= link_to "Book a Slot", bookings_new_path(:job => Job.all[2].id), class: "btn btn-block btn-primary text-uppercase" %>
                     </div>
@@ -134,7 +117,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/transfer.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -159,7 +142,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/forgot.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -182,7 +165,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/reset.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -206,7 +189,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/singpass.png">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -231,7 +214,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/cpf.png">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -256,7 +239,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/welfare.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -280,7 +263,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/motoring.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -304,7 +287,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/zoom.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -327,7 +310,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/messaging.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -351,7 +334,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/email.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -376,7 +359,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/microsoft.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -401,7 +384,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://raw.githubusercontent.com/alvinqingxing/rails-savvy-granny/master/app/assets/images/grandma.jpg">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
@@ -427,7 +410,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card mb-lg-0">
                             <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg">
+                        <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Grab_%28application%29_logo.svg/500px-Grab_%28application%29_logo.svg.png">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
