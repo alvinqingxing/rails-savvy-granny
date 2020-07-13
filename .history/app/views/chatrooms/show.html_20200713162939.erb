@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="col-6 offset-3 py-5">
+    <div class="border-bottom mb-3">
+      <h1>BOOKING #<%= @chatroom.booking.id %></h1>
+      TASK: <%= @chatroom.booking.job.name %><br>
+      SCHEDULED DATE: <%= @chatroom.booking.start_date %><br>
+      TUTOR: <%= link_to "#{@chatroom.booking.tutor.first_name} #{@chatroom.booking.tutor.last_name}", @chatroom.booking.tutor %>
+    </div>
+    <% if @over_ten %>
+      <%= link_to 'Show Previous', '?m=all' %>
+    <% end %>
+    <div class="ui segment">
+      <% @messages.each do |message| %>
+        <% if message.content %>
+          <% user = User.find(message.sender_id) %>
+          <div class="item mb-3" id="message-<%= message.id %>">
+            <% if user = current_user %>
+            <div class="content bg-light text-dark p-3 rounded">
+            <% else %>
+            <div class="content bg-dark text-light p-3 rounded">
+            <% end %>
+              <div class="header d-flex justify-content-between">
+              <div><strong><%= user.first_name %></strong> <%= message.created_at %></div>
+              <div>
+              <% if message.read %>
+              <i class="far fa-eye"></i>
+              <% else %>
+              <i class="far fa-eye-slash"></i>
+              <% end %>
+              </div>
+              </div>
+              <div class="list">
+                <div class="item" id="message-<%= message.id %>">
+                  <i class="right triangle icon"></i>
+                  <%= message.content %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%= simple_form_for([ @chatroom, @message ], remote: true) do |f| %>
+    <div class="form-group" id="submit-box">
+      <%= f.input :content, label: false, placeholder: 'Your message here', wrapper_html: { class: 'flex-fill p-0 m-0' } %>
+      <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
+      <%= f.button :submit, "SEND", class: 'btn btn-primary btn-block' %>
+    </div>
+    <% end %>
+  </div>
+</div>

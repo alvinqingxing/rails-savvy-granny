@@ -10,10 +10,14 @@
 <div class="container">
   <div class="col-6 offset-3 py-5">
     <div class="border-bottom mb-3">
+<<<<<<< HEAD
       <h1>CHATROOM #<%= @chatroom.booking.id %></h1>
 
+
+
       <%# videocall daily.co link %>
-      <h6> Just copy this video-call invitation and share with your parent: </h6>
+      <h6> Your assigned tutor is: <%= link_to "#{@chatroom.booking.tutor.first_name} #{@chatroom.booking.tutor.last_name}", @chatroom.booking.tutor %>
+      Just copy this video-call invitation after your chat and share with your parent: </h6>
 
       <% if @chatroom.booking.id <= 30 %>
         <% videolink = "https://savvygranny.daily.co/#{@chatroom.booking.id}" %>
@@ -40,8 +44,12 @@ You just have to click this link <%= videolink %> on this date and time: <%= @ch
       <% @messages.each do |message| %>
         <% if message.content %>
           <% user = User.find(message.sender_id) %>
-          <div class="item">
-            <div class="content">
+          <div class="item mb-3" id="message-<%= message.id %>">
+            <% if user = current_user %>
+            <div class="content bg-light text-dark p-3 rounded">
+            <% else %>
+            <div class="content bg-dark text-light p-3 rounded">
+            <% end %>
               <div class="header d-flex justify-content-between">
               <div><strong><%= user.first_name %></strong> <%= message.created_at %></div>
               <div>
@@ -60,7 +68,6 @@ You just have to click this link <%= videolink %> on this date and time: <%= @ch
               </div>
             </div>
           </div>
-          <hr>
         <% end %>
       <% end %>
     </div>
