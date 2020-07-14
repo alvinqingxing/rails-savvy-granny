@@ -3,6 +3,9 @@
 //     // background: linear-gradient(to right, #6ba1e7, #cddce6);
 //   }
   
+  .pricing {
+    font-family: 'Lato'
+  }
   .pricing .card {
     border: none;
     border-radius: 0.75rem;
@@ -19,11 +22,13 @@
     font-size: 1.5rem;
     letter-spacing: .1rem;
     font-weight: bold;
+    font-family: 'Josefin Sans'
   }
   
   .pricing .card-price {
     font-size: 1.5rem;
     margin: 0;
+    font-family: 'Lato'
   }
   
   .pricing .card-price .period {

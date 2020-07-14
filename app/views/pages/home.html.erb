@@ -2,31 +2,31 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dnxszleia/image/upload/v1594365259/photo-of-woman-showing-her-cellphone-to-her-grandmother-3768140_xaa4zu.jpg)";>
   <div class="container d-flex">
     <div class="col-12 col-md-10 col-lg-8 message">
-    <h1>SavvyGranny</h1>
-    <p>Your parents’ personal tech support</p>
+    <h1 style="font-family: 'Josefin Sans'">SavvyGranny</h1>
+    <p style="font-family: 'Josefin Sans'">Your parents' personal tech support</p>
 
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Get help for... 
+        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" style="font-size: 20px; font-family: Josefin Sans" aria-haspopup="true" aria-expanded="false">
+          Get help for...
         </button>
           <div class="dropdown-menu">
           <% jobnames = @jobs.all.map { |x| x.name } %>
           <% jobids = @jobs.all.map { |x| x.id } %>
             <li>
-              <div class="row" style="width: 60vw">
-                <ul class="list-unstyled col-md-4">
+              <div class="row font-weight-bold" style="width: 60vw">
+                <ul class="list-unstyled col-md-4 pl-5">
                   <% (0..4).each { |i| %>
-                    <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
+                    <li><a href="bookings/new?job=<%=jobids[i]%>" class="homedroplinks "><%= jobnames[i] %></a></li>
                   <% } %>
                 </ul>
-                <ul class="list-unstyled col-md-4">
+                <ul class="list-unstyled col-md-4 pl-1">
                   <% (5..9).each { |i| %>
-                    <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
+                    <li><a href="bookings/new?job=<%=jobids[i]%>" class="homedroplinks"><%= jobnames[i] %></a></li>
                   <% } %>
                 </ul>
-                <ul class="list-unstyled col-md-4">
+                <ul class="list-unstyled col-md-4 pl-5">
                   <% (10..14).each { |i| %>
-                    <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
+                    <li><a href="bookings/new?job=<%=jobids[i]%>" class="homedroplinks"><%= jobnames[i] %></a></li>
                   <% } %>
                 </ul>
               </div>
@@ -40,96 +40,72 @@
 
 
 <%# Content %>
-<div class="container mt-5">
-<div class="h1 text-center message">It's simple to be savvy!</div>
-<div class="h5 text-center mb-5 message">Let's say your mom or dad needs help with a tech related task...
-for the tenth time this month. Now what?</div>
+<div class="container mt-5" style="font-family: 'Lato'">
+<div class="h1 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >It's Simple to be Savvy!</div>
+<div class="p text-center mb-5 message">Let's say your mom / dad needs help with a tech related task...<br>
+for the 10th time this month. Now what?</div> <br>
+
+<div class="h1 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >How It Works</div>
+<br>
+<br>
+
 <div class="container d-flex p-0 flex-wrap">
   <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
-    <i class="fas fa-question"></i>
+    <i class="fas fa-question" style="color:#1B3461;"></i>
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title h5">1. Book a tutor<br></div>
-      <p class="card-text message">Pick a task and a time - it takes seconds!</p>
+      <div class="card-title"><h2><strong>1</strong></h2><br> Pick a task & time<br></div>
     </div>
   </div>
 
   <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
-    <i class="fas fa-link"></i>
+    <i class="fas fa-link" style="color:#1B3461;"></i>
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title h5">2. Get your parent connected</div>
-      <p class="card-text">Just send them a link - no downloads needed.</p>
+      <div class="card-title"><h2><strong>2</strong></h2><br>     Tell the tutor the issue, share the invite</div>
     </div>
   </div>
 
   <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
-    <i class="fas fa-chalkboard-teacher"></i>
+    <i class="fas fa-chalkboard-teacher" style="color:#1B3461;"></i>
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title h5">3. Stand by (or chill out!)</div>
-      <p class="card-text">Our friendly tutors will walk your parent through the task.</p>
+      <div class="card-title"><h2><strong>3</strong></h2><br> Chill out</div>
     </div>
   </div>
 
   <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
-    <i class="far fa-laugh-beam"></i>
+    <i class="far fa-laugh-beam" style="color:#1B3461;"></i>
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title h5">4. All done!</div>
-      <p class="card-text">Your mom or dad is now savvier than ever! Great job!</p>
+      <div class="card-title"><h2><strong>4</strong></h2><br> All done!</div>
     </div>
   </div>
 </div>
 </div>
 
-<%# Search by categories %>
-<div class="container mt-5">
-  <div class="h1 text-center mb-3 message">Search by categories</div>
-  <div class="cards">
-    <%= link_to root_path do %>
-    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
-      Bills & Payments
-    </div>
-    <% end %>
-
-    <%= link_to root_path do %>
-    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
-      Transfers
-    </div>
-    <% end %>
-
-    <%= link_to root_path do %>
-    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
-      Software & Technology
-    </div>
-    <% end %>
-
-    <%= link_to root_path do %>
-    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
-      Government Related
-    </div>
-    <% end %>
-
-    <%= link_to root_path do %>
-    <div class="card-category" <%# style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)" %> >
-      e-Commerce
-    </div>
-    <% end %>
-
-      <%= link_to categories_path do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/300/200)">
-        See all available jobs
-    </div>
-    <% end %>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+    <a href="categories" class="btn btn-lg btn-primary justify-center"  style="font-size: 20px;">Let's Get Savvy!</a><br>
+      </div>
   </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+
+
+
 
 <%# Sign up form %>
+<% if user_signed_in? == false %>
 <div class="container my-5 d-flex flex-column message">
   <div class="h1 text-center mb-3">Sign up for free today!</div>
 <div class="col-12 col-md-8 col-lg-4 align-self-center">
@@ -148,17 +124,13 @@ for the tenth time this month. Now what?</div>
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Sign up", class: 'btn btn-success btn-block' %>
   </div>
-  
+ 
   <p>Or</p>
-
     <%= link_to "Continue with facebook", omniauth_authorize_path(:user, :facebook), class: 'btn btn-secondary btn-block mb-3' %>
-
-
-
+  <% end %>
 <% end %>
 </div>
 </div>
