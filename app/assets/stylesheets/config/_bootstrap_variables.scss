@@ -44,8 +44,8 @@ $grays: map-merge(
 );
 
 
-$blue:    #7832e2 !default;
-$indigo:  #502c6c !default;
+$blue:    #1B3461 !default;
+$indigo:  #1B3461 !default;
 $purple:  #ad6edd !default;
 $pink:    #ff0266 !default;
 $red:     #ff5916 !default;
@@ -180,12 +180,12 @@ $white:         $white !default;
 // $body-color:                $gray-900 !default;
 //
 // // Links
-// //
+// 
 // // Style anchor elements.
 //
-// $link-color:                theme-color("primary") !default;
+$link-color:                #1B3461;
 // $link-decoration:           none !default;
-// $link-hover-color:          darken($link-color, 15%) !default;
+$link-hover-color:          darken(#1B3461, 15%);
 // $link-hover-decoration:     underline !default;
 //
 // // Paragraphs
@@ -266,7 +266,7 @@ $white:         $white !default;
 // // Font, line-height, and color for body text, headings, and more.
 //
 // // stylelint-disable value-keyword-case
-   $font-family-sans-serif:      Nunito, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+   $font-family-sans-serif:      Lato !default;
 // $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // $font-family-base:            $font-family-sans-serif !default;
 // // stylelint-enable value-keyword-case
