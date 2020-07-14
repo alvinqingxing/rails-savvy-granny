@@ -25,15 +25,13 @@
 <div class="container">
     <div class="row my-2">
         <div class="col-lg-8 order-lg-2">
-            <ul class="nav nav-tabs border-0">
+            <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active border-0 p-0">About Me</a>
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
                 </li>
-                <% if current_user == @user %>
                 <li class="nav-item">
-                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link border-0 py-0">Edit My Info</a>
+                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
                 </li>
-                <% end %>
             </ul>
             <div class="tab-content py-4">
                 <div class="tab-pane active" id="profile">
