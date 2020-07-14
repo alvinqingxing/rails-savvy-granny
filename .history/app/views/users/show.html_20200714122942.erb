@@ -50,22 +50,23 @@
                             </p>
                         </div>
                         <div class="col-md-6">
-                          <% if @user.tutor %>
-                            <h6>Rating</h6>
-                            <% if @rating.nan? %>
-                              No ratings yet!
-                            <% else %> 
-                              <% @rating.round.times do %>
-                              <i class="fas fa-star text-warning"></i>
+                            <% if @user.tutor %>
+                              <h6>Rating</h6>
+                              <% if @rating.nan? %>
+                                No ratings yet!
+                              <% else %> 
+                                <% @rating.round.times do %>
+                                <i class="fas fa-star text-warning"></i>
+                                <% end %>
+                                <% (5 - @rating.round).times do %>
+                                <i class="fas fa-star text-dark"></i>
+                                <% end %>
                               <% end %>
-                              <% (5 - @rating.round).times do %>
-                              <i class="fas fa-star text-dark"></i>
-                              <% end %>
+                              <hr>
                             <% end %>
-                            <hr>
-                            <span class="badge badge-primary"><i class="fas fa-check"></i> <%= @completed.count %> Jobs Completed</span>
-                          <% end %>
-                            <span class="badge badge-success"><i class="fas fa-pen"></i> <%= @user.bookings.count %> Bookings Made</span>
+                            <span class="badge badge-primary"><i class="fa fa-user"></i> <%= @completed.count %> Tasks Completed</span>
+                            <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
+                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
                         </div>
                         <div class="col-md-12">
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
