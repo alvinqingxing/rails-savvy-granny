@@ -48,18 +48,12 @@
                             <% end %>
                             <div class="py-1"></div>
                             <h6>Statistics</h6>
-                            <span class="badge badge-primary"><i class="fas fa-check"></i> <%= pluralize(@completed.count, 'Job') %> Completed</span>
-                          <% else %>
-                            <span class="badge badge-success"><i class="fas fa-pen"></i> <%= pluralize(@user.bookings.count, 'Booking') %> Made</span>
+                            <span class="badge badge-primary"><i class="fas fa-check"></i> <%= @completed.count %> Jobs Completed</span>
                           <% end %>
-                            <span class="badge badge-danger"><i class="fas fa-pen"></i> <%= pluralize(@cancelled, 'Booking') %> Cancelled</span>
+                            <span class="badge badge-success"><i class="fas fa-pen"></i> <%= @user.bookings.count %> Bookings Made</span>
                         </div>
                         <div class="col-md-12 border-top mt-2">
-                            <% if @user.tutor? %>
-                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Reviews Received</h5>
-                            <% else %>
-                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Reviews Made</h5>
-                            <% end %>
+                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Recent Reviews</h5>
                             <% @reviews.each do |review| %>
                               <%= review.content %> | <%= review.rating %> | <%= review.booking.tutor.full_name %><br>
                             <% end %>

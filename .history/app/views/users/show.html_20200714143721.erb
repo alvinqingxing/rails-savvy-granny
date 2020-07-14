@@ -48,11 +48,11 @@
                             <% end %>
                             <div class="py-1"></div>
                             <h6>Statistics</h6>
-                            <span class="badge badge-primary"><i class="fas fa-check"></i> <%= pluralize(@completed.count, 'Job') %> Completed</span>
+                            <span class="badge badge-primary"><i class="fas fa-check"></i> <%= @completed.count %> Jobs Completed</span>
                           <% else %>
-                            <span class="badge badge-success"><i class="fas fa-pen"></i> <%= pluralize(@user.bookings.count, 'Booking') %> Made</span>
+                            <span class="badge badge-success"><i class="fas fa-pen"></i> <%= @user.bookings.count %> Bookings Made</span>
                           <% end %>
-                            <span class="badge badge-danger"><i class="fas fa-pen"></i> <%= pluralize(@cancelled, 'Booking') %> Cancelled</span>
+                            <span class="badge badge-danger"><i class="fas fa-pen"></i> <%= @user.bookings.count %> Bookings Cancelled</span>
                         </div>
                         <div class="col-md-12 border-top mt-2">
                             <% if @user.tutor? %>

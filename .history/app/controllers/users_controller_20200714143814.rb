@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     @completed = Booking.where(tutor: @user, status: "completed")
-    @cancelled = Booking.where(user: @user, status: "cancelled").count
+    @cancelled = Booking.where(user: @user, status: "cancelled")
     @rating = []
     @completed.each do |booking|
       @rating << booking.review.rating unless booking.review.nil?
