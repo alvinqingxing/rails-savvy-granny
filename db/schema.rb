@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2020_07_14_053225) do
+=======
 ActiveRecord::Schema.define(version: 2020_07_14_045634) do
+>>>>>>> 19bb9938eef88f274b5029a14e8a84df43eabd0e
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,6 +150,7 @@ ActiveRecord::Schema.define(version: 2020_07_14_045634) do
     t.string "uid"
     t.string "facebook_picture_url"
     t.datetime "token_expiry"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
