@@ -64,13 +64,9 @@
                             <% @reviews.each do |review| %>
                             <div class="row review-item">
                               <div class="col-md-3 text-center">
-                                <% if review.booking.user.photo.attached? %>
-                                  <%= cl_image_tag review.booking.user.photo.key, crop: :fill, class: 'mx-auto img-fluid img-circle d-block' %>
-                                <% else %>
-                                  <div style="height: 50px;" class="d-flex justify-content-center align-items-center"><i class="display-4 far fa-user-circle"></i></div>
-                                <% end %>
+                                <img class="rounded-circle reviewer" src="http://standaloneinstaller.com/upload/avatar.png">
                                 <div class="caption">
-                                  <small><%= link_to review.booking.user.full_name, review.booking.user %></small>
+                                  <small>by <%= link_to review.booking.user.full_name, review.booking.user %></small>
                                 </div>
 
                               </div>
@@ -89,7 +85,7 @@
                                 <div class="ratebox text-center" data-id="0" data-rating="5"></div>
                                 <p class="review-text"><%= review.content %></p>
 
-                                <small class="review-date">Reviewed <%= review.created_at.strftime("%d %b %Y") %></small>
+                                <small class="review-date">Reviewed on <%= review.created_at.strftime("%d %b %Y") %></small>
                               </div>                          
                             </div>
                             <% end %> 

@@ -34,7 +34,7 @@
         <% if current_user.photo.attached? %>
         <% avatar_url = current_user.photo.key %>
         <% else %>
-        <% avatar_url = image_path("user.png") %>
+        <% avatar_url = "https://i.imgur.com/jDs2Y58.png" %>
         <% end %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
  

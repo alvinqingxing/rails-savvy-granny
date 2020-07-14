@@ -67,7 +67,7 @@
                                 <% if review.booking.user.photo.attached? %>
                                   <%= cl_image_tag review.booking.user.photo.key, crop: :fill, class: 'mx-auto img-fluid img-circle d-block' %>
                                 <% else %>
-                                  <div style="height: 50px;" class="d-flex justify-content-center align-items-center"><i class="display-4 far fa-user-circle"></i></div>
+                                  <div style="height: 50px;" class="d-flex justify-content-center align-items-center"><i class="display-1 far fa-user-circle"></i></div>
                                 <% end %>
                                 <div class="caption">
                                   <small><%= link_to review.booking.user.full_name, review.booking.user %></small>
