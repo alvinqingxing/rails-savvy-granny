@@ -10,14 +10,10 @@
 <div class="container">
   <div class="col-6 offset-3 py-5">
     <div class="border-bottom mb-3">
-<<<<<<< HEAD
       <h1>CHATROOM #<%= @chatroom.booking.id %></h1>
-
-
-
       <%# videocall daily.co link %>
-      <h6> Your assigned tutor is: <%= link_to "#{@chatroom.booking.tutor.first_name} #{@chatroom.booking.tutor.last_name}", @chatroom.booking.tutor %>
-      Just copy this video-call invitation after your chat and share with your parent: </h6>
+      <h6> Your assigned tutor is: <i class="fa fa-user-circle-o" aria-hidden="true"></i> <%= link_to "#{@chatroom.booking.tutor.first_name} #{@chatroom.booking.tutor.last_name}", @chatroom.booking.tutor %>
+      <br><br> Just copy & paste the following invitation after your chat: </h6>
 
       <% if @chatroom.booking.id <= 30 %>
         <% videolink = "https://savvygranny.daily.co/#{@chatroom.booking.id}" %>
@@ -25,8 +21,7 @@
           <% videolink = "https://savvygranny.daily.co/#{@chatroom.booking.id - 30}" %>
       <% end %>
         <textarea class="form-control input-lg" type="text" rows="5" id="invitation">
-Hey, remember that tech issue you had with the <%= @chatroom.booking.job.name %>?
-I've arranged for this savvy tutor to help you with it! :)
+Hey, remember that tech issue you had with the <%= @chatroom.booking.job.name %>? I've arranged for this savvy tutor to help you with it! :)
 You just have to click this link <%= videolink %> on this date and time: <%= @chatroom.booking.start_date %> <%= @chatroom.booking.start_time.strftime("%I:%M%p") %>
 </textarea>
       <br>
