@@ -16,14 +16,10 @@ class Message < ApplicationRecord
     end
 
  end
-
+ 
  def create_notification_message
-   new_noti =  Notification.new(message: self, user: self.receiver, booking: self.chatroom.booking)
+   new_noti =  Notification.new(message: self, user: self.receiver, booking: self.chatroom.booking, read: false)
    new_noti.save
-   puts new_noti.errors.messages
-  end
-
-
-
+ end
 
 end

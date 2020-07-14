@@ -11,10 +11,14 @@ msg id -> msg created
 updated booking  -> notification to user_it != current user
 it need to cre %>
 
+
 <%if @notifications.nil? %>
     <%= "Nothing New" %>
 <%else%>
     <% @notifications.each do |notification| %>
-    <%= notification.booking.status %>
+        <% if notification.read == false %>
+        <p>You have a new messeage from <%= notification.message.sender.name %> </p>
+        <!-- <p>Your Status of booking No: <%#= notification.booking.id %> was updated to <%#= notification.booking.status %> </p> -->
+        <% end %>   
     <% end %>
 <% end %>
