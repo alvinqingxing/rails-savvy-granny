@@ -1,0 +1,192 @@
+<div class="container">
+    <div class="row my-2">
+        <div class="col-lg-4 order-lg-1 text-center">
+            <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, crop: :fill, class: 'mx-auto img-fluid img-circle d-block' %>
+            <% else %>
+              <div style="height: 150px;" class="d-flex justify-content-center align-items-center"><i class="display-1 far fa-user-circle"></i></div>
+            <% end %>
+            <h6 class="mt-2">Upload a different photo</h6>
+            <label class="custom-file">
+                <input type="file" id="file" class="custom-file-input">
+                <span class="custom-file-control">Choose file</span>
+            </label>
+        </div>
+        <div class="col-lg-8 order-lg-2">
+            <ul class="nav nav-tabs border-0">
+                <li class="nav-item">
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active border-0 p-0">User Profile</a>
+                </li>
+                <% if current_user == @user %>
+                <li class="nav-item">
+                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link border-0 py-0">Edit My Info</a>
+                </li>
+                <% end %>
+            </ul>
+            <div class="tab-content py-3">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-3"><%= "#{@user.first_name} #{@user.last_name}" %></h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>About Me</h6>
+                            <p>
+                                <%= @user.description %>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                          <% if @user.tutor %>
+                            <h6>Rating</h6>
+                            <% if @rating.nan? %>
+                              No ratings yet!
+                            <% else %> 
+                              <% @rating.round.times do %>
+                              <i class="fas fa-star text-warning"></i>
+                              <% end %>
+                              <% (5 - @rating.round).times do %>
+                              <i class="fas fa-star text-dark"></i>
+                              <% end %>
+                            <% end %>
+                            <div class="py-1"></div>
+                            <h6>Statistics</h6>
+                            <span class="badge badge-primary"><i class="fas fa-check"></i> <%= pluralize(@completed.count, 'Job') %> Completed</span>
+                          <% else %>
+                            <h6>Statistics</h6>
+                            <span class="badge badge-success"><i class="fas fa-pen"></i> <%= pluralize(@user.bookings.count, 'Booking') %> Made</span>
+                          <% end %>
+                            <span class="badge badge-danger"><i class="fas fa-ban"></i> <%= pluralize(@cancelled, 'Booking') %> Cancelled</span>
+                        </div>
+                        <div class="col-md-12 border-top mt-2">
+                            <% if @user.tutor? %>
+                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Reviews Received</h5>
+                            <% else %>
+                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Reviews Made</h5>
+                            <% end %>
+                            <% @reviews.each do |review| %>
+                            <div class="row review-item">
+                              <div class="col-md-3 text-center">
+                                <% if review.booking.user.photo.attached? %>
+                                  <%= cl_image_tag review.booking.user.photo.key, crop: :fill, class: 'mx-auto img-fluid img-circle d-block' %>
+                                <% else %>
+                                  <%= cl_image_tag "user.png", crop: :fill, class: 'mx-auto img-fluid img-circle d-block' %>
+                                <% end %>
+                                <div class="caption">
+                                  <small><%= link_to review.booking.user.full_name, review.booking.user %></small>
+                                </div>
+
+                              </div>
+                              <div class="col-md-9">
+                                <div class="d-flex justify-content-between">
+                                <h4><%= review.booking.job.name %></h4>
+                                <div>
+                                  <% review.rating.times do %>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <% end %>
+                                  <% (5 - review.rating).times do %>
+                                  <i class="fas fa-star text-dark"></i>
+                                  <% end %>
+                                </div>
+                                </div>
+                                <div class="ratebox text-center" data-id="0" data-rating="5"></div>
+                                <p class="review-text"><%= review.content %></p>
+
+                                <small class="review-date">Reviewed <%= review.created_at.strftime("%d %b %Y") %></small>
+                              </div>                          
+                            </div>
+                            <% end %> 
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="tab-pane" id="edit">
+                    <form role="form">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Jane">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Bishop">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" value="email@gmail.com">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Company</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="url" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="" placeholder="Street">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-6">
+                                <input class="form-control" type="text" value="" placeholder="City">
+                            </div>
+                            <div class="col-lg-3">
+                                <input class="form-control" type="text" value="" placeholder="State">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                            <div class="col-lg-9">
+                                <select id="user_time_zone" class="form-control" size="0">
+                                    <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                                    <option value="Alaska">(GMT-09:00) Alaska</option>
+                                    <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                    <option value="Arizona">(GMT-07:00) Arizona</option>
+                                    <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                    <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                    <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                    <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="janeuser">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="11111122333">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="11111122333">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Cancel">
+                                <input type="button" class="btn btn-primary" value="Save Changes">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

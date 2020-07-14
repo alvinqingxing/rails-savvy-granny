@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
+  resources :users, only: [ :show, :update, :destroy ]
+  
   root to: 'pages#home'
 
   resources :users, only: [ :show ]
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard", as: :dashboard
   get '/user' => "pages#dashboard", :as => :user_root
   get "/bookings/new" => "orders#new", :as => :bookings_new
+  get "notification", to: "pages#notification", as: :notification
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

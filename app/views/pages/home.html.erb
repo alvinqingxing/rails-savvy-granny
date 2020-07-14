@@ -1,18 +1,43 @@
 <%# Header %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dnxszleia/image/upload/v1594365259/photo-of-woman-showing-her-cellphone-to-her-grandmother-3768140_xaa4zu.jpg); >
-  <div class="container d-flex justify-content-center">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dnxszleia/image/upload/v1594365259/photo-of-woman-showing-her-cellphone-to-her-grandmother-3768140_xaa4zu.jpg)";>
+  <div class="container d-flex">
     <div class="col-12 col-md-10 col-lg-8 message">
     <h1>SavvyGranny</h1>
-    <p>Your parents’ personal tech support.</p>
-    <%= form_tag("/bookings/new", method: "get") do %>
-      <%= select_tag "job", options_from_collection_for_select(@jobs, 'id', 'name'),
-      prompt: 'Choose a task!',
-      class: 'select2 flex-fill' %>
-      <%= submit_tag("GO", name: nil, class: 'btn btn-primary') %>
-    <% end %>
+    <p>Your parents’ personal tech support</p>
+
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Get help for... 
+        </button>
+          <div class="dropdown-menu">
+          <% jobnames = @jobs.all.map { |x| x.name } %>
+          <% jobids = @jobs.all.map { |x| x.id } %>
+            <li>
+              <div class="row" style="width: 60vw">
+                <ul class="list-unstyled col-md-4">
+                  <% (0..4).each { |i| %>
+                    <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
+                  <% } %>
+                </ul>
+                <ul class="list-unstyled col-md-4">
+                  <% (5..9).each { |i| %>
+                    <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
+                  <% } %>
+                </ul>
+                <ul class="list-unstyled col-md-4">
+                  <% (10..14).each { |i| %>
+                    <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
+                  <% } %>
+                </ul>
+              </div>
+          </li>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
 
 <%# Content %>
 <div class="container mt-5">

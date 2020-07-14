@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_072430) do
+ActiveRecord::Schema.define(version: 2020_07_14_065141) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +89,18 @@ ActiveRecord::Schema.define(version: 2020_07_13_072430) do
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "booking_id", null: false
+    t.bigint "message_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "read"
+    t.index ["booking_id"], name: "index_notifications_on_booking_id"
+    t.index ["message_id"], name: "index_notifications_on_message_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "state"
     t.string "booking_sku"
@@ -135,6 +148,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_072430) do
     t.string "uid"
     t.string "facebook_picture_url"
     t.datetime "token_expiry"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -147,6 +161,9 @@ ActiveRecord::Schema.define(version: 2020_07_13_072430) do
   add_foreign_key "jobs", "categories"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users", column: "sender_id"
+  add_foreign_key "notifications", "bookings"
+  add_foreign_key "notifications", "messages"
+  add_foreign_key "notifications", "users"
   add_foreign_key "orders", "bookings"
   add_foreign_key "orders", "users"
   add_foreign_key "reviews", "bookings"
