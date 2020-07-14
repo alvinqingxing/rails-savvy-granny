@@ -66,11 +66,11 @@
                               Rating: <%= review.rating %><br>
                               Tutor: <%= review.booking.tutor.full_name %><br>
                               User: <%= review.booking.user.full_name %><br><hr>
-                            <div class="row review-item">
+                            <div class="row blockquote review-item">
                               <div class="col-md-3 text-center">
                                 <img class="rounded-circle reviewer" src="http://standaloneinstaller.com/upload/avatar.png">
                                 <div class="caption">
-                                  <small>by <%= link_to review.booking.user.full_name, review.booking.user %></small>
+                                  <small>by <%= link_to review.booking.user.full_name %></small>
                                 </div>
 
                               </div>

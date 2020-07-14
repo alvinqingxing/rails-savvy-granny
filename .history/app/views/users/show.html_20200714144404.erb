@@ -66,23 +66,7 @@
                               Rating: <%= review.rating %><br>
                               Tutor: <%= review.booking.tutor.full_name %><br>
                               User: <%= review.booking.user.full_name %><br><hr>
-                            <div class="row review-item">
-                              <div class="col-md-3 text-center">
-                                <img class="rounded-circle reviewer" src="http://standaloneinstaller.com/upload/avatar.png">
-                                <div class="caption">
-                                  <small>by <%= link_to review.booking.user.full_name, review.booking.user %></small>
-                                </div>
-
-                              </div>
-                              <div class="col-md-9">
-                                <h4>My awesome review</h4>
-                                <div class="ratebox text-center" data-id="0" data-rating="5"></div>
-                                <p class="review-text">My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. My awesome review. </p>
-
-                                <small class="review-date">March 26, 2017</small>
-                              </div>                          
-                            </div>
-                            <% end %> 
+                            <% end %>
                         </div>
                     </div>
                     <!--/row-->

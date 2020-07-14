@@ -28,5 +28,7 @@ Rails.application.routes.draw do
   get '/user' => "pages#dashboard", :as => :user_root
   get "/bookings/new" => "bookings#new", :as => :bookings_new
 
+  get "notification", to: "pages#notification", as: :notification
+
 
 end

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_07_14_053225) do
+=======
+ActiveRecord::Schema.define(version: 2020_07_14_045634) do
+>>>>>>> 19bb9938eef88f274b5029a14e8a84df43eabd0e
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +92,17 @@ ActiveRecord::Schema.define(version: 2020_07_14_053225) do
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "booking_id", null: false
+    t.bigint "message_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_notifications_on_booking_id"
+    t.index ["message_id"], name: "index_notifications_on_message_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "state"
     t.string "booking_sku"
@@ -148,6 +163,9 @@ ActiveRecord::Schema.define(version: 2020_07_14_053225) do
   add_foreign_key "jobs", "categories"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users", column: "sender_id"
+  add_foreign_key "notifications", "bookings"
+  add_foreign_key "notifications", "messages"
+  add_foreign_key "notifications", "users"
   add_foreign_key "orders", "bookings"
   add_foreign_key "orders", "users"
   add_foreign_key "reviews", "bookings"
