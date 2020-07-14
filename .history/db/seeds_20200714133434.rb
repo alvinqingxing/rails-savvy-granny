@@ -50,9 +50,7 @@ user_3 = User.create(
   last_name: "Bte Mohd Yusof", 
   email: 'user_3@test.com',
   password: 'password',
-  tutor: false,
-  description: "I'm passionate about Instagram and Twitter, but not really about
-                teaching my dad how to use it..."
+  tutor: false
 )
 
 user_4 = User.create(
@@ -60,9 +58,7 @@ user_4 = User.create(
   last_name: "Pillai", 
   email: 'user_4@test.com',
   password: 'password',
-  tutor: false,
-  description: "I honestly barely get how SignPass works, so explaining it to my
-                father is going to be even worse."
+  tutor: false
 )
 
 tutor_1 = User.create(
@@ -70,9 +66,7 @@ tutor_1 = User.create(
   last_name: "Ng", 
   email: 'tutor_1@test.com',
   password: 'password',
-  tutor: true,
-  description: "After so much time spent teaching my own parents, I've decided to
-                become a tutor so I can turn my expereince into profit instead of pain."
+  tutor: true
 )
 
 tutor_2 = User.create(
@@ -80,9 +74,7 @@ tutor_2 = User.create(
   last_name: "Sim", 
   email: 'tutor_2@test.com',
   password: 'password',
-  tutor: true,
-  description: "I feel a real sense of accomplishment when I can help people understand
-                and connect with each other through technology."
+  tutor: true
 )
 
 tutor_3 = User.create(
@@ -90,9 +82,7 @@ tutor_3 = User.create(
   last_name: "bin Ibrahim", 
   email: 'tutor_3@test.com',
   password: 'password',
-  tutor: true,
-  description: "It's really rewarding to be help people like my mother and my aunties
-                through this website, and I appreciate every opportunity to do so."
+  tutor: true
 )
 
 puts "Making categories & jobs..."

@@ -81,8 +81,8 @@ tutor_2 = User.create(
   email: 'tutor_2@test.com',
   password: 'password',
   tutor: true,
-  description: "I feel a real sense of accomplishment when I can help people understand
-                and connect with each other through technology."
+  description: "I signed up for this because it was easier than teaching my mom
+                how to attach pictures to an email for the 50th time."
 )
 
 tutor_3 = User.create(
@@ -91,8 +91,8 @@ tutor_3 = User.create(
   email: 'tutor_3@test.com',
   password: 'password',
   tutor: true,
-  description: "It's really rewarding to be help people like my mother and my aunties
-                through this website, and I appreciate every opportunity to do so."
+  description: "I signed up for this because it was easier than teaching my mom
+                how to attach pictures to an email for the 50th time."
 )
 
 puts "Making categories & jobs..."

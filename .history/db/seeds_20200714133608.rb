@@ -71,8 +71,8 @@ tutor_1 = User.create(
   email: 'tutor_1@test.com',
   password: 'password',
   tutor: true,
-  description: "After so much time spent teaching my own parents, I've decided to
-                become a tutor so I can turn my expereince into profit instead of pain."
+  description: "I signed up for this because it was easier than teaching my mom
+                how to attach pictures to an email for the 50th time."
 )
 
 tutor_2 = User.create(
@@ -81,8 +81,8 @@ tutor_2 = User.create(
   email: 'tutor_2@test.com',
   password: 'password',
   tutor: true,
-  description: "I feel a real sense of accomplishment when I can help people understand
-                and connect with each other through technology."
+  description: "I signed up for this because it was easier than teaching my mom
+                how to attach pictures to an email for the 50th time."
 )
 
 tutor_3 = User.create(
@@ -90,9 +90,7 @@ tutor_3 = User.create(
   last_name: "bin Ibrahim", 
   email: 'tutor_3@test.com',
   password: 'password',
-  tutor: true,
-  description: "It's really rewarding to be help people like my mother and my aunties
-                through this website, and I appreciate every opportunity to do so."
+  tutor: true
 )
 
 puts "Making categories & jobs..."
