@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :orders
   has_many :reviews, through: :bookings
   has_one_attached :photo
+  has_many :notifications 
+
 
   def full_name
     first_name + " " + last_name
