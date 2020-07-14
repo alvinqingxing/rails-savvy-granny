@@ -6,6 +6,9 @@
       SCHEDULED DATE: <%= @chatroom.booking.start_date %><br>
       TUTOR: <%= link_to "#{@chatroom.booking.tutor.first_name} #{@chatroom.booking.tutor.last_name}", @chatroom.booking.tutor %>
     </div>
+
+<%# the above %>
+
     <% if @over_ten %>
       <%= link_to 'Show Previous', '?m=all' %>
     <% end %>
@@ -14,11 +17,11 @@
         <% if message.content %>
           <% user = User.find(message.sender_id) %>
           <div class="item mb-3" id="message-<%= message.id %>">
-            <% if user = current_user %>
+            <%# if user = current_user %>
             <div class="content bg-light text-dark p-3 rounded">
-            <% else %>
+            <%# else %>
             <div class="content bg-dark text-light p-3 rounded">
-            <% end %>
+            <%# end %>
               <div class="header d-flex justify-content-between">
               <div><strong><%= user.first_name %></strong> <%= message.created_at %></div>
               <div>
