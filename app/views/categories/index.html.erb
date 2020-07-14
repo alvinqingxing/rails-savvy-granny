@@ -4,21 +4,21 @@
 
 <div class="container">
 
-<h1 class="mt-4">Choose or Search job, be savvy! </h1>
+<h1 class="mt-4" style="font-family: Josefin Sans">Choose or Search job, be savvy! </h1>
 
 <%#search box%>
 
-<div class = "form-inline">
+<%# <div class = "form-inline">
     <%= form_tag categories_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "form-control mb-3 mt-3 ", placeholder: "Searh a job" %>
-        <%= submit_tag "Search", class: "btn btn-primary mb-3 mt-3" %>
-        <% end %>
-</div>
+        <%# <%= text_field_tag :query, params[:query], class: "form-control mb-3 mt-3 ", placeholder: "Searh a job" %>
+        <%# <%= submit_tag "Search", class: "btn btn-primary mb-3 mt-3" %>
+        <%# <% end %>
+<%# </div> %>
 
 
 
   <%# PILLS LINKS TO WRAPPERS START HERE %>
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="font-family: Lato">
     <li class="nav-item">
     <a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">All Jobs</a>
     </li>

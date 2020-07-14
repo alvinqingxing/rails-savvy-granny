@@ -1,0 +1,28 @@
+
+<%# //notification model 
+//boolean for checking whether we have seen the msg or notification
+// message id 
+// booking id 
+// user_id 
+=> new message => new notification to particular user 
+
+user id -> receive the msg 
+msg id -> msg created 
+updated booking  -> notification to user_it != current user
+it need to cre %>
+
+
+<%unless @notifications.pluck(:read).include?(false) %>
+    <%= "Nothing New" %>
+<%else%>
+    <% @notifications.each do |notification| %>
+        <% if notification.read == false %>
+        <p>You have a new messeage from <%= notification.message.sender.first_name%> </p>
+        <%= link_to "Check your message !",   booking_chatroom_path(notification.booking), class: "btn btn-success"  %>
+        <% notification.update(read: true) %>
+        <!-- <p>Your Status of booking No: <%#= notification.booking.id %> was updated to <%#= notification.booking.status %> </p> -->
+        <% end %>
+        
+    <% end %>
+    
+<% end %>

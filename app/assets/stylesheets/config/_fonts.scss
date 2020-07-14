@@ -1,9 +1,14 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Josefin+Slab:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Lato:wght@400;700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Josefin Sans", "Helvetica", "sans-serif";
-$headers-font: "Josefin Slab", "Helvetica", "sans-serif";
+h2, h3, h4, p {
+    font-family: 'Lato';
+}
+
+h1, a {
+    font-family: 'Josefin Sans';
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
