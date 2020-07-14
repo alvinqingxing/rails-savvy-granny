@@ -37,6 +37,7 @@ You just have to click this link <%= videolink %> on this date and time: <%= @ch
        <%# end of videocall link %>
       <br>
     </div>
+
     <% if @over_ten %>
       <%= link_to 'Show Previous', '?m=all' %>
     <% end %>
@@ -44,12 +45,8 @@ You just have to click this link <%= videolink %> on this date and time: <%= @ch
       <% @messages.each do |message| %>
         <% if message.content %>
           <% user = User.find(message.sender_id) %>
-          <div class="item mb-3" id="message-<%= message.id %>">
-            <% if user = current_user %>
-            <div class="content bg-light text-dark p-3 rounded">
-            <% else %>
-            <div class="content bg-dark text-light p-3 rounded">
-            <% end %>
+          <div class="item mb-3">
+              <div class ="content bg-light text-dark p-3 rounded mb-3">
               <div class="header d-flex justify-content-between">
               <div><strong><%= user.first_name %></strong> <%= message.created_at %></div>
               <div>
@@ -62,11 +59,10 @@ You just have to click this link <%= videolink %> on this date and time: <%= @ch
               </div>
               <div class="list">
                 <div class="item" id="message-<%= message.id %>">
-                  <i class="right triangle icon"></i>
-                  <%= message.content %>
+                  <i class="right triangle icon"></i>                 
+                <%= message.content %>
+                </div>  
                 </div>
-              </div>
-            </div>
           </div>
         <% end %>
       <% end %>
