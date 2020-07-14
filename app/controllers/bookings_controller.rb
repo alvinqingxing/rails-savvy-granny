@@ -5,6 +5,17 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).where(status: "pending")
   end
 
+  def new
+    @booking = current_user.bookings.new
+    authorize @booking
+    @job = Job.find(params[:job])
+    if @job.duration == 10
+      @cost = 5
+    else
+      @cost = @job.duration / 3
+    end
+  end
+
   def apply
     @booking.tutor = current_user
     @booking.status = "upcoming"
@@ -12,7 +23,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
-      redirect_to bookings_path
+      redirect_to orders_path
     end
   end
 
@@ -40,7 +51,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to dashboard_path
   end
 
   private

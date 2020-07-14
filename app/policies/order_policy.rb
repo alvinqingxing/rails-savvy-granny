@@ -5,6 +5,10 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    record.user == user
+  end
+
   def create?
     record.user == user
   end

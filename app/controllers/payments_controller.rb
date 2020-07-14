@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   def new
     @order = current_user.orders.where(state: 'pending').find(params[:order_id])
-    authorize @payment
+    authorize @order
   end
 end
