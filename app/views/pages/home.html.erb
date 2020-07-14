@@ -130,6 +130,7 @@ for the tenth time this month. Now what?</div>
 </div>
 
 <%# Sign up form %>
+<% if user_signed_in? == false %>
 <div class="container my-5 d-flex flex-column message">
   <div class="h1 text-center mb-3">Sign up for free today!</div>
 <div class="col-12 col-md-8 col-lg-4 align-self-center">
@@ -148,17 +149,13 @@ for the tenth time this month. Now what?</div>
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Sign up", class: 'btn btn-success btn-block' %>
   </div>
-  
+ 
   <p>Or</p>
-
     <%= link_to "Continue with facebook", omniauth_authorize_path(:user, :facebook), class: 'btn btn-secondary btn-block mb-3' %>
-
-
-
+  <% end %>
 <% end %>
 </div>
 </div>
