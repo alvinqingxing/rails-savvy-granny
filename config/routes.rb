@@ -26,7 +26,5 @@ Rails.application.routes.draw do
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   get "dashboard", to: "pages#dashboard", as: :dashboard
   get '/user' => "pages#dashboard", :as => :user_root
-  get "/bookings/new" => "bookings#new", :as => :bookings_new
-
-
+  get "/bookings/new" => "orderss#new", :as => :bookings_new
 end

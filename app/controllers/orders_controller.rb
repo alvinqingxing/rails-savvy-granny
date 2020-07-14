@@ -1,4 +1,15 @@
 class OrdersController < ApplicationController
+  def new
+    @booking = current_user.bookings.new
+    authorize @booking
+    @job = Job.find(params[:job])
+    if @job.duration == 10
+      @cost = 5
+    else
+      @cost = @job.duration / 3
+    end
+  end
+
   def create
     @booking = current_user.bookings.new
     @booking.user = current_user
@@ -6,8 +17,9 @@ class OrdersController < ApplicationController
     @booking.job = Job.find(params[:job_id])
     @booking.price = params[:price].to_i
     @booking.status = 'pending'
+    @booking.chatroom = Chatroom.create
     authorize @booking
-    @booking.save
+    @booking.save ? (redirect_to dashboard_path) : (redirect_to root_path)
     @order = Order.create!(booking: @booking, booking_sku: "My Booking", amount_cents: @booking.price, state: 'pending', user_id: current_user)
     authorize @order
     session = Stripe::Checkout::Session.create(

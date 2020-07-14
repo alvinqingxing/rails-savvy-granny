@@ -5,17 +5,6 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).where(status: "pending")
   end
 
-  def new
-    @booking = current_user.bookings.new
-    authorize @booking
-    @job = Job.find(params[:job])
-    if @job.duration == 10
-      @cost = 5
-    else
-      @cost = @job.duration / 3
-    end
-  end
-
   def apply
     @booking.tutor = current_user
     @booking.status = "upcoming"
@@ -31,17 +20,6 @@ class BookingsController < ApplicationController
     @booking.status = "cancelled"
     @booking.save
     redirect_to dashboard_path
-  end
-
-  def create
-    @booking = Booking.new(booking_params)
-    @booking.user = current_user
-    @booking.job = Job.find(params[:job_id])
-    @booking.price = params[:price].to_i
-    @booking.status = 'pending'
-    @booking.chatroom = Chatroom.create
-    authorize @booking
-    @booking.save ? (redirect_to dashboard_path) : (redirect_to root_path)
   end
 
   def show
