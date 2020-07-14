@@ -12,8 +12,8 @@ class UsersController < ApplicationController
       @reviews = []
       @completed.each do |booking|
         @reviews << booking.review unless booking.review.nil?
+        @cancelled = Booking.where(tutor: @user, status: "cancelled").count
       end
-      @cancelled = Booking.where(tutor: @user, status: "cancelled").count
     else
       @reviews = @user.reviews
       @cancelled = Booking.where(user: @user, status: "cancelled").count

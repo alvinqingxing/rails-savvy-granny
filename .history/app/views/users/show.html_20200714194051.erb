@@ -135,12 +135,12 @@
                     <%= f.input :description, label: 'About Myself', wrapper_html: { class: 'w-100' } %>
                   </div>
                   <div class="form-row">
-                    <%= f.submit "UPDATE MY INFO", class: 'btn btn-primary btn-block mb-2' %>
+                    <%= f.button :submit, "UPDATE MY INFO", class: 'btn btn-primary btn-block mb-2' %>
                   </div>
                   <% end %>
                   <%= simple_form_for current_user, method: :delete do |f| %>
                   <div class="form-row">
-                    <%= f.submit 'delete my account', :onclick => "return confirm('This will permanantly delete your account and bookings.')", class: 'btn p-0 text-danger mb-2' %>  
+                    <%= f.submit 'delete my account', confirm: 'Are you sure you want to delete your account permanently?', class: 'btn p-0 text-danger mb-2' %>  
                   </div>
                   <% end %>
                   </div>
