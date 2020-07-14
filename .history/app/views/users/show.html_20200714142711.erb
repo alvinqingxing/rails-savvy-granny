@@ -46,17 +46,43 @@
                               <i class="fas fa-star text-dark"></i>
                               <% end %>
                             <% end %>
-                            <div class="py-1"></div>
+                            <div class="py-3"></div>
                             <h6>Statistics</h6>
                             <span class="badge badge-primary"><i class="fas fa-check"></i> <%= @completed.count %> Jobs Completed</span>
                           <% end %>
                             <span class="badge badge-success"><i class="fas fa-pen"></i> <%= @user.bookings.count %> Bookings Made</span>
                         </div>
-                        <div class="col-md-12 border-top mt-2">
-                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Recent Reviews</h5>
-                            <% @user.reviews.each do |review| %>
-                              <%= review.content %> | <%= review.rating %> | <%= review.booking.tutor.full_name %><br>
-                            <% end %>
+                        <div class="col-md-12">
+                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
+                            <table class="table table-sm table-hover table-striped">
+                                <tbody>                                    
+                                    <tr>
+                                        <td>
+                                            <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <!--/row-->

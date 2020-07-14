@@ -54,8 +54,8 @@
                         </div>
                         <div class="col-md-12 border-top mt-2">
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Recent Reviews</h5>
-                            <% @user.reviews.each do |review| %>
-                              <%= review.content %> | <%= review.rating %> | <%= review.booking.tutor.full_name %><br>
+                            <% @user.reviews each do |review| %>
+                              <%= review.content %>
                             <% end %>
                         </div>
                     </div>
