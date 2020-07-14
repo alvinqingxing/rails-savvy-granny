@@ -3,17 +3,17 @@
   <div class="container d-flex">
     <div class="col-12 col-md-10 col-lg-8 message">
     <h1>SavvyGranny</h1>
-    <p>Your parents’ personal tech support.</p>
+    <p>Your parents’ personal tech support</p>
 
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropright 
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Get help for... 
         </button>
           <div class="dropdown-menu">
           <% jobnames = @jobs.all.map { |x| x.name } %>
           <% jobids = @jobs.all.map { |x| x.id } %>
             <li>
-              <div class="row" style="width: 70vw">
+              <div class="row" style="width: 60vw">
                 <ul class="list-unstyled col-md-4">
                   <% (0..4).each { |i| %>
                     <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
