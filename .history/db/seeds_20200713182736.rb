@@ -380,11 +380,11 @@ end
   job = Job.all.sample
   booking = Booking.create!(
     user: user_2,
-    job: job,
+    job: job4,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "pending",
-    price: job.price,
+    price: job4.price,
     language: "Chinese"
   )
 
@@ -399,11 +399,11 @@ end
   job = Job.all.sample
   booking = Booking.create!(
     user: user_3,
-    job: job,
+    job: job4,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "pending",
-    price: job.price,
+    price: job4.price,
     language: "Malay"
   )
 
@@ -418,11 +418,11 @@ end
   job = Job.all.sample
   booking = Booking.create!(
     user: user_4,
-    job: job,
+    job: job4,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
     start_date: Faker::Date.backward(days: 100),
     status: "pending",
-    price: job.price,
+    price: job4.price,
     language: "Tamil"
   )
 
@@ -463,7 +463,7 @@ end
   puts "Making a completed booking..."
   job2 = Job.all.sample
   booking2 = Booking.create!(
-    user: user_2,
+    user: user2,
     tutor: tutor_1,   
     job: job2,
     start_time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now),
