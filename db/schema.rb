@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_07_14_053225) do
-=======
-ActiveRecord::Schema.define(version: 2020_07_14_045634) do
->>>>>>> 19bb9938eef88f274b5029a14e8a84df43eabd0e
+ActiveRecord::Schema.define(version: 2020_07_14_065141) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_07_14_045634) do
     t.bigint "message_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "read"
     t.index ["booking_id"], name: "index_notifications_on_booking_id"
     t.index ["message_id"], name: "index_notifications_on_message_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"

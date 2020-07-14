@@ -25,7 +25,7 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-import {} from 'jquery-ujs'
+// import {} from 'jquery-ujs'
 import { initSelect2 } from '../components/init_select2';
 import { copy } from '../components/init_videocall';
 import { initStarRating } from '../plugins/init_star_rating';
