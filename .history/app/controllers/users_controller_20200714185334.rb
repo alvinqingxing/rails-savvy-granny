@@ -27,10 +27,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = current_user
+    @user = User.find(params[:id])
     authorize @user
     @user.destroy
-    redirect_to root_path
+    redirect_to users_path, notice: 'User deleted.'
   end
 
   private

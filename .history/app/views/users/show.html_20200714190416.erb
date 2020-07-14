@@ -120,10 +120,10 @@
                     <!--/row-->
                 </div>
                 <div class="tab-pane" id="edit">
-                  <div class="p-1">
+                  <div class="pb-3 px-3">
+                  <h5 class="mb-3 p-0">Edit Profile</h5>
                   <%= simple_form_for @user do |f| %>
                   <div class="form-row">
-                    <div class="h5 w-100">Edit My Information</div>
                     <%= f.input :first_name, label: 'First Name', wrapper_html: { class: 'flex-fill' } %>
                     <div class="px-2"></div>
                     <%= f.input :last_name, label: 'Last Name', wrapper_html: { class: 'flex-fill' } %>

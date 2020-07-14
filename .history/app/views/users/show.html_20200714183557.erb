@@ -29,7 +29,7 @@
                 </li>
                 <% if current_user == @user %>
                 <li class="nav-item">
-                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link border-0 py-0">Edit Info</a>
+                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link border-0 py-0">Edit My Info</a>
                 </li>
                 <% end %>
             </ul>
@@ -38,7 +38,7 @@
                     <h5 class="mb-3"><%= "#{@user.first_name} #{@user.last_name}" %></h5>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>About Myself</h6>
+                            <h6>About Me</h6>
                             <p>
                                 <%= @user.description %>
                             </p>
@@ -120,27 +120,7 @@
                     <!--/row-->
                 </div>
                 <div class="tab-pane" id="edit">
-                  <div class="p-1">
-                  <%= simple_form_for @user do |f| %>
-                  <div class="form-row">
-                    <div class="h5 w-100">Edit My Information</div>
-                    <%= f.input :first_name, label: 'First Name', wrapper_html: { class: 'flex-fill' } %>
-                    <div class="px-2"></div>
-                    <%= f.input :last_name, label: 'Last Name', wrapper_html: { class: 'flex-fill' } %>
-                  </div>
-                  <div class="form-row">
-                    <%= f.input :description, label: 'About Myself', wrapper_html: { class: 'w-100' } %>
-                  </div>
-                  <div class="form-row">
-                    <%= f.button :submit, "UPDATE MY INFO", class: 'btn btn-primary btn-block mb-2' %>
-                    <%= link_to "Cancel my account",
-                        current_user,
-                        data: { confirm: "Really delete your account?" },
-                        class: 'p-0',
-                        method: :delete %>
-                  </div>
-                  <% end %>
-                  </div>
+                  
                 </div>
             </div>
         </div>

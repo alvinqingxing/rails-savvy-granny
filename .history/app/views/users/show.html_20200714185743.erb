@@ -120,10 +120,8 @@
                     <!--/row-->
                 </div>
                 <div class="tab-pane" id="edit">
-                  <div class="p-1">
                   <%= simple_form_for @user do |f| %>
                   <div class="form-row">
-                    <div class="h5 w-100">Edit My Information</div>
                     <%= f.input :first_name, label: 'First Name', wrapper_html: { class: 'flex-fill' } %>
                     <div class="px-2"></div>
                     <%= f.input :last_name, label: 'Last Name', wrapper_html: { class: 'flex-fill' } %>
@@ -134,13 +132,12 @@
                   <div class="form-row">
                     <%= f.button :submit, "UPDATE MY INFO", class: 'btn btn-primary btn-block mb-2' %>
                     <%= link_to "Cancel my account",
-                        current_user,
+                        user_path(current_user),
                         data: { confirm: "Really delete your account?" },
-                        class: 'p-0',
+                        class: 'p-0 text-danger',
                         method: :delete %>
                   </div>
                   <% end %>
-                  </div>
                 </div>
             </div>
         </div>
