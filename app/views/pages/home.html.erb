@@ -4,15 +4,40 @@
     <div class="col-12 col-md-10 col-lg-8 message">
     <h1>SavvyGranny</h1>
     <p>Your parents’ personal tech support.</p>
-    <%= form_tag("/bookings/new", method: "get", class: "dropdown") do %>
-      <%= select_tag "job", options_from_collection_for_select(@jobs, 'id', 'name'),
-      prompt: 'Choose a task!',
-      class: 'select2 flex-fill' %>
-      <%= submit_tag("GO", name: nil, class: 'btn btn-primary') %>
-    <% end %>
+
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropright 
+        </button>
+          <div class="dropdown-menu">
+          <% jobnames = @jobs.all.map { |x| x.name } %>
+          <% jobids = @jobs.all.map { |x| x.id } %>
+            <li>
+              <div class="row" style="width: 70vw">
+                <ul class="list-unstyled col-md-4">
+                  <% (0..4).each { |i| %>
+                    <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
+                  <% } %>
+                </ul>
+                <ul class="list-unstyled col-md-4">
+                  <% (5..9).each { |i| %>
+                    <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
+                  <% } %>
+                </ul>
+                <ul class="list-unstyled col-md-4">
+                  <% (10..14).each { |i| %>
+                    <li><a href="bookings/new?job=<%=jobids[i]%>"><%= jobnames[i] %></a></li>
+                  <% } %>
+                </ul>
+              </div>
+          </li>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
 
 <%# Content %>
 <div class="container mt-5">
