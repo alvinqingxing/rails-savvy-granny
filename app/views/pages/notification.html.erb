@@ -1,4 +1,3 @@
-<p>test test </p>
 
 <%# //notification model 
 //boolean for checking whether we have seen the msg or notification
@@ -11,3 +10,11 @@ user id -> receive the msg
 msg id -> msg created 
 updated booking  -> notification to user_it != current user
 it need to cre %>
+
+<%if @notifications.nil? %>
+    <%= "Nothing New" %>
+<%else%>
+    <% @notifications.each do |notification| %>
+    <%= notification.booking.status %>
+    <% end %>
+<% end %>
