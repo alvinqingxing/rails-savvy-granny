@@ -28,7 +28,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    authorize @user
     @user.destroy
     flash[:success] = "Account deleted."
     redirect_to root_path

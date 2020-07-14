@@ -19,15 +19,15 @@ class Booking < ApplicationRecord
   def changer
     tutor = self.tutor
     user = self.user
-    if user == tutor
-      user
-    else
-      tutor
-    end
+      if user == tutor
+        user
+      else
+        tutor
+      end
   end
 
   def create_notification_booking
-    new_noti_booking = Notification.new(message: nil, user: self.changer, booking: self, read: false)
-    new_noti_booking.save
+     new_noti_booking = Notification.new(message: nil, user: self.changer, booking: self, read: false)
+     new_noti_booking.save
   end
 end

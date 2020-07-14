@@ -71,9 +71,6 @@
                             <% else %>
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Reviews Given</h5>
                             <% end %>
-                            <% if @reviews.empty? %>
-                            No reviews yet!
-                            <% end %>
                             <% @reviews.each do |review| %>
                             <div class="row review-item py-3">
                             <% if @user.tutor? %>

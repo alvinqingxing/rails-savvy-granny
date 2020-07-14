@@ -19,11 +19,11 @@ class Booking < ApplicationRecord
   def changer
     tutor = self.tutor
     user = self.user
-    if user == tutor
-      user
-    else
-      tutor
-    end
+      if user == tutor
+        user
+      else
+        tutor
+      end
   end
 
   def create_notification_booking

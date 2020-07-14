@@ -71,9 +71,6 @@
                             <% else %>
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Reviews Given</h5>
                             <% end %>
-                            <% if @reviews.empty? %>
-                            No reviews yet!
-                            <% end %>
                             <% @reviews.each do |review| %>
                             <div class="row review-item py-3">
                             <% if @user.tutor? %>
@@ -140,7 +137,7 @@
                   <% end %>
                   <%= simple_form_for current_user, method: :delete do |f| %>
                   <div class="form-row">
-                    <%= f.submit 'delete my account', data: { confirm: 'This will delete all your information and bookings.' }, class: 'btn p-0 text-danger mb-2' %>  
+                    <%= f.submit 'Delete My Account', data: { confirm: 'This will delete all your information and bookings.' }, class: 'text-danger mb-2' %>  
                   </div>
                   <% end %>
                   </div>

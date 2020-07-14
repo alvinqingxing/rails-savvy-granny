@@ -37,7 +37,7 @@
                 <div class="tab-pane active" id="profile">
                     <h5 class="mb-3"><%= "#{@user.first_name} #{@user.last_name}" %></h5>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-3">
                             <h6>About Myself</h6>
                             <p>
                                 <%= @user.description %>
@@ -70,9 +70,6 @@
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Reviews Received</h5>
                             <% else %>
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Reviews Given</h5>
-                            <% end %>
-                            <% if @reviews.empty? %>
-                            No reviews yet!
                             <% end %>
                             <% @reviews.each do |review| %>
                             <div class="row review-item py-3">
@@ -114,7 +111,7 @@
                                 <div class="ratebox text-center" data-id="0" data-rating="5"></div>
                                 <p class="review-text"><%= review.content %></p>
 
-                                <small class="review-date" style="color: grey;">Reviewed <%= review.created_at.strftime("%d %b %Y") %></small>
+                                <small class="review-date">Reviewed <%= review.created_at.strftime("%d %b %Y") %></small>
                               </div>                          
                             </div>
                             <% end %> 
@@ -136,11 +133,11 @@
                   </div>
                   <div class="form-row">
                     <%= f.button :submit, "UPDATE MY INFO", class: 'btn btn-primary btn-block mb-2' %>
-                  </div>
-                  <% end %>
-                  <%= simple_form_for current_user, method: :delete do |f| %>
-                  <div class="form-row">
-                    <%= f.submit 'delete my account', data: { confirm: 'This will delete all your information and bookings.' }, class: 'btn p-0 text-danger mb-2' %>  
+                    <%= link_to "Cancel my account",
+                        current_user,
+                        data: { confirm: "Really delete your account?" },
+                        class: 'p-0',
+                        method: :delete %>
                   </div>
                   <% end %>
                   </div>

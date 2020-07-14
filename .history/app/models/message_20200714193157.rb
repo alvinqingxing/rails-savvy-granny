@@ -1,7 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :chatroom
   belongs_to :sender, class_name: "User"
-  has_one :notification, dependent: :destroy
   after_create :create_notification_message
 
   def receiver
