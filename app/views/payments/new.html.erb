@@ -1,9 +1,39 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.booking.sku %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
+<div class="container mb-3">
+  <h1 class="text-center">Book a Tutor</h1>
+  <div class="d-flex flex-wrap align-items-center">
+    <%# The job card goes here %>
+    <div class="pricing col-lg-4 offset-lg-2">
+        <div class="card mb-lg-0">
+        <div class="view overlay">
+        <%= cl_image_tag @job.photo.key, crop: :fill, class: 'card-img-top' %>
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-uppercase text-center"><%= @job.name %></h5>
+            <h6 class="card-price text-center"><%= @job.duration.round %> mins</h6>
+            <hr>
+            <ul class="fa-ul">
+            <% des = JSON.parse @job.description %>
+            <% des.each do |thing| %>
+                <% if thing[0] %>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><%= thing[1] %></li>
+                <% else %>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span><%= thing[1] %></li>
+                <% end %>
+            <% end %>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="col-lg-4 h-100 mt-3 mb-5">
+      <div class="d-flex justify-content-between mb-3">
+      <h4>Arrange to meet a tutor at <br><strong><span class="text-primary"><%= @order.booking.start_time.strftime("%-l:%M %p") %>,  
+      <%= @order.booking.start_date.strftime("%d %B %Y") %></strong></span>?</h4>
+      </div>
+      <%= link_to 'Change Details', :back, class: 'btn btn-secondary btn-block' %>
+      <%= link_to "Pay $#{ @job.price.round }", '#', class: 'btn btn-primary btn-block', id: 'pay' %>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');

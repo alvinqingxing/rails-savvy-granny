@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-
   def notification
     if current_user
       @notifications = current_user.notifications
@@ -32,8 +31,5 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
-
-
-  
 
 end

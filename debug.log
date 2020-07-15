@@ -950,6 +950,7 @@
 [0714/184454.220:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0714/184454.224:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0714/184454.229:ERROR:crash_report_database_win.cc(469)] failed to stat report
+<<<<<<< HEAD
 [0715/123747.808:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0715/123747.834:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0715/123747.835:ERROR:crash_report_database_win.cc(469)] failed to stat report
@@ -1174,3 +1175,5 @@
 [0715/154353.263:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0715/154353.263:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0715/154353.264:ERROR:crash_report_database_win.cc(469)] failed to stat report
+=======
+>>>>>>> a955ef1f586203f2c01af301a10a02f3f9a710f5
