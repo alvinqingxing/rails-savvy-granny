@@ -29,6 +29,42 @@
     </div>
     <div class="col-12 col-md-8 offset-md-2">
       <h2>Rate this booking!</h2>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mb-3">
+  <h1 class="text-center" style="font-family: 'Josefin Sans'">Review Your Experience</h1><br>
+  <div class="d-flex flex-wrap align-items-center">
+    <%# The job card goes here %>
+    <div class="pricing col-lg-4 offset-lg-2 mb-4">
+        <div class="card mb-lg-0">
+        <div class="view overlay">
+        <%= cl_image_tag @booking.job.photo.key, crop: :fill, class: 'card-img-top' %>
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-uppercase text-center"><%= @booking.job.name %></h5>
+            <h6 class="card-price text-center"><%= @booking.job.duration.round %> mins</h6>
+            <hr>
+            <ul class="fa-ul">
+            <% des = JSON.parse @booking.job.description %>
+            <% des.each do |thing| %>
+                <% if thing[0] %>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><%= thing[1] %></li>
+                <% else %>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span><%= thing[1] %></li>
+                <% end %>
+            <% end %>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="col-lg-5 h-100 mb-5 align-self-start">
+    <h4 style="font-family: Josefin Sans">How would you rate this tutor?</h4>
       <%= simple_form_for @review do |f| %>
         <div class="form-group">
           <%= f.input :rating, collection: (1..5).to_a, label: false %>
@@ -42,3 +78,5 @@
     </div>
   </div>
 </div>
+</div>
+<br>
