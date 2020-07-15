@@ -15,12 +15,10 @@ class PagesController < ApplicationController
       @pending = Booking.where(user: current_user, status: "pending")
       @upcoming = Booking.where(user: current_user, status: "upcoming")
       @completed = Booking.where(user: current_user, status: "completed")
-    end   
+    end
   end
 
   def notification
     @notifications = current_user.notifications
   end
-
-
 end

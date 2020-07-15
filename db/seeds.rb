@@ -113,25 +113,25 @@ cat1 = Category.create!(
 
 job1 = Job.create!(
   name: 'Utility Bills',
-  description: [[true, 'Water / Electric / Gas bills'], [true, 'Internet / Phone bils'], [true, 'GIRO walkthroughs']],
+  description: [[true, 'Water / Electric / Gas'], [true, 'Internet / Phone bils'], [true, 'GIRO walkthroughs']],
   duration: [10,30,60].sample,
   category: cat1
 )
 job2 = Job.create!(
   name: 'Insurance Premiums',
-  description: [[true, 'Life / Health / Medical insurance'], [true, 'GIRO walkthroughs'], [false, 'Insurer information not required']],
+  description: [[true, 'Life / Health / Medical'], [true, 'GIRO walkthroughs'], [false, 'Insurer information not needed']],
   duration: [10,30,60].sample,
   category: cat1 
 )
 job3 = Job.create!(
-  name: 'Fines',
-  description: [[true, 'Parking & LTA fines'], [true, 'HDB/URA/NEA & AXS walkthroughs']],
+  name: 'Fines and Fares',
+  description: [[true, 'Parking & LTA fines'], [true, 'HDB/URA/NEA payments'], [true, 'AXS walkthroughs']],
   duration: [10,30,60].sample,
   category: cat1 
 )
 job4 = Job.create!(
   name: 'Cash Transfers',
-  description: [[true, 'Paynow / Paylah / PayAnyone'], [true, 'Includes account setup']],
+  description: [[true, 'Paynow / Paylah / PayAnyone'], [true, 'Includes account setup'], [true, 'Online banking app help']],
   duration: [10,30,60].sample,
   category: cat1 
 )
@@ -151,13 +151,13 @@ cat2 = Category.create!(
 
 job5 = Job.create!(
   name: 'New Accounts or Signups',
-  description: [[true, 'Login page walkthroughs'], [true, 'Creating secure passwords']],
+  description: [[true, 'Login page walkthroughs'], [true, 'Creating secure passwords'], [false, 'Not for banking / finance']],
   duration: [10,30,60].sample,
   category: cat2
 )
 job6 = Job.create!(
   name: 'Forgotten Information or Passwords',
-  description: [[true, 'For already existing accounts'], [true, 'Resetting passwords or updating info']],
+  description: [[true, 'For pre-existing accounts'], [true, 'Updating passwords / info'], [false, 'Using password managers']],
   duration: [10,30,60].sample,
   category: cat2 
 )
@@ -179,19 +179,19 @@ job7 = Job.create!(
 )
 job8 = Job.create!(
   name: 'CPF / Tax Q&A',
-  description: [[true, 'CPF / IRAS website walkthroughs'], [true, 'Viewing CPF / Tax accounts']],
+  description: [[true, 'CPF / IRAS website walkthroughs'], [true, 'Viewing CPF / Tax accounts'], [false, 'Not for financial advice']],
   duration: [10,30,60].sample,
   category: cat3
 )
 job9 = Job.create!(
   name: 'Welfare & Subsidy Support',
-  description: [[true, 'Understanding grant eligibility (e.g. CHAS)'], [true, 'Online applications for ocial support']],
+  description: [[true, 'Understanding grant eligibility'], [true, 'Online applications for support'], [false, 'Finding updated info']],
   duration: [10,30,60].sample,
   category: cat3
 )
 job10 = Job.create!(
   name: 'One Motoring',
-  description: [[true, 'Website walkthroughs and Q&A'], [true, 'PARF value, road taxes, estate parking']],
+  description: [[true, 'Website walkthroughs and Q&A'], [true, 'PARF value, road taxes'], [true, 'Estate parking applications']],
   duration: [10,30,60].sample,
   category: cat3
 )
@@ -211,19 +211,19 @@ cat4 = Category.create!(
 
 job11 = Job.create!(
   name: 'Zoom / Video Calls',
-  description: [[true, 'How to use Zoom / Skype, etc.'], [true, 'Accounts and personal info']],
+  description: [[true, 'How to use Zoom / Skype, etc.'], [true, 'Accounts and personal info'], [true, 'Video and audio setup']],
   duration: [10,30,60].sample,
   category: cat4
 )
 job12 = Job.create!(
   name: 'Messaging Apps',
-  description: [[true, 'WhatsApp Web, FB Messenger, etc.'], [true, 'Customising keyboards, sending photos, emojis']],
+  description: [[true, 'WhatsApp Web, FB Messenger, etc.'], [true, 'Attaching photos, using emojis'], [true, 'Creating chat groups']],
   duration: [10,30,60].sample,
   category: cat4
 )
 job13 = Job.create!(
   name: 'Sending / Replying emails',
-  description: [[true, 'Creating new accounts, navigating Gmail'], [true, 'Attaching files and images']],
+  description: [[true, 'Creating new accounts'], [true, 'Attaching files and images'], [true, 'Tagging and searching email']],
   duration: [10,30,60].sample,
   category: cat4
 )
