@@ -1,8 +1,8 @@
 <div class="container mb-3">
-  <h1 class="text-center" style="font-family: 'Josefin Sans'">Almost there!</h1>
-  <div class="d-flex flex-wrap align-self-start">
+  <h1 class="text-center mb-3" style="font-family: 'Josefin Sans'">Almost there!</h1>
+  <div class="d-flex flex-wrap align-items-center">
     <%# The job card goes here %>
-    <div class="pricing col-lg-4 offset-lg-2 my-3">
+    <div class="pricing col-lg-4 offset-lg-2 mb-4">
         <div class="card mb-lg-0">
         <div class="view overlay">
         <%= cl_image_tag @job.photo.key, crop: :fill, class: 'card-img-top' %>
@@ -27,16 +27,23 @@
         </div>
         </div>
     </div>
-    <div class="col-lg-4 h-100 mt-3 mb-5">
-      <div class="d-flex justify-content-between mb-3">
-      <h5>Your parent will meet the tutor at: <br><br><strong><span class="text-primary"><%= @order.booking.start_time.strftime("%-l:%M %p") %>,  
-      <%= @order.booking.start_date.strftime("%d %B %Y") %></strong></span> ?</h5>
+    <div class="col-lg-5 h-100 mb-5 align-self-start">
+      <div class="d-flex flex-column justify-content-between">
+      <h5>Your parent will meet the tutor at:</h5>
+      <div>
+      <strong><span class="text-primary h5"><%= @order.booking.start_time.strftime("%-l:%M %p") %>,  
+      <%= @order.booking.start_date.strftime("%d %B %Y") %></strong></span>
+      <%= link_to '(edit)', :back, class: 'text-dark mb-3' %>
+      </div>
       </div>
        <br>
       <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/LayingDoodle.png" width="200" style="display: block;
     margin: 1rem auto;">
-      <%= link_to 'Change Details', :back, class: 'btn btn-light btn-block' %>
-      <%= link_to "Pay $#{ @job.price.round }", '#', class: 'btn btn-primary btn-block btn-lg', id: 'pay' %>
+      <div>
+      <%= link_to '#', class: 'btn btn-primary btn-block', id: 'pay' do %>
+       Pay $<%= @job.price.round %> <i class="fas fa-arrow-right"></i>
+      <% end %>
+      </div>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
