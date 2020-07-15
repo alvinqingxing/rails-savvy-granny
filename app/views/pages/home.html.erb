@@ -45,9 +45,7 @@
 <div class="p text-center mb-5 message">Let's say your mom / dad needs help with a tech related task...<br>
 for the 10th time this month. Now what?</div>
 
-<div class="h1 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >How it works</div>
-<br>
-<br>
+<div class="h1 mb-5 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >How it works</div>
 
 <div class="container d-flex p-0 flex-wrap">
   <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
@@ -87,49 +85,82 @@ for the 10th time this month. Now what?</div>
 </div>
 </div>
 
-<br>
-<div class="container">
+<div class="container mb-5">
   <div class="row">
     <div class="col text-center">
-    <a href="categories" class="btn btn-lg btn-primary justify-center"  style="font-size: 20px;">Let's get savvy!</a><br>
-      </div>
+    <%= link_to "Check out the tasks!", categories_path, class: 'btn btn-lg btn-primary justify-center' %>
+    </div>
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-
-
-
 
 <%# Sign up form %>
 <% if user_signed_in? == false %>
-<div class="container my-5 d-flex flex-column message">
-  <div class="h1 text-center mb-3">Sign up for free today!</div>
-<div class="col-12 col-md-8 col-lg-4 align-self-center">
-<%= simple_form_for new_user_registration_path(@new_user) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: 'btn btn-success btn-block' %>
-  </div>
- 
-  <p>Or</p>
-    <%= link_to "Continue with facebook", omniauth_authorize_path(:user, :facebook), class: 'btn btn-secondary btn-block mb-3' %>
+<%# this is the signup modal form %>
+<div class="modal fade" id="sign-up-form" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title fix-font">Make your free account!</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <%= simple_form_for new_user_registration_path(@new_user) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-row justify-content-between">
+      <%= f.input :first_name, label: false, placeholder: 'First name', wrapper_html: { class: 'flex-fill' } %>
+      <div class="sign-spacer mx-1"></div>
+      <%= f.input :last_name, label: false, placeholder: 'Last name', wrapper_html: { class: 'flex-fill' }  %>
+    </div>
+    <div class="form-row">
+      <%= f.input :email,
+                  label: false, placeholder: 'Email',
+                  required: true,
+                  input_html: { autocomplete: "email" }, 
+                  wrapper_html: { class: 'flex-fill' } %>
+    </div>
+    <div class="form-row justify-content-between">
+      <%= f.input :password,
+                  label: false, placeholder: 'Password',
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" }, 
+                  wrapper_html: { class: 'flex-fill' } %>
+      <div class="sign-spacer mx-1"></div>
+      <%= f.input :password_confirmation,
+                  label: false, placeholder: 'Repeat password',
+                  required: true,
+                  input_html: { autocomplete: "new-password" }, 
+                  wrapper_html: { class: 'flex-fill' } %>
+    </div>
+    <div class="form-row justify-content-between">
+    <%= f.collection_radio_buttons :tutor, [[false, 'I want to find a tutor'], [true, 'I want to be a tutor']],
+        :first, :last, required: true, checked: [false, 'I want to find a tutor'] %>
+    </div>
+    <div class="form-row">
+      <%= f.button :submit, "Sign up now", class: 'btn btn-primary media-body mb-3' %>
+    </div>
+    <div class="form-row">
+      <%= link_to "Continue with facebook", omniauth_authorize_path(:user, :facebook), class: 'btn btn-secondary media-body' %>
+    </div>
   <% end %>
+</div>
+</div>
+</div>
+</div>
+<%# end of modal form %>
+
+<div class="w-100 mb-5 bg-primary d-flex align-items-center " style="height: 15em;">
+  <div class="container d-flex flex-wrap">
+    <div class="col-12 col-sm-6 justify-content-end">
+      <div class="h4 fix-font text-light text-right">First time visiting?</div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <%= link_to "Sign up for free", "#", class: 'fix-font h4 text-secondary', data: { toggle: 'modal', target: '#sign-up-form' } %>
+    </div>
+  </div>
+</div>
 <% end %>
-</div>
-</div>
