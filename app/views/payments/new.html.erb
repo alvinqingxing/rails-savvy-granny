@@ -29,10 +29,10 @@
     </div>
     <div class="col-lg-5 h-100 mb-5 align-self-start">
       <div class="d-flex flex-column justify-content-between">
-      <h5>Your parent will meet the tutor at:</h5>
+      <h5>We'll find a tutor for your parent at</h5>
       <div>
       <strong><span class="text-primary h5"><%= @order.booking.start_time.strftime("%-l:%M %p") %>,  
-      <%= @order.booking.start_date.strftime("%d %B %Y") %></strong></span>
+      <%= @order.booking.start_date.strftime("%d %B %Y") %></strong></span><span class="h5">.</span>
       <%= link_to '(edit)', :back, class: 'text-dark mb-3' %>
       </div>
       </div>
