@@ -13,6 +13,9 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
 
+  def notification
+    @notifications = current_user.notifications
+  end
  
 
   
@@ -27,9 +30,6 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
-  def notification
-    @notifications = current_user.notifications
-  end
 
   
 
