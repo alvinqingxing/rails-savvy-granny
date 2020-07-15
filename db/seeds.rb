@@ -229,7 +229,7 @@ job13 = Job.create!(
 )
 job14 = Job.create!(
   name: 'Microsoft Office',
-  description: [[true, 'Word, Excel, Powerpoint'], [true, 'File saving or converting to PDF']],
+  description: [[true, 'Word / Excel / Powerpoint'], [true, 'Using MS OneDrive'], [true, 'Converting to PDF']],
   duration: [10,30,60].sample,
   category: cat4
 )
@@ -255,7 +255,7 @@ job15 = Job.create!(
 )
 job16 = Job.create!(
   name: 'Transport / Grab',
-  description: [[true, 'Using Grab / Gojek / Comfort']],
+  description: [[true, 'Grab / Gojek / Comfort'], [true, 'Setting up payment'], [true, 'Different types of bookings']],
   duration: [10,30,60].sample,
   category: cat5
 )
