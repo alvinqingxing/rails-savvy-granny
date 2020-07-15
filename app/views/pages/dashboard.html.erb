@@ -77,7 +77,28 @@
                           <% if current_user.tutor? %>
                             <i class="fas fa-user"></i> <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
                             <% else %>
-                            <i class="fas fa-chalkboard-teacher"></i> <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}", booking.tutor %><br>
+                            <i class="fas fa-chalkboard-teacher"></i> <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}",
+                            booking.tutor, data: {toggle: "modal", target: "#pending-modal"} %><br>
+                            <!-- Modal -->
+                            <div class="modal fade" id="pending-modal" tabindex="-1" role="dialog">
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title">Tutor Information</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="h4"><%= booking.tutor.full_name %></div>
+                                    <div><%= booking.tutor.rating %></div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <%= link_to "full profile", booking.tutor %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           <% end %>
                           </p>
                           </div>

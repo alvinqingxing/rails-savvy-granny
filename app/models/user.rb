@@ -11,9 +11,17 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :notifications, dependent: :destroy
 
-
   def full_name
     first_name + " " + last_name
+  end
+
+  def rating
+    completed = Booking.where(tutor: self, status: "completed")
+    rating = []
+    completed.each do |booking|
+      rating << booking.review.rating unless booking.review.nil?
+    end
+    rating.empty? ? true : (return (rating.reduce(:+).to_f / rating.size).round)
   end
 
   def self.find_for_facebook_oauth(auth)

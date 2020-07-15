@@ -46,7 +46,7 @@
                         <div class="col-md-6">
                           <% if @user.tutor %>
                             <h6>Rating</h6>
-                            <% if @rating.nan? %>
+                            <% if @rating %>
                               No ratings yet!
                             <% else %> 
                               <% @rating.round.times do %>
