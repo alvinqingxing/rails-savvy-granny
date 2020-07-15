@@ -14,14 +14,19 @@ it need to cre %>
 
 <%unless @notifications.pluck(:read).include?(false) %>
 
+<div class="container">
+
 
 <div class="card">
   <div class="card-body">
     <%= "Nothing New" %>
   </div>
 </div>
+</div>
 
 <%else%>
+
+<div class ="container">
         <% @notifications.each do |notification| %>
             <% if notification.read == false %>
             <div class="card">
@@ -35,6 +40,7 @@ it need to cre %>
     
             <% end %>          
         <% end %>
+</div>
     
 <% end %>
 
