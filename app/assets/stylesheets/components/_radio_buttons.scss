@@ -1,8 +1,8 @@
-input[type="radio"] {
+.sign-in-tabs input[type="radio"] {
   display:none;
 }
 
-label {
+.sign-in-tabs label {
   border: 1px solid #DDD;
   border-radius:5px;
   display:block;
@@ -14,12 +14,12 @@ label {
   width: 234px;
 }
 
-label:hover {
+.sign-in-tabs label:hover {
   cursor:pointer;
   background-color:#EEE;
 }
 
-input[type="radio"]:checked + label {
+.sign-in-tabs input[type="radio"]:checked + label {
   background-color:#DDD;
   color: #343a40;
 }

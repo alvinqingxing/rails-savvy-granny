@@ -42,7 +42,7 @@
 <%# Content %>
 <div class="container mt-5" style="font-family: 'Lato'">
 <div class="h1 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >It's simple to be savvy!</div>
-<div class="p text-center mb-5 message">Let's say your mom / dad needs help with a tech related task...<br>
+<div class="p text-center mb-5 message">Let's say your mom or dad needs help with a tech related task...<br>
 for the 10th time this month. Now what?</div>
 
 <div class="h1 mb-5 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >How it works</div>
@@ -107,7 +107,7 @@ for the 10th time this month. Now what?</div>
   </button>
 </div>
 <div class="modal-body">
-  <%= simple_form_for new_user_registration_path(@new_user) do |f| %>
+  <%= simple_form_for(@new_user, as: @new_user, url: registration_path(@new_user)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-row justify-content-between">
@@ -136,7 +136,7 @@ for the 10th time this month. Now what?</div>
                   input_html: { autocomplete: "new-password" }, 
                   wrapper_html: { class: 'flex-fill' } %>
     </div>
-    <div class="form-row justify-content-between">
+    <div class="sign-in-tabs form-row justify-content-between">
     <%= f.collection_radio_buttons :tutor, [[false, 'I want to find a tutor'], [true, 'I want to be a tutor']],
         :first, :last, required: true, checked: [false, 'I want to find a tutor'] %>
     </div>
