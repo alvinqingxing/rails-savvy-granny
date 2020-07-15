@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
-      redirect_to bookings_path
+      redirect_to orders_path
     end
   end
 
@@ -31,17 +31,6 @@ class BookingsController < ApplicationController
     @booking.status = "cancelled"
     @booking.save
     redirect_to dashboard_path
-  end
-
-  def create
-    @booking = Booking.new(booking_params)
-    @booking.user = current_user
-    @booking.job = Job.find(params[:job_id])
-    @booking.price = params[:price].to_i
-    @booking.status = 'pending'
-    @booking.chatroom = Chatroom.create
-    authorize @booking
-    @booking.save ? (redirect_to dashboard_path) : (redirect_to root_path)
   end
 
   def show
@@ -62,7 +51,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to dashboard_path
   end
 
   private
