@@ -19,12 +19,8 @@ class BookingsController < ApplicationController
   def apply
     @booking.tutor = current_user
     @booking.status = "upcoming"
-
-    if @booking.save
-      redirect_to dashboard_path
-    else
-      redirect_to orders_path
-    end
+    @booking.save
+    redirect_to dashboard_path
   end
 
   def cancel
