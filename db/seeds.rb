@@ -88,6 +88,22 @@ tutor_3 = User.create(
   description: "It's really rewarding to be help people like my mother and my aunties through this website, and I appreciate every opportunity to do so."
 )
 
+puts "Attaching photos to users and tutors..."
+user1 = URI.open('https://i.imgur.com/bVp2vho.jpg')
+user2 = URI.open('https://i.imgur.com/c7Ozbas.jpg')
+user3 = URI.open('https://i.imgur.com/JRfvddS.jpg')
+user4 = URI.open('https://i.imgur.com/PLIU2Xi.jpg')
+tutor1 = URI.open('https://i.imgur.com/UvkoM90.jpg')
+tutor2 = URI.open('https://i.imgur.com/rImo59V.jpg')
+tutor3 = URI.open('https://i.imgur.com/UMRpmCw.jpg')
+user_1.photo.attach(io: user1, filename: 'user_1.jpg', content_type: 'image/jpg')
+user_2.photo.attach(io: user2, filename: 'user_2.jpg', content_type: 'image/jpg')
+user_3.photo.attach(io: user3, filename: 'user_3.jpg', content_type: 'image/jpg')
+user_4.photo.attach(io: user4, filename: 'user_4.jpg', content_type: 'image/jpg')
+tutor_1.photo.attach(io: tutor1, filename: 'tutor_1.jpg', content_type: 'image/jpg')
+tutor_2.photo.attach(io: tutor2, filename: 'tutor_2.jpg', content_type: 'image/jpg')
+tutor_3.photo.attach(io: tutor3, filename: 'tutor_3.jpg', content_type: 'image/jpg')
+
 puts "Making categories & jobs..."
 
 puts "Making Bill Payments"
@@ -96,26 +112,26 @@ cat1 = Category.create!(
 )
 
 job1 = Job.create!(
-  name: 'Utility Bills',
-  description: [[true, 'Water / Electric / Gas bills'], [true, 'Internet / Phone bils'], [true, 'GIRO walkthroughs']],
+  name: 'Utility and Internet Bills',
+  description: [[true, 'Water / Electric / Gas'], [true, 'Internet / Phone bils'], [true, 'GIRO walkthroughs']],
   duration: [10,30,60].sample,
   category: cat1
 )
 job2 = Job.create!(
   name: 'Insurance Premiums',
-  description: [[true, 'Life / Health / Medical insurance'], [true, 'GIRO walkthroughs'], [false, 'Insurer information not required']],
+  description: [[true, 'Life / Health / Medical'], [true, 'GIRO walkthroughs'], [false, 'Insurer information not needed']],
   duration: [10,30,60].sample,
   category: cat1 
 )
 job3 = Job.create!(
-  name: 'Fines',
-  description: [[true, 'Parking & LTA fines'], [true, 'HDB/URA/NEA & AXS walkthroughs']],
+  name: 'Paying Fines and Fares',
+  description: [[true, 'Parking & LTA fines'], [true, 'HDB/URA/NEA payments'], [true, 'AXS walkthroughs']],
   duration: [10,30,60].sample,
   category: cat1 
 )
 job4 = Job.create!(
-  name: 'Cash Transfers',
-  description: [[true, 'Paynow / Paylah / PayAnyone'], [true, 'Includes account setup']],
+  name: 'Making Cash Transfers',
+  description: [[true, 'Paynow / Paylah / PayAnyone'], [true, 'Includes account setup'], [true, 'Online banking app help']],
   duration: [10,30,60].sample,
   category: cat1 
 )
@@ -135,13 +151,13 @@ cat2 = Category.create!(
 
 job5 = Job.create!(
   name: 'New Accounts or Signups',
-  description: [[true, 'Login page walkthroughs'], [true, 'Creating secure passwords']],
+  description: [[true, 'Login page walkthroughs'], [true, 'Creating secure passwords'], [false, 'Not for banking / finance']],
   duration: [10,30,60].sample,
   category: cat2
 )
 job6 = Job.create!(
-  name: 'Forgotten Information or Passwords',
-  description: [[true, 'For already existing accounts'], [true, 'Resetting passwords or updating info']],
+  name: 'Lost Info or Passwords',
+  description: [[true, 'For pre-existing accounts'], [true, 'Updating passwords / info'], [false, 'Using password managers']],
   duration: [10,30,60].sample,
   category: cat2 
 )
@@ -156,26 +172,26 @@ cat3 = Category.create!(
 )
 
 job7 = Job.create!(
-  name: 'Singpass Issues',
+  name: 'Singpass Related Issues',
   description: [[true, 'Forgot account ID/Password'], [true, 'Accessing Singpass services'], [true, 'Updating personal info']],
   duration: [10,30,60].sample,
   category: cat3
 )
 job8 = Job.create!(
-  name: 'CPF / Tax Q&A',
-  description: [[true, 'CPF / IRAS website walkthroughs'], [true, 'Viewing CPF / Tax accounts']],
+  name: 'CPF / Tax Online Services',
+  description: [[true, 'CPF / IRAS website walkthroughs'], [true, 'Online CPF deposits'], [false, 'Not for financial advice']],
   duration: [10,30,60].sample,
   category: cat3
 )
 job9 = Job.create!(
   name: 'Welfare & Subsidy Support',
-  description: [[true, 'Understanding grant eligibility (e.g. CHAS)'], [true, 'Online applications for ocial support']],
+  description: [[true, 'Understanding grant eligibility'], [true, 'Online applications for support'], [false, 'Finding updated info']],
   duration: [10,30,60].sample,
   category: cat3
 )
 job10 = Job.create!(
-  name: 'One Motoring',
-  description: [[true, 'Website walkthroughs and Q&A'], [true, 'PARF value, road taxes, estate parking']],
+  name: 'One Motoring Concerns',
+  description: [[true, 'Website walkthroughs and Q&A'], [true, 'PARF value, road taxes'], [true, 'Estate parking applications']],
   duration: [10,30,60].sample,
   category: cat3
 )
@@ -195,25 +211,25 @@ cat4 = Category.create!(
 
 job11 = Job.create!(
   name: 'Zoom / Video Calls',
-  description: [[true, 'How to use Zoom / Skype, etc.'], [true, 'Accounts and personal info']],
+  description: [[true, 'How to use Zoom / Skype, etc.'], [true, 'Accounts and personal info'], [true, 'Video and audio setup']],
   duration: [10,30,60].sample,
   category: cat4
 )
 job12 = Job.create!(
-  name: 'Messaging Apps',
-  description: [[true, 'WhatsApp Web, FB Messenger, etc.'], [true, 'Customising keyboards, sending photos, emojis']],
+  name: 'Using Messaging Apps',
+  description: [[true, 'WhatsApp Web, FB Messenger, etc.'], [true, 'Attaching photos, using emojis'], [true, 'Creating chat groups']],
   duration: [10,30,60].sample,
   category: cat4
 )
 job13 = Job.create!(
   name: 'Sending / Replying emails',
-  description: [[true, 'Creating new accounts, navigating Gmail'], [true, 'Attaching files and images']],
+  description: [[true, 'Creating new accounts'], [true, 'Attaching files and images'], [true, 'Tagging and searching email']],
   duration: [10,30,60].sample,
   category: cat4
 )
 job14 = Job.create!(
-  name: 'Microsoft Office',
-  description: [[true, 'Word, Excel, Powerpoint'], [true, 'File saving or converting to PDF']],
+  name: 'Microsoft Office Functions',
+  description: [[true, 'Word / Excel / Powerpoint'], [true, 'Using MS OneDrive'], [true, 'Converting to PDF']],
   duration: [10,30,60].sample,
   category: cat4
 )
@@ -238,8 +254,8 @@ job15 = Job.create!(
   category: cat5
 )
 job16 = Job.create!(
-  name: 'Transport / Grab',
-  description: [[true, 'Using Grab / Gojek / Comfort']],
+  name: 'Using Transport Apps',
+  description: [[true, 'Grab / Gojek / Comfort'], [true, 'Setting up payment'], [true, 'Different types of bookings']],
   duration: [10,30,60].sample,
   category: cat5
 )
