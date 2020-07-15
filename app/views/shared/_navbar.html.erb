@@ -16,10 +16,10 @@
         </li>
 
         <li class="nav-item list-inline">
-          <%= link_to "Notifications",notification_path, class: "nav-link list-inline-item"%>
+          <%= link_to "Notifications",notification_path, class: "nav-link"%>
           <% @notifications_status = @notifications.pluck(:read) %>
             <% if @notifications_status.include?(false) %>
-              <span class="badge badge-pill badge-secondary ml-2 list-inline-item"> 
+              <span class="badge badge-light"> 
               <%= @notifications_status.count(false) %>
               </span>
             <%end%>
