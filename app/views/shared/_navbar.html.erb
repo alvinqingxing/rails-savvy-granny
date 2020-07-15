@@ -15,11 +15,11 @@
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-item">
-          <%= link_to "Notifications",notification_path, class: "nav-link"%>
+        <li class="nav-item list-inline">
+          <%= link_to "Notifications",notification_path, class: "nav-link list-inline-item"%>
           <% @notifications_status = @notifications.pluck(:read) %>
             <% if @notifications_status.include?(false) %>
-              <span class="badge badge-pill badge-secondary ml-2"> 
+              <span class="badge badge-pill badge-secondary ml-2 list-inline-item"> 
               <%= @notifications_status.count(false) %>
               </span>
             <%end%>
