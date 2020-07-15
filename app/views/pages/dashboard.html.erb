@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center mb-5">
   <div class="col-12 col-md-10 col-lg-8">
   <h1 style="font-family: Josefin Sans">My Bookings</h1>
 
@@ -51,9 +51,6 @@
       <% end %>
       </div>
     <% end %>
-  <br>
-  <br>
-  <br>
     <% if current_user.tutor? %>
       <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
     <% else %>
@@ -138,9 +135,7 @@
         </div>
       <% end %>
     <% end %>
-      <br>
-  <br>
-  <br>
+
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
     <% if @completed.length == 0 %>
@@ -236,9 +231,6 @@
         </div>
       <% end %>
     <% end %>
-  <br>
-  <br>
-  <br>
     </div>
   </div>
   </div>
