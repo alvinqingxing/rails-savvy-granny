@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   validates :language, inclusion: %w[Chinese English Malay Tamil]
   after_validation :create_chatroom, on: :update
 
-  after_update :create_notification_booking, if: :status_change?
+  # after_update :create_notification_booking, if: :status_change?
 
   def create_chatroom
     if self.will_save_change_to_status? && self.status == "upcoming"
