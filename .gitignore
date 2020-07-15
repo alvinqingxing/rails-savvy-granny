@@ -41,4 +41,7 @@ yarn-debug.log*
 .DS_Store
 .env*
 
+# Ignore the history folder
+/.history
+
  debug.log

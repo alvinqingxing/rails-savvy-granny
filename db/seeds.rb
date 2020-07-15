@@ -88,6 +88,22 @@ tutor_3 = User.create(
   description: "It's really rewarding to be help people like my mother and my aunties through this website, and I appreciate every opportunity to do so."
 )
 
+puts "Attaching photos to users and tutors..."
+user1 = URI.open('https://i.imgur.com/bVp2vho.jpg')
+user2 = URI.open('https://i.imgur.com/c7Ozbas.jpg')
+user3 = URI.open('https://i.imgur.com/JRfvddS.jpg')
+user4 = URI.open('https://i.imgur.com/PLIU2Xi.jpg')
+tutor1 = URI.open('https://i.imgur.com/UvkoM90.jpg')
+tutor2 = URI.open('https://i.imgur.com/rImo59V.jpg')
+tutor3 = URI.open('https://i.imgur.com/UMRpmCw.jpg')
+user_1.photo.attach(io: user1, filename: 'user_1.jpg', content_type: 'image/jpg')
+user_2.photo.attach(io: user2, filename: 'user_2.jpg', content_type: 'image/jpg')
+user_3.photo.attach(io: user3, filename: 'user_3.jpg', content_type: 'image/jpg')
+user_4.photo.attach(io: user4, filename: 'user_4.jpg', content_type: 'image/jpg')
+tutor_1.photo.attach(io: tutor1, filename: 'tutor_1.jpg', content_type: 'image/jpg')
+tutor_2.photo.attach(io: tutor2, filename: 'tutor_2.jpg', content_type: 'image/jpg')
+tutor_3.photo.attach(io: tutor3, filename: 'tutor_3.jpg', content_type: 'image/jpg')
+
 puts "Making categories & jobs..."
 
 puts "Making Bill Payments"
