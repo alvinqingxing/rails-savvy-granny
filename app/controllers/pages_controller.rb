@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     end   
   end
 
-
+  # you don't need this redudent code as you have the same code in the application controller
   # def notification
   #   if current_user
   #     @notifications = current_user.notifications
