@@ -14,28 +14,30 @@ it need to cre %>
 
 <%unless @notifications.pluck(:read).include?(false) %>
 
-<div class="card">
-  <div class="card-body">
-
-    <%= "Nothing New" %>
-
-  </div>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <%= "Nothing New" %>
+        </div>
+    </div>
 </div>
 
-
 <%else%>
-    <div class="card">
+
+<div class ="container">
         <% @notifications.each do |notification| %>
             <% if notification.read == false %>
-                <div class="card-body">
-                <p>You have a new messeage from <%= notification.message.sender.first_name%> </p>
-                <%= link_to "Check your message !",   booking_chatroom_path(notification.booking), class: "btn btn-success"  %>
-                <% notification.update(read: true) %>
-                </div>
+            <div class="card">
+                    <div class="card-body d-flex align-items-center justify-content-between">                
+                    <p class ="my-0">You have a new messeage from <%= notification.message.sender.first_name%> </p>                     
+                    <%= link_to "Check your message !",booking_chatroom_path(notification.booking), class: "btn btn-success p-2"  %>
+                    </div>
+            </div>   
+            <% notification.update(read: true) %>
             <% end %>          
-    </div>       
         <% end %>
-
+</div>
+    
 <% end %>
 
 
