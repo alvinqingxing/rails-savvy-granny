@@ -91,7 +91,18 @@
                                   </div>
                                   <div class="modal-body">
                                     <div class="h4"><%= booking.tutor.full_name %></div>
-                                    <div><%= booking.tutor.rating %></div>
+                                    <div>
+                                    <% if booking.tutor.rating %> 
+                                      <% booking.tutor.rating.times do %>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <% end %>
+                                      <% (5 - booking.tutor.rating).times do %>
+                                      <i class="fas fa-star text-dark"></i>
+                                      <% end %>
+                                    <% else %>
+                                      No ratings yet!
+                                    <% end %>
+                                    </div>
                                   </div>
                                   <div class="modal-footer">
                                     <%= link_to "full profile", booking.tutor %>

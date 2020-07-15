@@ -21,7 +21,7 @@ class User < ApplicationRecord
     completed.each do |booking|
       rating << booking.review.rating unless booking.review.nil?
     end
-    rating.empty? ? true : (return (rating.reduce(:+).to_f / rating.size).round)
+    rating.empty? ? false : (return (rating.reduce(:+).to_f / rating.size).round)
   end
 
   def self.find_for_facebook_oauth(auth)
