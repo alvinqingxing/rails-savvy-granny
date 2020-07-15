@@ -20,6 +20,7 @@ class PagesController < ApplicationController
 
   def notification
     @notifications = current_user.notifications
+
   end
 
 
