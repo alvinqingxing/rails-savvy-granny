@@ -6,15 +6,16 @@ class OrdersController < ApplicationController
     @booking.job = Job.find(params[:job_id])
     @booking.price = params[:price].to_i
     @booking.status = 'pending'
+    @booking.sku = 'My Lesson'
     @booking.chatroom = Chatroom.create
     authorize @booking
     @booking.save
-    @order = Order.create!(booking: @booking, booking_sku: "My Booking", amount_cents: @booking.price, state: 'pending', user_id: current_user.id)
+    @order = Order.create!(booking: @booking, booking_sku: @booking.sku, amount: @booking.price, state: 'pending', user_id: current_user.id)
     authorize @order
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        name: "My booking",
+        name: @booking.sku,
         amount: @booking.price_cents,
         currency: 'sgd',
         quantity: 1
