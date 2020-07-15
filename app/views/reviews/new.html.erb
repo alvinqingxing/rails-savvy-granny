@@ -1,5 +1,5 @@
 <div class="container mb-3">
-  <h1 class="text-center" style="font-family: 'Josefin Sans'">Review your experience</h1><br>
+  <h1 class="text-center fix-font mb-3">Review your experience</h1>
   <div class="d-flex flex-wrap align-items-center">
     <%# The job card goes here %>
     <div class="pricing col-lg-4 offset-lg-2 mb-4">
@@ -49,7 +49,7 @@
         </div>
         <div class="form-row">
         <%= hidden_field_tag(:booking_id, @booking.id) %>
-        <%= f.button :submit, "SUBMIT REVIEW", class: "btn-primary btn-block" %>
+        <%= f.button :submit, "Thanks for the review!", class: "btn-primary btn-block fix-font" %>
         </div>
       <% end %>
       </div>
