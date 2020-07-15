@@ -112,7 +112,7 @@ cat1 = Category.create!(
 )
 
 job1 = Job.create!(
-  name: 'Utility Bills',
+  name: 'Utility and Internet Bills',
   description: [[true, 'Water / Electric / Gas'], [true, 'Internet / Phone bils'], [true, 'GIRO walkthroughs']],
   duration: [10,30,60].sample,
   category: cat1
@@ -124,13 +124,13 @@ job2 = Job.create!(
   category: cat1 
 )
 job3 = Job.create!(
-  name: 'Fines and Fares',
+  name: 'Paying Fines and Fares',
   description: [[true, 'Parking & LTA fines'], [true, 'HDB/URA/NEA payments'], [true, 'AXS walkthroughs']],
   duration: [10,30,60].sample,
   category: cat1 
 )
 job4 = Job.create!(
-  name: 'Cash Transfers',
+  name: 'Making Cash Transfers',
   description: [[true, 'Paynow / Paylah / PayAnyone'], [true, 'Includes account setup'], [true, 'Online banking app help']],
   duration: [10,30,60].sample,
   category: cat1 
@@ -156,7 +156,7 @@ job5 = Job.create!(
   category: cat2
 )
 job6 = Job.create!(
-  name: 'Forgotten Information or Passwords',
+  name: 'Lost Info or Passwords',
   description: [[true, 'For pre-existing accounts'], [true, 'Updating passwords / info'], [false, 'Using password managers']],
   duration: [10,30,60].sample,
   category: cat2 
@@ -172,14 +172,14 @@ cat3 = Category.create!(
 )
 
 job7 = Job.create!(
-  name: 'Singpass Issues',
+  name: 'Singpass Related Issues',
   description: [[true, 'Forgot account ID/Password'], [true, 'Accessing Singpass services'], [true, 'Updating personal info']],
   duration: [10,30,60].sample,
   category: cat3
 )
 job8 = Job.create!(
-  name: 'CPF / Tax Q&A',
-  description: [[true, 'CPF / IRAS website walkthroughs'], [true, 'Viewing CPF / Tax accounts'], [false, 'Not for financial advice']],
+  name: 'CPF / Tax Online Services',
+  description: [[true, 'CPF / IRAS website walkthroughs'], [true, 'Online CPF deposits'], [false, 'Not for financial advice']],
   duration: [10,30,60].sample,
   category: cat3
 )
@@ -190,7 +190,7 @@ job9 = Job.create!(
   category: cat3
 )
 job10 = Job.create!(
-  name: 'One Motoring',
+  name: 'One Motoring Concerns',
   description: [[true, 'Website walkthroughs and Q&A'], [true, 'PARF value, road taxes'], [true, 'Estate parking applications']],
   duration: [10,30,60].sample,
   category: cat3
@@ -216,7 +216,7 @@ job11 = Job.create!(
   category: cat4
 )
 job12 = Job.create!(
-  name: 'Messaging Apps',
+  name: 'Using Messaging Apps',
   description: [[true, 'WhatsApp Web, FB Messenger, etc.'], [true, 'Attaching photos, using emojis'], [true, 'Creating chat groups']],
   duration: [10,30,60].sample,
   category: cat4
@@ -228,7 +228,7 @@ job13 = Job.create!(
   category: cat4
 )
 job14 = Job.create!(
-  name: 'Microsoft Office',
+  name: 'Microsoft Office Functions',
   description: [[true, 'Word / Excel / Powerpoint'], [true, 'Using MS OneDrive'], [true, 'Converting to PDF']],
   duration: [10,30,60].sample,
   category: cat4
@@ -254,7 +254,7 @@ job15 = Job.create!(
   category: cat5
 )
 job16 = Job.create!(
-  name: 'Transport / Grab',
+  name: 'Using Transport Apps',
   description: [[true, 'Grab / Gojek / Comfort'], [true, 'Setting up payment'], [true, 'Different types of bookings']],
   duration: [10,30,60].sample,
   category: cat5
