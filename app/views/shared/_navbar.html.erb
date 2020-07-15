@@ -16,7 +16,16 @@
         </li>
 
         <li class="nav-item">
-          <%= link_to "Notifications", notification_path, class: "nav-link"%>
+
+          <% @notifications_status = @notifications.pluck(:read) %>
+            <% if @notifications_status.include?(false) %>
+             <span class="badge badge-pill badge-primary" style="float:right;margin-bottom:-10px;">              
+             <%= @notifications_status.count(false) %>
+            </span>
+            <%end%>
+          <%= link_to "Notifications",notification_path, class: "nav-link"%>
+          <span class="sr-only">(current)</span></a></li>
+
         </li>
 
         <% if current_user.tutor? %>
