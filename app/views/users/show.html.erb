@@ -46,15 +46,15 @@
                         <div class="col-md-6">
                           <% if @user.tutor %>
                             <h6>Rating</h6>
-                            <% if @rating.nan? %>
-                              No ratings yet!
-                            <% else %> 
-                              <% @rating.round.times do %>
+                            <% if @rating %> 
+                              <% @rating.times do %>
                               <i class="fas fa-star text-warning"></i>
                               <% end %>
-                              <% (5 - @rating.round).times do %>
+                              <% (5 - @rating).times do %>
                               <i class="fas fa-star text-dark"></i>
                               <% end %>
+                            <% else %>
+                              No ratings yet!
                             <% end %>
                             <div class="py-1"></div>
                             <h6>Statistics</h6>
