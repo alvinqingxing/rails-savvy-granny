@@ -1,8 +1,8 @@
 <div class="container mb-3">
-  <h1 class="text-center">Almost there!</h1>
-  <div class="d-flex flex-wrap align-items-center">
+  <h1 class="text-center" style="font-family: 'Josefin Sans'">Almost there!</h1>
+  <div class="d-flex flex-wrap align-self-start">
     <%# The job card goes here %>
-    <div class="pricing col-lg-4 offset-lg-2">
+    <div class="pricing col-lg-4 offset-lg-2 my-3">
         <div class="card mb-lg-0">
         <div class="view overlay">
         <%= cl_image_tag @job.photo.key, crop: :fill, class: 'card-img-top' %>
@@ -29,13 +29,14 @@
     </div>
     <div class="col-lg-4 h-100 mt-3 mb-5">
       <div class="d-flex justify-content-between mb-3">
-      <h4>Arrange to meet a tutor at <br><strong><span class="text-primary"><%= @order.booking.start_time.strftime("%-l:%M %p") %>,  
-      <%= @order.booking.start_date.strftime("%d %B %Y") %></strong></span>?</h4>
+      <h5>Your parent will meet the tutor at: <br><br><strong><span class="text-primary"><%= @order.booking.start_time.strftime("%-l:%M %p") %>,  
+      <%= @order.booking.start_date.strftime("%d %B %Y") %></strong></span> ?</h5>
       </div>
-      <%= link_to 'Change Details', :back, class: 'btn btn-secondary btn-block' %>
-      <%= link_to "Pay $#{ @job.price.round }", '#', class: 'btn btn-primary btn-block', id: 'pay' %>
-            <%# <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/LayingDoodle.png" width="200"><br> %>
-
+       <br>
+      <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/LayingDoodle.png" width="200" style="display: block;
+    margin: 1rem auto;">
+      <%= link_to 'Change Details', :back, class: 'btn btn-light btn-block' %>
+      <%= link_to "Pay $#{ @job.price.round }", '#', class: 'btn btn-primary btn-block btn-lg', id: 'pay' %>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
