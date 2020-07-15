@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :notification
 
+  
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
@@ -14,7 +15,9 @@ class ApplicationController < ActionController::Base
 
 
   def notification
-    @notifications = current_user.notifications
+    if current_user
+      @notifications = current_user.notifications
+    end
   end
  
 

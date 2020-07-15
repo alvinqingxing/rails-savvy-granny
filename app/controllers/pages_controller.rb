@@ -18,9 +18,12 @@ class PagesController < ApplicationController
     end   
   end
 
-  def notification
-    @notifications = current_user.notifications
-  end
+
+  # def notification
+  #   if current_user
+  #     @notifications = current_user.notifications
+  #   end 
+  # end
 
 
 end
