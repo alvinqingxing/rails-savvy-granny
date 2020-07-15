@@ -1,49 +1,50 @@
-<div class="container mt-5">
+<div class="container mb-3">
   <h1 class="text-center">Book a Tutor</h1>
-  <div class="d-flex flex-wrap">
+  <div class="d-flex flex-wrap align-items-center">
     <%# The job card goes here %>
-    <div class="col-12 col-md-8 offset-md-2">
-      <div class="card shadow-sm mb-3">
-        <div class="d-flex flex-wrap">
-          <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= cl_image_path(@job.photo.key, :crop => :fill)  %>') ; background-size: cover" >
-          </div>
-          <div class="card-body d-flex flex-column justify-content-between">
-            <h5 class="card-title"><%= @job.name %></h5>
-            <div class="d-flex justify-content-between">
-              <div>
-                <p class="card-text">
-                  <i class="fas fa-tasks">&nbsp; &nbsp; </i>
-                  <% des = JSON.parse @job.description %>
-                  <% arr = [] %>
-                  <% des.each { |thing| arr << thing[1] }  %> 
-                  <%= arr.join(', ') %><br>
-                  <i class="far fa-clock">&nbsp; &nbsp; </i> ~<%= @job.duration.round %> mins<br>
-                  <i class="fas fa-money-bill-wave-alt">&nbsp; &nbsp; </i> $<%= @cost.round %>
-                </p>
-              </div>
-            </div>
-          </div>
+    <div class="pricing col-lg-4 offset-lg-2">
+        <div class="card mb-lg-0">
+        <div class="view overlay">
+        <%= cl_image_tag @job.photo.key, crop: :fill, class: 'card-img-top' %>
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
         </div>
-      </div>
+        <div class="card-body">
+            <h5 class="card-title text-uppercase text-center"><%= @job.name %></h5>
+            <h6 class="card-price text-center"><%= @job.duration.round %> mins</h6>
+            <hr>
+            <ul class="fa-ul">
+            <% des = JSON.parse @job.description %>
+            <% des.each do |thing| %>
+                <% if thing[0] %>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><%= thing[1] %></li>
+                <% else %>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span><%= thing[1] %></li>
+                <% end %>
+            <% end %>
+            </ul>
+        </div>
+        </div>
     </div>
-    </div>
-    <br>
-
-<div class="container mt-4">
-    <div class="col-12 col-md-8 offset-md-2">
-    <h1 class="text-center">When's good for your parent?</h1>
-      <%= simple_form_for(@booking, as: :booking, method: :post, url: orders_path) do |f| %>
-      <div class="form-row justify-content-center">
-      <%= f.input :start_date, html5: true, label: false, input_html: { value: Date.today} %>
-      <%= f.input :start_time, html5: true, label: false, input_html: { value: "20:00" } %>
+    <div class="col-lg-4 h-100 mt-3 mb-5">
+    <h4 style="font-family: Josefin Sans">When's good for your parent?</h4>
+    <%= simple_form_for(@booking, as: :booking, method: :post, url: orders_path) do |f| %>
+      <div class="form-row">
+      <%= f.input :start_date, html5: true, label: false, wrapper_html: { class: 'col-6 pl-0' }, input_html: { value: Date.today, class: 'text-center' } %>
+      <%= f.input :start_time, html5: true, label: false, wrapper_html: { class: 'col-6 pr-0' }, input_html: { value: "20:00", class: 'text-center' } %>
       </div>
-      <br>
-    <h1 class="text-center mt-4" style="font-family: Josefin Sans">Preferred language:</h1>
-      <div class="form-row justify-content-center">
-        <%= f.input :language, collection: %w[English Chinese Malay Tamil], include_blank: false, label: false %>
-        <%= hidden_field_tag(:job_id, @job.id) %>
-        <%= hidden_field_tag(:price, @cost) %>
-        <%= f.button :submit, class: "btn-primary" %>
+    <h4 style="font-family: Josefin Sans">Preferred language:</h4>
+      <div class="form-row">
+      <%= f.input :language, collection: %w[English Chinese Malay Tamil], include_blank: false, label: false,
+          wrapper_html: { class: 'col-12 p-0' }, input_html: { class: 'text-center' } %>
+      <%= hidden_field_tag(:job_id, @job.id) %>
+      <%= hidden_field_tag(:price, @cost) %>
+      </div>
+    <h4>Lesson Price: $<%= @job.price.round %></h4>
+      <div class="form-row">
+      <%= f.button :submit, "Confirm Booking", class: "btn-primary btn-block" %>
+      </div>
     <% end %>
     </div>
   </div>
