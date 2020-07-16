@@ -30,6 +30,7 @@ import { initSelect2 } from '../components/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
 import { copy } from '../components/init_videocall';
 import { tablinks } from '../components/tab_links';
+import { dropdown } from '../components/homepage_dropdown';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -37,4 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   copy();
   tablinks();
+  dropdown();
 });

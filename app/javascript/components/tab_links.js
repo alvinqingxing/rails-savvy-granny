@@ -7,7 +7,6 @@ const tablinks = () => {
     tab.classList.add('active');
     pill.classList.remove('fade');
     pill.classList.add('active');
-    console.log(pill)
   } 
 }
 

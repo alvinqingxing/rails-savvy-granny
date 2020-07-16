@@ -5,13 +5,13 @@
     <h1 style="font-family: 'Josefin Sans'">SavvyGranny</h1>
     <p style="font-family: 'Josefin Sans'">Your parents' personal tech support.</p>
 
-      <div class="btn-group dropright">
+      <div id="homepage-dropdown" class="btn-group dropright">
         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" style="font-size: 20px; font-family: Josefin Sans" aria-haspopup="true" aria-expanded="false">
           Get help with...
         </button>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu d-flex flex-wrap px-3" style="width: 240px">
           <% @categories.each do |category| %>
-            <%= link_to category.name, categories_path(active_tab: category.html_name) %>
+            <div><%= link_to category.name, categories_path(active_tab: category.html_name), class: "primary-link" %></div>
           <% end %>
         </div>
       </div>
