@@ -1,10 +1,17 @@
-<div class="navbar navbar-expand-sm navbar-lewagon">
+<div class="navbar navbar-expand-md navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/logo.JPG" %>
     <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler pb-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon">   
+    <% if current_user.photo.attached? %>
+    <% avatar_url = cl_image_path(current_user.photo.key) %>
+    <% else %>
+    <% avatar_url = image_path("user.png") %>
+    <% end %>
+    <%= image_tag avatar_url, class: "avatar mt-0" %>
+  </span>
   </button>
 
 
@@ -16,7 +23,6 @@
         </li>
 
         <li class="nav-item">
-
           <% @notifications_status = @notifications.pluck(:read) %>
             <% if @notifications_status.include?(false) %>
              <span class="badge badge-pill badge-primary" style="float:right;margin-bottom:-10px;">              
@@ -25,7 +31,6 @@
             <%end%>
           <%= link_to "Notifications",notification_path, class: "nav-link"%>
           <span class="sr-only">(current)</span></a></li>
-
         </li>
 
         <% if current_user.tutor? %>
@@ -33,35 +38,50 @@
           <%= link_to "Job Board", bookings_path, class: "nav-link" %>
         </li>
         <% end %>
+        
         <li class="nav-item">
           <%= link_to "Browse Tasks", categories_path(active_tab: 'all'), class: "nav-link" %>
         </li>
+
         <li class="nav-item">
           <%= link_to "My Bookings", dashboard_path, class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
+
+        <li class="nav-item dropdown d-flex pb-1 show-when-big">
         <% if current_user.photo.attached? %>
         <% avatar_url = cl_image_path(current_user.photo.key) %>
         <% else %>
         <% avatar_url = image_path("user.png") %>
         <% end %>
-        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= image_tag avatar_url, class: "show-when-big avatar dropdown-toggle p-0", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
  
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Profile", current_user, class: "dropdown-item" %>
             <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
           </div>
         </li>
+
+        <li class="nav-item show-when-small">
+          <%= link_to "My Profile", current_user, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item show-when-small">
+          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "nav-link" %>
+        </li>
+
       <% else %>
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
+
         <li class="nav-item">
           <%= link_to "Browse Tasks", categories_path, class: "nav-link" %>
         </li>
+
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
+
       <% end %>
     </ul>
   </div>
