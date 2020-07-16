@@ -9,33 +9,17 @@
         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" style="font-size: 20px; font-family: Josefin Sans" aria-haspopup="true" aria-expanded="false">
           Get help with...
         </button>
-          <div class="dropdown-menu">
-          <% jobnames = @jobs.all.map { |x| x.name } %>
-          <% jobids = @jobs.all.map { |x| x.id } %>
-            <li>
-              <div class="row font-weight-bold" style="width: 60vw">
-                <ul class="list-unstyled col-md-4 pl-5">
-                  <% (0..4).each { |i| %>
-                    <li><a href="bookings/new?job=<%=jobids[i]%>" class="homedroplinks "><%= jobnames[i] %></a></li>
-                  <% } %>
-                </ul>
-                <ul class="list-unstyled col-md-4 pl-1">
-                  <% (5..9).each { |i| %>
-                    <li><a href="bookings/new?job=<%=jobids[i]%>" class="homedroplinks"><%= jobnames[i] %></a></li>
-                  <% } %>
-                </ul>
-                <ul class="list-unstyled col-md-4 pl-5">
-                  <% (10..14).each { |i| %>
-                    <li><a href="bookings/new?job=<%=jobids[i]%>" class="homedroplinks"><%= jobnames[i] %></a></li>
-                  <% } %>
-                </ul>
-              </div>
-          </li>
+        <div class="dropdown-menu">
+          <% @categories.each do |category| %>
+            <%= link_to category.name, categories_path(active_tab: category.html_name) %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 
