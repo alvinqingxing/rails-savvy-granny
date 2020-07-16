@@ -1,26 +1,34 @@
 <%# Header %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dnxszleia/image/upload/v1594365259/photo-of-woman-showing-her-cellphone-to-her-grandmother-3768140_xaa4zu.jpg)";>
-  <div class="container d-flex">
-    <div class="col-12 col-md-10 col-lg-8 message">
-    <h1 style="font-family: 'Josefin Sans'">SavvyGranny</h1>
-    <p style="font-family: 'Josefin Sans'">Your parents' personal tech support.</p>
+<%# <div class="banner"> </div> %>
+<%# style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dnxszleia/image/upload/v1594365259/photo-of-woman-showing-her-cellphone-to-her-grandmother-3768140_xaa4zu.jpg)"; %>
 
-      <div id="homepage-dropdown" class="btn-group dropright">
-        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" style="font-size: 20px; font-family: Josefin Sans" aria-haspopup="true" aria-expanded="false">
-          Get help with...
-        </button>
-        <div class="dropdown-menu" style="width: 240px">
-          <% @categories.each do |category| %>
-            <div class="pl-2"><%= link_to category.name, categories_path(active_tab: category.html_name), class: "primary-link" %></div>
-          <% end %>
+<header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="https://github.com/alvinqingxing/rails-savvy-granny/blob/master/app/assets/videos/video.mp4?raw=true" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 align-items-center">
+      <div class="w-100 text-white">
+        <div class="col-12 col-md-10 col-lg-8 message align-items-center text-white">
+          <h1 style="font-family: 'Josefin Sans'">SavvyGranny</h1>
+            <p style="font-family: 'Josefin Sans'">Your parents' personal tech support.</p>
+              <div id="homepage-dropdown" class="btn-group dropright">
+                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" style="font-size: 20px; font-family: Josefin Sans" aria-haspopup="true" aria-expanded="false">
+                Get help with...
+                </button>
+              <div class="dropdown-menu" style="width: 240px">
+                <% @categories.each do |category| %>
+                  <div class="pl-2"><%= link_to category.name, categories_path(active_tab: category.html_name), class: "primary-link" %></div>
+                <% end %>
+             </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
+</header>
 
 
 <%# Content %>
