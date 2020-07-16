@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong</title>
+  <title>SavvyGranny - 500 Error!</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Lato:wght@100&display=swap" rel="stylesheet">
   <style>
   body {
@@ -23,7 +25,7 @@
   p {
     font-family: 'Lato', sans-serif;
     font-size: 1.5em;
-    font-weight: bolder;
+    font-weight: normal;
   }
   a {
     font-family: 'Lato', sans-serif;
@@ -39,9 +41,20 @@
   </style>
 </head>
 <body>
-  <h1>500</h1>
-  <img src="./images/zombie.png" width="500">
-  <h2>We're sorry, but something went wrong</h2>
-  <p><a href="http://www.savvy-granny.com">Back to homepage</a></p>
+  <div class="container mt-5">
+    <h1>500</h1>
+    <h2>Something went <i>really</i> wrong.</h2>
+    <img src="./images/500.png" width="500">
+    <p>We'll get to fixing it as soon as we can!</p>
+    <div class="d-flex justify-content-center">
+      <div class="col-5 col-md-3 col-lg-2 d-flex p-0">
+        <a href="javascript:history.back()" class="btn btn-outline-secondary flex-fill"><i class="fas fa-backward pr-3"></i>Back</a>
+      </div>
+      <div class="px-2"></div>
+      <div class="col-5 col-md-3 col-lg-2 d-flex p-0">
+        <a href="http://www.savvy-granny.com" class="btn btn-outline-secondary flex-fill"><i class="fas fa-home pr-3"></i>Home</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
