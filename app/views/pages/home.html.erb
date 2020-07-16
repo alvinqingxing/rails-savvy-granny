@@ -9,9 +9,9 @@
         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" style="font-size: 20px; font-family: Josefin Sans" aria-haspopup="true" aria-expanded="false">
           Get help with...
         </button>
-        <div class="dropdown-menu d-flex flex-wrap px-3" style="width: 240px">
+        <div class="dropdown-menu" style="width: 240px">
           <% @categories.each do |category| %>
-            <div><%= link_to category.name, categories_path(active_tab: category.html_name), class: "primary-link" %></div>
+            <div class="pl-2"><%= link_to category.name, categories_path(active_tab: category.html_name), class: "primary-link" %></div>
           <% end %>
         </div>
       </div>
@@ -32,7 +32,7 @@ for the 10th time this month. Now what?</div>
 <div class="h1 mb-5 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >How it works</div>
 
 <div class="container d-flex p-0 flex-wrap">
-  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
+  <div class="card col-12 col-md-6 col-lg-4 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/MessyDoodle.png" width="200">
     </div>
@@ -41,7 +41,7 @@ for the 10th time this month. Now what?</div>
     </div>
   </div>
 
-  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
+  <div class="card col-12 col-md-6 col-lg-4 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/SelfieDoodle.png" width="200">
     </div>
@@ -50,20 +50,12 @@ for the 10th time this month. Now what?</div>
     </div>
   </div>
 
-  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
-    <div class="card-pic display-3 text-center">
-    <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/ReadingSideDoodle.png" width="200">
-    </div>
-    <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>3</strong></h2>Chill out while our tutor helps your parent.</div>
-    </div>
-  </div>
-  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
+  <div class="card col-12 col-lg-4 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/ZombieingDoodle.png" width="200">
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>4</strong></h2>All done! Everyone's savvier than ever!</div>
+      <div class="card-title"><h2><strong>3</strong></h2>All done! Everyone's savvier than ever!</div>
     </div>
   </div>
 </div>
