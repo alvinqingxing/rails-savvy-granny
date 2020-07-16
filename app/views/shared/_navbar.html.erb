@@ -14,7 +14,7 @@
 
   <button class="navbar-toggler pb-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon">   
-    <% if current_user.photo.attached? %>
+    <% if user_signed_in? && current_user.photo.attached? %>
     <% avatar_url = cl_image_path(current_user.photo.key) %>
     <% else %>
     <% avatar_url = image_path("user.png") %>

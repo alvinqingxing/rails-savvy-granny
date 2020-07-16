@@ -1,77 +1,80 @@
-<html>
-<head>
-<title>Font Awesome Icons</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-</head>
-<body>
+  <div class="container">
+    <div class="col-6 offset-3 py-5">
+      <div class="border-bottom mb-3">
+        <h1>CHATROOM #<%= @chatroom.booking.id %></h1>
+        <%# videocall daily.co link %>
+        <h6> Your assigned tutor is: <i class="fa fa-user-circle-o" aria-hidden="true"></i> <%= link_to "#{@chatroom.booking.tutor.first_name} #{@chatroom.booking.tutor.last_name}", @chatroom.booking.tutor %>
 
-<div class="container">
-  <div class="col-6 offset-3 py-5">
-    <div class="border-bottom mb-3">
-      <h1>CHATROOM #<%= @chatroom.booking.id %></h1>
-      <%# videocall daily.co link %>
-      <h6> Your assigned tutor is: <i class="fa fa-user-circle-o" aria-hidden="true"></i> <%= link_to "#{@chatroom.booking.tutor.first_name} #{@chatroom.booking.tutor.last_name}", @chatroom.booking.tutor %>
-      <br><br> Just copy & paste the following invitation after your chat: </h6>
-
-      <% if @chatroom.booking.id <= 30 %>
-        <% videolink = "https://savvygranny.daily.co/#{@chatroom.booking.id}" %>
-        <% else %>
+          <br><br> Just copy & paste the following invitation after your chat: </h6>
+          <% if @chatroom.booking.id <= 30 %>
+          <% videolink = "https://savvygranny.daily.co/#{@chatroom.booking.id}" %>
+          <% else %>
           <% videolink = "https://savvygranny.daily.co/#{@chatroom.booking.id - 30}" %>
-      <% end %>
-        <textarea class="form-control input-lg" type="text" rows="5" id="invitation">
-Hey, remember that tech issue you had with the <%= @chatroom.booking.job.name %>? I've arranged for this savvy tutor to help you with it! :)
-You just have to click this link <%= videolink %> on this date and time: <%= @chatroom.booking.start_date %> <%= @chatroom.booking.start_time.strftime("%I:%M%p") %>
-</textarea>
-      <br>
-      <div class="input-group">
-      <button id="copy" class="form-control btn btn-outline-dark">Copy Invitation</button>
-      <a href="https://wa.me/?text=paste%20the%20invitation%20here" class="form-control btn btn-outline-dark" role="button"><i class="fa fa-whatsapp fa-lg" style="color: #25D366" aria-hidden="true"></i> Send Whatsapp</a>
-      </div>
-       <%# end of videocall link %>
-      <br>
-    </div>
-
-    <% if @over_ten %>
-      <%= link_to 'Show Previous', '?m=all' %>
-    <% end %>
-    <div class="ui segment">
-      <% @messages.each do |message| %>
-        <% if message.content %>
-          <% user = User.find(message.sender_id) %>
-          <div class="item mb-3">
-              <div class ="content bg-light text-dark p-3 rounded mb-3">
-              <div class="header d-flex justify-content-between">
-              <div><strong><%= user.first_name %></strong> <%= message.created_at %></div>
-              <div>
-              <% if message.read %>
-              <i class="far fa-eye"></i>
-              <% else %>
-              <i class="far fa-eye-slash"></i>
-              <% end %>
-              </div>
-              </div>
-              <div class="list">
-                <div class="item" id="message-<%= message.id %>">
-                  <i class="right triangle icon"></i>                 
-                <%= message.content %>
-                </div>  
-                </div>
+          <% end %>
+          <textarea class="form-control input-lg" type="text" rows="5" id="invitation">
+            Hey, remember that tech issue you had with the <%= @chatroom.booking.job.name %>? I've arranged for this savvy tutor to help you with it! :)
+            You just have to click this link <%= videolink %> on this date and time: <%= @chatroom.booking.start_date %> <%= @chatroom.booking.start_time.strftime("%I:%M%p") %>
+          </textarea>
+          <br>
+          <div class="input-group">
+            <button id="copy" class="form-control btn btn-outline-dark">Copy Invitation</button>
+            <a href="https://wa.me/?text=paste%20the%20invitation%20here" class="form-control btn btn-outline-dark" role="button"><i class="fa fa-whatsapp fa-lg" style="color: #25D366" aria-hidden="true"></i> Send Whatsapp</a>
           </div>
-        <% end %>
-      <% end %>
+          <%# end of videocall link %>
+          <br>
+        </div>
+      </div>
     </div>
-    <%= simple_form_for([ @chatroom, @message ], remote: true) do |f| %>
-    <div class="form-group" id="submit-box">
-      <%= f.input :content, label: false, placeholder: 'Your message here', wrapper_html: { class: 'flex-fill p-0 m-0' } %>
-      <br>
-      <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
-      <%= f.button :submit, "SEND", class: 'btn btn-primary btn-block' %>
-    </div>
-    <% end %>
-  </div>
-</div>
+    <div class="container">
+      <div class="row justify-content-center" style = "padding-bottom: 100px">
+        <div class="col" style = "max-width: fit-content">
+          <div class="chat-header"><h4>#<%= @chatroom.booking.id %></h4></div>
+          <div class="messages">
+            <% @messages.each do |message| %>
+            <% if current_user.id == message.sender_id%>
+            <%# right msg from sender %>
+             <% if message.content %>
+                <div class="message right">
+                <%= message.sender.first_name%> <%= message.created_at.strftime("%a %b %e at %l:%M%p")%>
+                <% if message.read %>
+                  <i class="far fa-eye"></i>
+                <% else %>
+                  <i class="far fa-eye-slash"></i>
+                <% end %>
+              <div class="message-content">
+                <%= message.content %>
+              </div>
+            </div>
+            <% end %>
+            
+            <%# left msg from receiver %>
+            <% else %>
+             <% if message.content %>
+                <div class="message">
+                <%= message.sender.first_name%> <%= message.created_at.strftime("%a %b %e at %l:%M%p")%>
+                <% if message.read %>
+                    <i class="far fa-eye"></i>
+                <% else %>
+                  <i class="far fa-eye-slash"></i>
+                <% end %>
+                <div class="message-content">
+                  <%= message.content %>
+                </div>
+              </div>
+              <% end %>
+              <% end %>
+            <% end %>
+          <%# </div> %>
+          <div id="create-message">
+            <%= simple_form_for [ @chatroom, @message ], remote: true, html: {autocomplete: "off" } do |f| %>
+            <%= f.input :content, label: false %>
+            <%= f.button :submit, "SEND", class: 'btn btn-primary btn-block' %>
+            <% end %>
+          </div>
+          </div>
+        </div>
+      </div>
+    <%# </div> %>
+    <%# <% content_for :after_js do %>
 
-</body>
-</html>
+    <%# <% end %>
