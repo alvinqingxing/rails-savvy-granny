@@ -2,7 +2,9 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy, :apply, :cancel]
 
   def index
-    @bookings = policy_scope(Booking).where(status: "pending")
+    @bookings = policy_scope(Booking)
+    authorize @bookings
+    @bookings = @bookings.where(status: "pending")
   end
 
   def new
