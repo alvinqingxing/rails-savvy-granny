@@ -76,3 +76,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'cloudinary', '~> 1.12.0'
+
+#for socket connection 
+
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
