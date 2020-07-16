@@ -27,12 +27,12 @@
             <div class="card booking-card d-flex flex-row">
 
               <div class="date-column text-dark col-4 col-lg-3 d-flex justify-content-center bg-primary">
-                <div class="h3 font-weight-bold text-light m-0 py-4">
+                <div class="align-self-center h3 font-weight-bold text-light m-0 py-4">
                 <%= raw booking.start_date.strftime("%d %^b %Y").gsub(" ", "<br>") %>
                 </div>
               </div>
 
-              <div class="info-column d-flex flex-fill flex-wrap pl-2">
+              <div class="info-column d-flex flex-fill flex-wrap pl-2 py-2">
                 <div class="info-blocks col-12 col-xl-6"><i class="fas fa-wrench pr-1"></i> <%= booking.job.name.humanize %></div>
                 <div class="info-blocks col-12 col-xl-6"><i class="fas fa-clock pr-1"></i> <%= booking.start_time.strftime("%I:%M%p") %></div>
                 <div class="info-blocks col-12 col-xl-6"><i class="fas fa-comment-dots pr-1"></i> <%= booking.language %> preferred</div>
@@ -60,126 +60,8 @@
     No upcoming bookings!
     <% else %>
       <% @upcoming.each do |booking| %>
-        <div class="row">
-          <div class="col-12 mb-3">
-            <div class="card booking-card d-flex flex-row">
-
-              <div class="date-column text-dark col-4 col-lg-3 d-flex justify-content-center bg-primary">
-                <div class="h3 font-weight-bold text-light m-0 py-4">
-                <%= raw booking.start_date.strftime("%d %^b %Y").gsub(" ", "<br>") %>
-                </div>
-              </div>
-
-              <div class="info-column d-flex flex-fill flex-wrap pl-2">
-                <div class="info-blocks col-12 col-xl-6"><i class="fas fa-wrench pr-1"></i> <%= booking.job.name.humanize %></div>
-                <div class="info-blocks col-12 col-xl-6"><i class="fas fa-clock pr-1"></i> <%= booking.start_time.strftime("%I:%M%p") %></div>
-                <div class="info-blocks col-12 col-xl-6"><i class="fas fa-comment-dots pr-1"></i> <%= booking.language %> preferred</div>
-                <div class="info-blocks col-12 col-xl-6">
-                <% if current_user.tutor? %>
-                  <%= link_to booking.user.full_name, booking.user do %>
-                  <i class="fas fa-user pr-1"></i> <%= booking.tutor.full_name %>
-                  <% end %>
-                  <% else %>
-                  <%= link_to "#", data: {toggle: "modal", target: "#modal-#{ booking.tutor.id }"} do %>
-                  <i class="fas fa-chalkboard-teacher pr-1"></i> <%= booking.tutor.full_name %>
-                  <% end %>
-                  <!-- Modal -->
-                  <div class="modal fade" id="modal-<%= booking.tutor.id %>" tabindex="-1" role="dialog">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Your Tutor</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="d-flex justify-content-between">
-                            <div class="d-flex align-items-center">
-                            <% if booking.tutor.photo.attached? %>
-                              <div><%= cl_image_tag booking.tutor.photo.key, crop: :fill, class: 'img-fluid img-circle d-block avatar mr-2 my-0' %></div>
-                            <% else %>
-                              <div><%= image_tag "user.png", crop: :fill, class: 'img-fluid img-circle d-block avatar mr-2 my-0' %></div>
-                            <% end %>
-                            <div class="h4 m-0"><%= booking.tutor.full_name %></div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                            <% if booking.tutor.rating %> 
-                              <% booking.tutor.rating.times do %>
-                              <i class="fas fa-star text-warning"></i>
-                              <% end %>
-                              <% (5 - booking.tutor.rating).times do %>
-                              <i class="fas fa-star text-dark"></i>
-                              <% end %>
-                            <% else %>
-                              No ratings yet!
-                            <% end %>
-                            </div>
-                          </div>
-                          <div><i><%= booking.tutor.description %></i></div>
-                        </div>
-                        <div class="modal-footer">
-                          <%= link_to "full profile", booking.tutor %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-                </div>
-                <div class="info-blocks col-12 col-xl-6">
-                <%= link_to booking_chatroom_path(booking.chatroom), class: 'text-primary' do %>
-                <i class="far fa-comments pr-1"></i> Go to chatroom
-                <% end %>
-                </div>
-                <div class="info-blocks col-12 col-xl-6">
-                <%= link_to cancel_booking_path(booking), class: 'text-danger', 
-                data: {confirm: 'Are you sure you want to delete this booking?'} do %>
-                <i class="fas fa-ban pr-1"></i> Cancel booking?
-                <% end %>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 mb-3">
-              <div class="card shadow-sm">
-                  <div class="d-flex flex-wrap">
-                      <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= cl_image_path(booking.job.photo.key, :crop => :fill) %>'); background-size: cover">
-                      </div>
-                      <div class="card-body d-flex flex-column justify-content-between">
-                          <h4 class="card-title"><%= booking.job.name %></h4>
-                          <div class="d-flex justify-content-between">
-                          <div>
-                          <p class="card-text">
-                          <i class="fas fa-calendar-day"></i> <%= booking.start_date %><br>
-                          <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
-                          <i class="fas fa-comment-dots"></i> <%= booking.language %><br>
-
-                          </p>
-                          </div>
-                          <div class="d-flex flex-column">
-                          <%= link_to 'Go to Chatroom', booking_chatroom_path(booking.chatroom), class: 'btn btn-secondary mb-1' %>
-                          <%= link_to 'Cancel Booking', cancel_booking_path(booking), class: 'btn btn-danger' %>
-                          </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    </div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-    <% if @completed.length == 0 %>
-    No completed bookings!
-    <% else %>
-      <% @completed.each do |booking| %>
-        <!-- Modal -->
-        <div class="modal fade" id="modal-f-<%= booking.tutor.id %>" tabindex="-1" role="dialog">
+      <!-- Modal -->
+        <div class="modal fade" id="modal-<%= booking.tutor.id %>" tabindex="-1" role="dialog">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -211,7 +93,7 @@
                   <% end %>
                   </div>
                 </div>
-                <div><i><%= booking.tutor.description %></i></div>
+                <div><i class="h6 text-dark"><%= booking.tutor.description %></i></div>
               </div>
               <div class="modal-footer">
                 <%= link_to "full profile", booking.tutor %>
@@ -219,52 +101,152 @@
             </div>
           </div>
         </div>
+        <%# End of Modal %>
+
         <div class="row">
           <div class="col-12 mb-3">
-              <div class="card shadow-sm">
-                  <div class="d-flex flex-wrap">
-                      <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= cl_image_path(booking.job.photo.key, :crop => :fill) %>'); background-size: cover">
-                      </div>
-                      <div class="card-body d-flex flex-column justify-content-between">
-                          <h4 class="card-title"><%= booking.job.name %></h4>
-                          <div class="d-flex justify-content-between">
-                          <div>
-                          <p class="card-text">
-                          <i class="fas fa-calendar-day"></i> <%= booking.start_date %><br>
-                          <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
-                          <i class="fas fa-comment-dots"></i> <%= booking.language %><br>
-                          <% if current_user.tutor? %>
-                            <i class="fas fa-user"></i> <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
-                            <% else %>
-                            <i class="fas fa-chalkboard-teacher"></i> <%= link_to "#{booking.tutor.first_name} #{booking.tutor.last_name}",
-                            booking.tutor, data: {toggle: "modal", target: "#modal-f-#{ booking.tutor.id }"} %><br>
-                          <% end %>
-                          </p>
-                          </div>
-                          <div class="d-flex flex-column">
-                          <% if booking.review.nil? %>
-                            <% if current_user.tutor? %>
-                              Waiting for a review!
-                            <% else %>
-                              <%= link_to 'Review Tutor', new_review_path(booking: booking), class: 'btn btn-primary' %>
-                            <% end %>
-                          <% else %>
-                            <div>
-                              <% booking.review.rating.times do %>
-                              <i class="fas fa-star text-warning"></i>
-                              <% end %>
-                              <% (5 - booking.review.rating).times do %>
-                              <i class="fas fa-star text-dark"></i>
-                              <% end %>
-                            </div>
-                          <% end %>
-                          </div>
-                          </div>
-                      </div>
-                  </div>
+            <div class="card booking-card d-flex flex-row">
+
+              <div class="date-column text-dark col-4 col-lg-3 d-flex justify-content-center bg-primary">
+                <div class="align-self-center h3 font-weight-bold text-light m-0 py-4">
+                <%= raw booking.start_date.strftime("%d %^b %Y").gsub(" ", "<br>") %>
+                </div>
               </div>
+
+              <div class="info-column d-flex flex-fill flex-wrap pl-2 py-2">
+                <div class="info-blocks col-12 col-xl-6"><i class="fas fa-wrench pr-1"></i> <%= booking.job.name.humanize %></div>
+                <div class="info-blocks col-12 col-xl-6"><i class="fas fa-clock pr-1"></i> <%= booking.start_time.strftime("%I:%M%p") %></div>
+                <div class="info-blocks col-12 col-xl-6"><i class="fas fa-comment-dots pr-1"></i> <%= booking.language %> preferred</div>
+                <div class="info-blocks col-12 col-xl-6">
+                <% if current_user.tutor? %>
+                  <%= link_to booking.user do %>
+                  <i class="fas fa-user pr-1"></i> <%= booking.user.full_name %>
+                  <% end %>
+                  <% else %>
+                  <%= link_to "#", data: {toggle: "modal", target: "#modal-#{ booking.tutor.id }"} do %>
+                  <i class="fas fa-chalkboard-teacher pr-1"></i> <%= booking.tutor.full_name %>
+                  <% end %>
+                <% end %>
+                </div>
+                <div class="info-blocks col-12 col-xl-6">
+                <%= link_to booking_chatroom_path(booking.chatroom), class: 'text-primary' do %>
+                <i class="far fa-comments pr-1"></i> Go to chatroom
+                <% end %>
+                </div>
+                <div class="info-blocks col-12 col-xl-6">
+                <%= link_to cancel_booking_path(booking), class: 'text-danger', 
+                data: {confirm: 'Are you sure you want to delete this booking?'} do %>
+                <i class="fas fa-ban pr-1"></i> Cancel booking?
+                <% end %>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
+      <% end %>
+    <% end %>
+
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <% if @completed.length == 0 %>
+    No completed bookings!
+    <% else %>
+      <% @completed.each do |booking| %>
+      <!-- Modal -->
+        <div class="modal fade" id="modal-completed-<%= booking.tutor.id %>" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Your Tutor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex align-items-center">
+                  <% if booking.tutor.photo.attached? %>
+                    <div><%= cl_image_tag booking.tutor.photo.key, crop: :fill, class: 'img-fluid img-circle d-block avatar mr-2 my-0' %></div>
+                  <% else %>
+                    <div><%= image_tag "user.png", crop: :fill, class: 'img-fluid img-circle d-block avatar mr-2 my-0' %></div>
+                  <% end %>
+                  <div class="h4 m-0"><%= booking.tutor.full_name %></div>
+                  </div>
+                  <div class="d-flex align-items-center">
+                  <% if booking.tutor.rating %> 
+                    <% booking.tutor.rating.times do %>
+                    <i class="fas fa-star text-warning"></i>
+                    <% end %>
+                    <% (5 - booking.tutor.rating).times do %>
+                    <i class="fas fa-star text-dark"></i>
+                    <% end %>
+                  <% else %>
+                    No ratings yet!
+                  <% end %>
+                  </div>
+                </div>
+                <div><i class="h6 text-dark"><%= booking.tutor.description %></i></div>
+              </div>
+              <div class="modal-footer">
+                <%= link_to "full profile", booking.tutor %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%# End of Modal %>
+
+        <div class="row">
+          <div class="col-12 mb-3">
+            <div class="card booking-card d-flex flex-row">
+
+              <div class="date-column text-dark col-4 col-lg-3 d-flex justify-content-center bg-primary">
+                <div class="align-self-center h3 font-weight-bold text-light m-0 py-4">
+                <%= raw booking.start_date.strftime("%d %^b %Y").gsub(" ", "<br>") %>
+                </div>
+              </div>
+
+              <div class="info-column d-flex flex-fill flex-wrap pl-2 py-2">
+                <div class="info-blocks col-12 col-xl-6"><i class="fas fa-wrench pr-1"></i> <%= booking.job.name.humanize %></div>
+                <div class="info-blocks col-12 col-xl-6"><i class="fas fa-clock pr-1"></i> <%= booking.start_time.strftime("%I:%M%p") %></div>
+                <div class="info-blocks col-12 col-xl-6"><i class="fas fa-comment-dots pr-1"></i> <%= booking.language %> preferred</div>
+                <div class="info-blocks col-12 col-xl-6">
+                <% if current_user.tutor? %>
+                  <%= link_to booking.user do %>
+                  <i class="fas fa-user pr-1"></i> <%= booking.user.full_name %>
+                  <% end %>
+                  <% else %>
+                  <%= link_to "#", data: {toggle: "modal", target: "#modal-completed-#{ booking.tutor.id }"} do %>
+                  <i class="fas fa-chalkboard-teacher pr-1"></i> <%= booking.tutor.full_name %>
+                  <% end %>
+                <% end %>
+                </div>
+                <div class="info-blocks col-12">
+                <% if booking.review.nil? %>
+                  <% if current_user.tutor? %>
+                    <i>Waiting for a review!</i>
+                  <% else %>
+                    <%= link_to new_review_path(booking: booking) do %>
+                    <i class="fas fa-pencil-alt pr-1"></i> Review tutor
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <div>
+                    <% booking.review.rating.times do %>
+                    <i class="fas fa-star text-warning"></i>
+                    <% end %>
+                    <% (5 - booking.review.rating).times do %>
+                    <i class="fas fa-star text-dark"></i>
+                    <% end %>
+                  </div>
+                <% end %>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       <% end %>
     <% end %>
     </div>
