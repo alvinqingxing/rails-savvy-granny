@@ -8,14 +8,18 @@
     border-radius: 0.75rem 0rem 0rem 0.75rem;
   }
   .info-blocks, .info-blocks a {
-    font-size: 16px;
     font-family: 'Lato';
     font-weight: 500;
     display: flex;
     align-items: center;
+    font-size: 16px;
   }
 }
 
+.title-text {
+  font-weight: bold;
+  font-size: 20px;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
@@ -23,19 +27,22 @@
  
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {
+  .title-text {
+      font-size: 1.5em;
+  }
 }
  
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
-  .booking-card {
-    .info-blocks, .info-blocks a {
-      font-size: 18px;
-    }
-  }
   .booking-card:hover {
     margin-top: -.25rem;
     margin-bottom: .25rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+  }
+  .booking-card {
+    .info-blocks, .info-blocks a {
+      font-size: 18px;
+    }
   }
 }
 

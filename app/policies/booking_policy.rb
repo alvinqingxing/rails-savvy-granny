@@ -1,8 +1,16 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      if user.tutor?
+        scope.all
+      else
+        raise Pundit::NotAuthorizedError
+      end
     end
+  end
+
+  def index?
+    user.tutor?
   end
 
   def new?

@@ -1,38 +1,40 @@
 <div class="container d-flex justify-content-center">
   <div class="col-12 col-md-10 col-lg-8">
   <h1 style="font-family: Josefin Sans">Job Board</h1>
-  
-  <div>
-  <% @bookings.each do |booking| %>
-    <div class="row">
-          <div class="col-12 mb-3">
-              <div class="card shadow-sm">
-                  <div class="d-flex flex-wrap">
-                      <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= cl_image_path(booking.job.photo.key, :crop => :fill) %>'); background-size: cover">
-                      </div>
-                      <div class="card-body d-flex flex-column justify-content-between">
-                          <h4 class="card-title"><%= booking.job.name %></h4>
-                          <div class="d-flex justify-content-between">
-                          <div>
-                          <p class="card-text">
-                          <i class="fas fa-calendar-day"></i> <%= booking.start_date %><br>
-                          <i class="far fa-clock"></i> <%= booking.start_time.strftime("%I:%M%p") %><br>
-                          <i class="fas fa-hourglass-half"></i> <%= booking.job.duration.round %> mins<br>
-                          <i class="fas fa-money-bill-wave-alt"></i> <%= humanized_money_with_symbol(booking.price) %><br>
-                          <i class="fas fa-comment-dots"></i> <%= booking.language %><br>
-                          <i class="fas fa-user"></i> <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", booking.user %><br>
-                          </p>
-                          </div>
-                          <div>
-                          <%= link_to 'Apply', apply_booking_path(booking), class: 'btn btn-primary' %>
-                          </div>
-                          </div>
-                      </div>
-                  </div>
+
+  <div class="mb-5">
+    <% @bookings.each do |booking| %>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <div class="card booking-card d-flex flex-row">
+
+            <div class="date-column text-dark col-4 col-lg-3 d-flex justify-content-center bg-primary">
+              <div class="align-self-center h3 font-weight-bold text-light m-0 py-4">
+              <%= raw booking.start_date.strftime("%d %^b %Y").gsub(" ", "<br>") %>
               </div>
+            </div>
+
+            <div class="info-column d-flex flex-fill flex-wrap pl-2 py-2">
+              <div class="info-blocks col-12 h4 m-0 text-primary d-flex justify-content-between align-items-start">
+                <div class="title-text my-2"><%= booking.job.name.humanize %> (<%= booking.job.duration.round %> mins)</div>
+              </div>
+              <div class="info-blocks col-12 col-lg-6 py-lg-1"><i class="fas fa-clock pr-1"></i> <%= booking.start_time.strftime("%I:%M%p") %></div>
+              <div class="info-blocks col-12 col-lg-6 py-lg-1"><i class="fas fa-comment-dots pr-1"></i> <%= booking.language %> preferred</div>
+              <div class="info-blocks col-12 col-lg-6 py-lg-1"><i class="fas fa-money-bill-wave-alt pr-1"></i> $<%= booking.job.price %></div>
+              <div class="info-blocks col-12 col-lg-6 py-lg-1">
+                <%= link_to booking.user do %>
+                <i class="fas fa-user pr-1"></i> <%= booking.user.full_name %>
+                <% end %>
+              </div>
+              <div class="info-blocks col-12 text-center my-2 pr-4">
+                <%= link_to 'Apply for this job', apply_booking_path(booking), class: 'btn btn-primary btn-block justify-content-center' %>
+              </div>
+            </div>
+
           </div>
         </div>
-  <% end %>
+      </div>
+    <% end %>
   </div>
   <div>
 </div>

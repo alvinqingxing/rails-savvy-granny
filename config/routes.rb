@@ -30,7 +30,6 @@ Rails.application.routes.draw do
 
   get "/bookings/:booking_id/chatroom", to: "chatrooms#show", as: :booking_chatroom
   get "dashboard", to: "pages#dashboard", as: :dashboard
-  get '/user' => "pages#dashboard", :as => :user_root
   get "/bookings/new" => "orders#new", :as => :bookings_new
   get "notification", to: "pages#notification", as: :notification
 
