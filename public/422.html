@@ -2,8 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected</title>
+  <title>SavvyGranny - 422 Error!</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Lato:wght@100&display=swap" rel="stylesheet">
   <style>
   body {
@@ -24,7 +26,7 @@
   p {
     font-family: 'Lato', sans-serif;
     font-size: 1.5em;
-    font-weight: bolder;
+    font-weight: normal;
   }
   a {
     font-family: 'Lato', sans-serif;
@@ -40,10 +42,20 @@
   </style>
 </head>
 <body>
-  <h1>422</h1>
-  <img src="./images/zombie.png" width="500">
-  <h2>The change you wanted was rejected</h2>
-  <p>Maybe you tried to change something you didn't have access to</p>
-  <p><a href="http://www.savvy-granny.com">Back to homepage</a></p>
+  <div class="container mt-5">
+    <h1>422</h1>
+    <h2>Aw, the change you wanted was rejected.</h2>
+    <img src="./images/422.png" width="500">
+    <p>Maybe you tried to change something you didn't have access to?</p>
+    <div class="d-flex justify-content-center">
+      <div class="col-5 col-md-3 col-lg-2 d-flex p-0">
+        <a href="javascript:history.back()" class="btn btn-outline-secondary flex-fill"><i class="fas fa-backward pr-3"></i>Back</a>
+      </div>
+      <div class="px-2"></div>
+      <div class="col-5 col-md-3 col-lg-2 d-flex p-0">
+        <a href="http://www.savvy-granny.com" class="btn btn-outline-secondary flex-fill"><i class="fas fa-home pr-3"></i>Home</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
