@@ -1,10 +1,5 @@
 <html>
-<head>
-  <title>Font Awesome Icons</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-</head>
+
 <body>
   <div class="container">
     <div class="col-6 offset-3 py-5">
@@ -43,7 +38,7 @@
             <%# right msg from sender %>
              <% if message.content %>
                 <div class="message right">
-                <%= message.sender.first_name%> <%= message.created_at%>
+                <%= message.sender.first_name%> <%= message.created_at.strftime("%a %b %e at %l:%M%p")%>
                 <% if message.read %>
                   <i class="far fa-eye"></i>
                 <% else %>
@@ -59,7 +54,7 @@
             <% else %>
              <% if message.content %>
                 <div class="message">
-                <%= message.sender.first_name%> <%= message.created_at%>
+                <%= message.sender.first_name%> <%= message.created_at.strftime("%a %b %e at %l:%M%p")%>
                 <% if message.read %>
                     <i class="far fa-eye"></i>
                 <% else %>
@@ -83,20 +78,22 @@
         </div>
       </div>
     <%# </div> %>
-    <% content_for :after_js do %>
+    <%# <% content_for :after_js do %>
     <script>
-      scrollLastMessageIntoView();
-      App['chatroom_<%= @chatroom.id %>'] = App.cable.subscriptions.create({ channel: 'ChatroomsChannel', chatroom_id: <%= @chatroom.id %> }, {
+    console.log("hello");
+//      scrollLastMessageIntoView();
+      console.log("hello");
+      App['chatroom_<%= @chatroom.id %>'] = App.cable.subscriptions.create({ channel: 'ChatroomChannel', chatroom_id: <%= @chatroom.id %> }, {
         received: (data) => {
           console.log(data);
           if (data.current_user_id !== <%= current_user.id %>) {
             const messagesContainer = document.querySelector('.messages');
             messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
-            scrollLastMessageIntoView();
+//            scrollLastMessageIntoView();
           }
         }
       })
     </script>
-    <% end %>
+    <%# <% end %>
   </body>
   </html>
