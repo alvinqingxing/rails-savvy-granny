@@ -12,3 +12,24 @@
 .navbar-lewagon .navbar-brand img {
   width: 180px;
 }
+
+/* standard navbar */
+@media (min-width: 768px) {
+  .show-when-big {
+    display: block;
+  }
+  .show-when-small {
+    display: none;
+  }
+}
+
+/* mobile navbar */
+@media (max-width: 767px) {
+  .show-when-big {
+    display: none;
+  }
+  .show-when-small {
+    display: block;
+  }
+  
+}

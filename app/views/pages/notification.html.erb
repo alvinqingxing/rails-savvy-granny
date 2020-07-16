@@ -27,7 +27,7 @@ it need to cre %>
 <div class ="container">
         <% @notifications.each do |notification| %>
             <% if notification.read == false %>
-            <div class="card">
+            <div class="card mb-4">
                     <div class="card-body d-flex align-items-center justify-content-between">                
                     <p class ="my-0">You have a new messeage from <%= notification.message.sender.first_name%> </p>                     
                     <%= link_to "Check your message !",booking_chatroom_path(notification.booking), class: "btn btn-success p-2"  %>
