@@ -1,0 +1,23 @@
+.booking-card {
+  font-family: 'Lato';
+  border: none;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  .date-column {
+    border-radius: 0.75rem 0rem 0rem 0.75rem;
+  }
+  .info-blocks, .info-blocks a {
+    font-size: 20px;
+    font-family: 'Lato';
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 992px) {
+  .booking-card:hover {
+    margin-top: -.25rem;
+    margin-bottom: .25rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+  }
+}

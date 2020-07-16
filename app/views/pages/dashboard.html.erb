@@ -24,6 +24,31 @@
         <% @pending.each do |booking| %>
         <div class="row">
           <div class="col-12 mb-3">
+            <div class="card booking-card d-flex flex-row">
+
+              <div class="date-column text-dark col-5 col-sm-4 col-lg-3 d-flex justify-content-center bg-primary">
+                <div class="h3 font-weight-bold text-light m-0 py-4">
+                <%= raw booking.start_date.strftime("%d %^B %Y").gsub(" ", "<br>") %>
+                </div>
+              </div>
+
+              <div class="info-column d-flex flex-fill flex-wrap pt-4 pl-2">
+                <div class="info-blocks col-6"><i class="fas fa-wrench pr-1"></i> <%= booking.job.name.humanize %></div>
+                <div class="info-blocks col-6"><i class="fas fa-clock pr-1"></i> <%= booking.start_time.strftime("%I:%M%p") %></div>
+                <div class="info-blocks col-6"><i class="fas fa-comment-dots pr-1"></i> <%= booking.language %> preferred</div>
+                <div class="info-blocks col-6">
+                <%= link_to cancel_booking_path(booking), class: 'text-danger', 
+                data: {confirm: 'Are you sure you want to delete this booking?'} do %>
+                <i class="fas fa-ban pr-1"></i> Cancel booking?
+                <% end %>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>  
+        <div class="row">
+          <div class="col-12 mb-3">
               <div class="card shadow-sm">
                   <div class="d-flex flex-wrap">
                       <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= cl_image_path(booking.job.photo.key, :crop => :fill) %>'); background-size: cover">
