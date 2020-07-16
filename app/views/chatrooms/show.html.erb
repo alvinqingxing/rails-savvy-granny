@@ -73,5 +73,13 @@ You just have to click this link <%= videolink %> on this date and time: <%= @ch
   </div>
 </div>
 
+  <script>
+    App['chat_room_<%= @chatroom.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ChatRoomsChannel', chat_room_id: <%= @chatroom.id %> },
+      { received: (data) => console.log(data) }
+    })
+  </script>
+
+
 </body>
 </html>
