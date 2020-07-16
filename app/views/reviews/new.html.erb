@@ -1,44 +1,60 @@
-<div class="container mt-5">
-  <h1 class="text-center">Rate Your Booking</h1>
-  <div class="d-flex flex-wrap">
+<div class="container mb-3">
+  <h1 class="text-center fix-font mb-3">Review your experience</h1>
+  <div class="d-flex flex-wrap align-items-center">
     <%# The job card goes here %>
-    <div class="col-12 col-md-8 offset-md-2">
-      <div class="card shadow-sm mb-3">
-        <div class="d-flex flex-wrap">
-          <div class="img-square-wrapper col-3 p-0" style="background-image: url('<%= cl_image_path(@booking.job.photo.key, :crop => :fill) %>'); background-size: cover">
-          </div>
-          <div class="card-body d-flex flex-column justify-content-between">
-            <h4 class="card-title"><%= @booking.job.name %></h4>
-            <div class="d-flex justify-content-between">
-              <div>
-                <p class="card-text">
-                  <i class="fas fa-cogs"></i> <%= @booking.job.category.name %><br>
-                  <i class="fas fa-tasks"></i>
-                  <% des = JSON.parse @booking.job.description %>
-                  <% arr = [] %>
-                  <% des.each { |thing| arr << thing[1] }  %>
-                  <%= arr.join(', ') %><br>
-                  <i class="far fa-clock"></i> <%= @booking.job.duration.round %> mins<br>
-                  <i class="fas fa-chalkboard-teacher"></i> <%= link_to "#{@booking.tutor.first_name} #{@booking.tutor.last_name}", @booking.tutor %>
-                </p>
-              </div>
-            </div>
-          </div>
+    <div class="pricing col-lg-4 offset-lg-2 mb-4">
+        <div class="card mb-lg-0">
+        <div class="view overlay">
+        <%= cl_image_tag @booking.job.photo.key, crop: :fill, class: 'card-img-top' %>
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
         </div>
-      </div>
+        <div class="card-body">
+            <h5 class="card-title text-uppercase text-center"><%= @booking.job.name %></h5>
+            <h6 class="card-price text-center"><%= @booking.job.duration.round %> mins</h6>
+            <hr>
+            <ul class="fa-ul">
+            <% des = JSON.parse @booking.job.description %>
+            <% des.each do |thing| %>
+                <% if thing[0] %>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><%= thing[1] %></li>
+                <% else %>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span><%= thing[1] %></li>
+                <% end %>
+            <% end %>
+            </ul>
+        </div>
+        </div>
     </div>
-    <div class="col-12 col-md-8 offset-md-2">
-      <h2>Rate this booking!</h2>
+    <div class="col-lg-5 h-100 mb-5 align-self-start">
+    <div class="h4 fix-font">Your tutor was...</div>
+      <div class="d-flex align-items-center mb-3">
+      <% if @booking.tutor.photo.attached? %>
+        <div><%= cl_image_tag @booking.tutor.photo.key, crop: :fill, class: 'img-fluid img-circle d-block avatar mr-2 my-0' %></div>
+      <% else %>
+        <div><%= image_tag "user.png", crop: :fill, class: 'img-fluid img-circle d-block avatar mr-2 my-0' %></div>
+      <% end %>
+      <div class="h4 m-0 fix-font"><%= link_to @booking.tutor.full_name, @booking.tutor %></div>
+      </div>
+      <div class="p-1">
       <%= simple_form_for @review do |f| %>
-        <div class="form-group">
+        <div class="form-row justify-content-between">
+        <div class="h4 fix-font align-self-center">Give them a rating!</div>
           <%= f.input :rating, collection: (1..5).to_a, label: false %>
         </div>
         <div class="form-row">
-          <%= f.input :content, label: false, placeholder: "Any comments?" %>
+          <%= f.input :content, label: false, placeholder: "Any other comments?",
+              wrapper_html: { class: 'flex-fill' }, input_html: { class: "fix-font" } %>
         </div>
+        <div class="form-row">
         <%= hidden_field_tag(:booking_id, @booking.id) %>
-        <%= f.button :submit, "SUBMIT REVIEW", class: "btn-primary btn-block" %>
+        <%= f.button :submit, "Thanks for the review!", class: "btn-primary btn-block fix-font" %>
+        </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
+</div>
+<br>

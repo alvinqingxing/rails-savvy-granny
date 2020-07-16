@@ -4,7 +4,7 @@
 
 <div class="container">
 
-<h1 class="mt-4" style="font-family: Josefin Sans">Choose or Search job, be savvy! </h1>
+<h1 class="mt-4" style="font-family: Josefin Sans">Here's what our tutors can help with!</h1>
 
 <%#search box%>
 
@@ -20,7 +20,7 @@
   <%# PILLS LINKS TO WRAPPERS START HERE %>
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="font-family: Lato">
     <li class="nav-item">
-    <a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">All Jobs</a>
+    <a class="nav-link" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">All Jobs</a>
     </li>
     <% @categories.each do |category| %>
     <li class="nav-item">
@@ -38,7 +38,7 @@
 <div class="tab-content" id="pills-tabContent">
 
 <%# START CONTENT OF TAB/PILL FOR ALL JOBS %>
-  <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+  <div class="tab-pane fade show" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
 
             <section class="pricing py-4">
             <div class="container">
