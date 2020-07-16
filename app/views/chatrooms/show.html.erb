@@ -34,8 +34,8 @@
       </div>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col">
+      <div class="row justify-content-center" style = "padding-bottom: 100px">
+        <div class="col" style = "max-width: fit-content">
           <div class="chat-header"><h4>#<%= @chatroom.booking.id %></h4></div>
           <div class="messages">
             <% @messages.each do |message| %>
@@ -54,6 +54,7 @@
               </div>
             </div>
             <% end %>
+            
             <%# left msg from receiver %>
             <% else %>
              <% if message.content %>
@@ -71,16 +72,17 @@
               <% end %>
               <% end %>
             <% end %>
-          </div>
+          <%# </div> %>
           <div id="create-message">
             <%= simple_form_for [ @chatroom, @message ], remote: true, html: {autocomplete: "off" } do |f| %>
             <%= f.input :content, label: false %>
             <%= f.button :submit, "SEND", class: 'btn btn-primary btn-block' %>
             <% end %>
           </div>
+          </div>
         </div>
       </div>
-    </div>
+    <%# </div> %>
     <% content_for :after_js do %>
     <script>
       scrollLastMessageIntoView();
