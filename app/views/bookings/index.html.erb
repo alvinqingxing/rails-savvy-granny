@@ -1,7 +1,22 @@
 <div class="container d-flex justify-content-center">
   <div class="col-12 col-md-10 col-lg-8">
   <h1 style="font-family: Josefin Sans">Job Board</h1>
-  
+
+<div class="job-board-cards">
+  <div class="job-board-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Breakfast
+  </div>
+
+  <div class="job-board-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+    Lunch
+  </div>
+
+  <div class="job-board-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Dinner
+  </div>
+</div>
+
+
   <div>
   <% @bookings.each do |booking| %>
     <div class="row">
