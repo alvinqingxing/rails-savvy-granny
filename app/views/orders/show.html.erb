@@ -3,10 +3,11 @@
     <div class="col">
 
       <h1>Order #<%= @order.id %> <small><span class="badge badge-primary">PAID</span></small></h1>
+      <br>
+      <h1>You're all set! </h1>
+      <br>
+      <h5>Your order receipt number is #<%= @order.id %> </h5><br>
 
-      <br><h1>You're all set! <br></h1> <h5>
-<! --   Your order receipt number is #<%= @order.id %> <br> Status: <span class="badge badge-primary"><%= @order.state %></span></h5><br>
---> 
       <ul class="list-unstyled">
             <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/LayingDoodle.png" width="200" style="display: block;
     margin: 1rem auto;">
@@ -15,6 +16,7 @@
         <li><strong>Total amount paid:</strong> <%= humanized_money_with_symbol @order.amount %></li>
         </li>
       </ul>
+      <%= link_to "Back to dashboard",  dashboard_path %>
     </div>
   </div>
 </div>
