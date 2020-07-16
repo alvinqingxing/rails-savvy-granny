@@ -135,10 +135,10 @@ job4 = Job.create!(
   duration: [10,30,60].sample,
   category: cat1 
 )
-pic1 = URI.open('https://i.imgur.com/YQhdvmf.jpg')
+pic1 = URI.open('https://i.imgur.com/cFBCIay.jpg')
 pic2 = URI.open('https://i.imgur.com/zmP8Yl6.jpg')
-pic3 = URI.open('https://i.imgur.com/ZbomQWx.jpg')
-pic4 = URI.open('https://i.imgur.com/ZlMMiH5.jpg')
+pic3 = URI.open('https://i.imgur.com/FvViJVJ.jpg')
+pic4 = URI.open('https://i.imgur.com/s3oAHZO.jpg')
 job1.photo.attach(io: pic1, filename: 'bills.jpg', content_type: 'image/jpg')
 job2.photo.attach(io: pic2, filename: 'insurance.jpg', content_type: 'image/jpg')
 job3.photo.attach(io: pic3, filename: 'parking.jpg', content_type: 'image/jpg')
@@ -162,7 +162,7 @@ job6 = Job.create!(
   category: cat2 
 )
 pic5 = URI.open('https://i.imgur.com/XA7piE3.jpg')
-pic6 = URI.open('https://i.imgur.com/aaMCFQ9.jpg')
+pic6 = URI.open('https://i.imgur.com/JjnUt0c.jpg')
 job5.photo.attach(io: pic5, filename: 'accounts.jpg', content_type: 'image/jpg')
 job6.photo.attach(io: pic6, filename: 'passwords.jpg', content_type: 'image/jpg')
 
@@ -195,10 +195,10 @@ job10 = Job.create!(
   duration: [10,30,60].sample,
   category: cat3
 )
-pic7 = URI.open('https://i.imgur.com/Tvx0XXi.jpg')
-pic8 = URI.open('https://i.imgur.com/yWgY4xv.jpg')
-pic9 = URI.open('https://i.imgur.com/Eckxu9f.jpg')
-pic10 = URI.open('https://i.imgur.com/9bFqvOE.jpg')
+pic7 = URI.open('https://i.imgur.com/qIrqns1.jpg')
+pic8 = URI.open('https://i.imgur.com/Pcf0dBD.jpg')
+pic9 = URI.open('https://i.imgur.com/1qr416V.jpg')
+pic10 = URI.open('https://i.imgur.com/rq9kmRG.jpg')
 job7.photo.attach(io: pic7, filename: 'singpass.jpg', content_type: 'image/jpg')
 job8.photo.attach(io: pic8, filename: 'cpftax.jpg', content_type: 'image/jpg')
 job9.photo.attach(io: pic9, filename: 'welfare.jpg', content_type: 'image/jpg')
@@ -236,7 +236,7 @@ job14 = Job.create!(
 pic11 = URI.open('https://i.imgur.com/01FtFnO.jpg')
 pic12 = URI.open('https://i.imgur.com/vkK6DLO.jpg')
 pic13 = URI.open('https://i.imgur.com/dEpMyO8.jpg')
-pic14 = URI.open('https://i.imgur.com/DVnYkfp.jpg')
+pic14 = URI.open('https://i.imgur.com/G3O2g2f.jpg')
 job11.photo.attach(io: pic11, filename: 'zoom.jpg', content_type: 'image/jpg')
 job12.photo.attach(io: pic12, filename: 'whatsapp.jpg', content_type: 'image/jpg')
 job13.photo.attach(io: pic13, filename: 'email.jpg', content_type: 'image/jpg')
@@ -259,7 +259,7 @@ job16 = Job.create!(
   duration: [10,30,60].sample,
   category: cat5
 )
-pic15 = URI.open('https://i.imgur.com/rYBiI69.jpg')
+pic15 = URI.open('https://i.imgur.com/QFtwjpj.jpg')
 pic16 = URI.open('https://i.imgur.com/hwXToES.jpg')
 job15.photo.attach(io: pic15, filename: 'accounts.jpg', content_type: 'image/jpg')
 job16.photo.attach(io: pic16, filename: 'passwords.jpg', content_type: 'image/jpg')
