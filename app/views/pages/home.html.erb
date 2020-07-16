@@ -5,37 +5,21 @@
     <h1 style="font-family: 'Josefin Sans'">SavvyGranny</h1>
     <p style="font-family: 'Josefin Sans'">Your parents' personal tech support.</p>
 
-      <div class="btn-group dropright">
+      <div id="homepage-dropdown" class="btn-group dropright">
         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" style="font-size: 20px; font-family: Josefin Sans" aria-haspopup="true" aria-expanded="false">
           Get help with...
         </button>
-          <div class="dropdown-menu">
-          <% jobnames = @jobs.all.map { |x| x.name } %>
-          <% jobids = @jobs.all.map { |x| x.id } %>
-            <li>
-              <div class="row font-weight-bold" style="width: 60vw">
-                <ul class="list-unstyled col-md-4 pl-5">
-                  <% (0..4).each { |i| %>
-                    <li><a href="bookings/new?job=<%=jobids[i]%>" class="homedroplinks "><%= jobnames[i] %></a></li>
-                  <% } %>
-                </ul>
-                <ul class="list-unstyled col-md-4 pl-1">
-                  <% (5..9).each { |i| %>
-                    <li><a href="bookings/new?job=<%=jobids[i]%>" class="homedroplinks"><%= jobnames[i] %></a></li>
-                  <% } %>
-                </ul>
-                <ul class="list-unstyled col-md-4 pl-5">
-                  <% (10..14).each { |i| %>
-                    <li><a href="bookings/new?job=<%=jobids[i]%>" class="homedroplinks"><%= jobnames[i] %></a></li>
-                  <% } %>
-                </ul>
-              </div>
-          </li>
+        <div class="dropdown-menu" style="width: 240px">
+          <% @categories.each do |category| %>
+            <div class="pl-2"><%= link_to category.name, categories_path(active_tab: category.html_name), class: "primary-link" %></div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 
@@ -48,38 +32,30 @@ for the 10th time this month. Now what?</div>
 <div class="h1 mb-5 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >How it works</div>
 
 <div class="container d-flex p-0 flex-wrap">
-  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
+  <div class="card col-12 col-md-6 col-lg-4 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/MessyDoodle.png" width="200">
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>1</strong></h2>Pick a task you need help with, a date and a time.<br></div>
+      <div class="card-title"><h2><strong>1</strong></h2>Pick a task your parent needs help with, and set a date and a time.<br></div>
     </div>
   </div>
 
-  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
+  <div class="card col-12 col-md-6 col-lg-4 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/SelfieDoodle.png" width="200">
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>2</strong></h2>Chat about the details with a friendly tutor!</div>
+      <div class="card-title"><h2><strong>2</strong></h2>Chat about the details with a friendly tutor, and send a videocall link to your parent.</div>
     </div>
   </div>
 
-  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
-    <div class="card-pic display-3 text-center">
-    <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/ReadingSideDoodle.png" width="200">
-    </div>
-    <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>3</strong></h2>Chill out while our tutor helps your parent.</div>
-    </div>
-  </div>
-  <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
+  <div class="card col-12 col-lg-4 border-0 message" style="width: 18rem;">
     <div class="card-pic display-3 text-center">
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/ZombieingDoodle.png" width="200">
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>4</strong></h2>All done! Everyone's savvier than ever!</div>
+      <div class="card-title"><h2><strong>3</strong></h2>They'll take your parent through the task, helping them get savvy swiftly!</div>
     </div>
   </div>
 </div>
@@ -88,7 +64,7 @@ for the 10th time this month. Now what?</div>
 <div class="container mb-5">
   <div class="row">
     <div class="col text-center">
-    <%= link_to "Check out the tasks!", categories_path, class: 'btn btn-lg btn-primary justify-center' %>
+    <%= link_to "Check out the tasks!", categories_path(active_tab: 'all'), class: 'btn btn-lg btn-primary justify-center' %>
     </div>
   </div>
 </div>
@@ -163,4 +139,6 @@ for the 10th time this month. Now what?</div>
     </div>
   </div>
 </div>
+<% else %>
+<div class="p-3"></div>
 <% end %>

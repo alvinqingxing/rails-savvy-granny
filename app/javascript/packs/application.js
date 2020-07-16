@@ -30,12 +30,15 @@ import "bootstrap";
 import { initSelect2 } from '../components/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
 import { copy } from '../components/init_videocall';
-import { scrollLastMessageIntoView } from '../plugins/init_scroll_message_view';
+import { tablinks } from '../components/tab_links';
+import { dropdown } from '../components/homepage_dropdown';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSelect2();
   initStarRating();
   copy();
+  tablinks();
+  dropdown();
 });
 
