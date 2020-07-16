@@ -3,11 +3,11 @@
   <div class="container d-flex">
     <div class="col-12 col-md-10 col-lg-8 message">
     <h1 style="font-family: 'Josefin Sans'">SavvyGranny</h1>
-    <p style="font-family: 'Josefin Sans'">Your parents' personal tech support</p>
+    <p style="font-family: 'Josefin Sans'">Your parents' personal tech support.</p>
 
       <div class="btn-group dropright">
         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" style="font-size: 20px; font-family: Josefin Sans" aria-haspopup="true" aria-expanded="false">
-          Get help for...
+          Get help with...
         </button>
           <div class="dropdown-menu">
           <% jobnames = @jobs.all.map { |x| x.name } %>
@@ -41,13 +41,11 @@
 
 <%# Content %>
 <div class="container mt-5" style="font-family: 'Lato'">
-<div class="h1 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >It's Simple to be Savvy!</div>
-<div class="p text-center mb-5 message">Let's say your mom / dad needs help with a tech related task...<br>
+<div class="h1 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >It's simple to be savvy!</div>
+<div class="p text-center mb-5 message">Let's say your mom or dad needs help with a tech related task...<br>
 for the 10th time this month. Now what?</div>
 
-<div class="h1 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >How It Works</div>
-<br>
-<br>
+<div class="h1 mb-5 text-center message" style="font-family: 'Josefin Sans'; color:#1B3461" >How it works</div>
 
 <div class="container d-flex p-0 flex-wrap">
   <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
@@ -55,7 +53,7 @@ for the 10th time this month. Now what?</div>
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/MessyDoodle.png" width="200">
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>1</strong></h2>Pick a task & time<br></div>
+      <div class="card-title"><h2><strong>1</strong></h2>Pick a task you need help with, a date and a time.<br></div>
     </div>
   </div>
 
@@ -64,7 +62,7 @@ for the 10th time this month. Now what?</div>
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/SelfieDoodle.png" width="200">
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>2</strong></h2>Tell the tutor the issue, share the invite</div>
+      <div class="card-title"><h2><strong>2</strong></h2>Chat about the details with a friendly tutor!</div>
     </div>
   </div>
 
@@ -73,7 +71,7 @@ for the 10th time this month. Now what?</div>
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/ReadingSideDoodle.png" width="200">
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>3</strong></h2>Chill out</div>
+      <div class="card-title"><h2><strong>3</strong></h2>Chill out while our tutor helps your parent.</div>
     </div>
   </div>
   <div class="card col-12 col-md-6 col-lg-3 border-0 message" style="width: 18rem;">
@@ -81,55 +79,88 @@ for the 10th time this month. Now what?</div>
     <img src="https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/ZombieingDoodle.png" width="200">
     </div>
     <div class="card-body text-center d-flex flex-column justify-content-between">
-      <div class="card-title"><h2><strong>4</strong></h2>All done!</div>
+      <div class="card-title"><h2><strong>4</strong></h2>All done! Everyone's savvier than ever!</div>
     </div>
   </div>
 </div>
 </div>
 
-<br>
-<div class="container">
+<div class="container mb-5">
   <div class="row">
     <div class="col text-center">
-    <a href="categories" class="btn btn-lg btn-primary justify-center"  style="font-size: 20px;">Let's Get Savvy!</a><br>
-      </div>
+    <%= link_to "Check out the tasks!", categories_path, class: 'btn btn-lg btn-primary justify-center' %>
+    </div>
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-
-
-
 
 <%# Sign up form %>
 <% if user_signed_in? == false %>
-<div class="container my-5 d-flex flex-column message">
-  <div class="h1 text-center mb-3">Sign up for free today!</div>
-<div class="col-12 col-md-8 col-lg-4 align-self-center">
-<%= simple_form_for new_user_registration_path(@new_user) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: 'btn btn-success btn-block' %>
-  </div>
- 
-  <p>Or</p>
-    <%= link_to "Continue with facebook", omniauth_authorize_path(:user, :facebook), class: 'btn btn-secondary btn-block mb-3' %>
+<%# this is the signup modal form %>
+<div class="modal fade" id="sign-up-form" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title fix-font">Make your free account!</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <%= simple_form_for(@new_user, as: @new_user, url: registration_path(@new_user)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-row justify-content-between">
+      <%= f.input :first_name, label: false, placeholder: 'First name', wrapper_html: { class: 'flex-fill' } %>
+      <div class="sign-spacer mx-1"></div>
+      <%= f.input :last_name, label: false, placeholder: 'Last name', wrapper_html: { class: 'flex-fill' }  %>
+    </div>
+    <div class="form-row">
+      <%= f.input :email,
+                  label: false, placeholder: 'Email',
+                  required: true,
+                  input_html: { autocomplete: "email" }, 
+                  wrapper_html: { class: 'flex-fill' } %>
+    </div>
+    <div class="form-row justify-content-between">
+      <%= f.input :password,
+                  label: false, placeholder: 'Password',
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" }, 
+                  wrapper_html: { class: 'flex-fill' } %>
+      <div class="sign-spacer mx-1"></div>
+      <%= f.input :password_confirmation,
+                  label: false, placeholder: 'Repeat password',
+                  required: true,
+                  input_html: { autocomplete: "new-password" }, 
+                  wrapper_html: { class: 'flex-fill' } %>
+    </div>
+    <div class="sign-in-tabs form-row justify-content-between">
+    <%= f.collection_radio_buttons :tutor, [[false, 'I want to find a tutor'], [true, 'I want to be a tutor']],
+        :first, :last, required: true, checked: [false, 'I want to find a tutor'] %>
+    </div>
+    <div class="form-row">
+      <%= f.button :submit, "Sign up now", class: 'btn btn-primary media-body mb-3' %>
+    </div>
+    <div class="form-row">
+      <%= link_to "Continue with facebook", omniauth_authorize_path(:user, :facebook), class: 'btn btn-secondary media-body' %>
+    </div>
   <% end %>
+</div>
+</div>
+</div>
+</div>
+<%# end of modal form %>
+
+<div class="w-100 mb-5 bg-primary d-flex align-items-center " style="height: 15em;">
+  <div class="container d-flex flex-wrap">
+    <div class="col-12 col-sm-6 justify-content-end">
+      <div class="h4 fix-font text-light text-right">First time visiting?</div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <%= link_to "Sign up for free", "#", class: 'fix-font h4 text-secondary', data: { toggle: 'modal', target: '#sign-up-form' } %>
+    </div>
+  </div>
+</div>
 <% end %>
-</div>
-</div>

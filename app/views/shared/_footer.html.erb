@@ -2,9 +2,65 @@
 <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github" style="color: lightgrey"></i></a>
-    <a href="#"><i class="fab fa-instagram" style="color: lightgrey"></i></a>
+    <a href="https://www.instagram.com/savvygranny_sg"><i class="fab fa-instagram" style="color: lightgrey"></i></a>
     <a href="#" style="color: lightgrey">contact us</a>
+    <a href="#contact-form" style="color: lightgrey" data-toggle="modal">Contact us</a>
   </div>
+
+
+<%# Footer_modal for contact us %>
+
+<div class="modal fade" id="contact-form" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title fix-font">Contact Us</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <%= simple_form_for(@new_user, as: @new_user, url: registration_path(@new_user)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-row justify-content-between">
+      <%= f.input :first_name, 
+      label: false, 
+      placeholder: 'First name',
+      required: true,
+      wrapper_html: { class: 'flex-fill' } %>
+      <div class="sign-spacer mx-1"></div>
+      <%= f.input :last_name, label: false, placeholder: 'Last name', wrapper_html: { class: 'flex-fill' }  %>
+    </div>
+    
+    <div class="form-row">
+      <%= f.input :email,
+                  label: false, placeholder: 'Email',
+                  required: true,
+                  input_html: { autocomplete: "email" }, 
+                  wrapper_html: { class: 'flex-fill' } %>
+    </div>
+    
+    <div class="form-row justify-content-between">
+      <div class="sign-spacer mx-1"></div>
+      <%= f.input :messages, as: :text, 
+                  required: true, 
+                  wrapper_html: { class: 'flex-fill' } %>
+    </div>
+    
+    <div class="form-row">
+      <%# <%= f.button :cancel, "Cancel", class: 'btn btn-primary media-body mb-3' %>
+      <%= f.button :submit, "Sumbit ", class: 'btn btn-primary media-body mb-3' %>
+    </div>
+
+  <% end %>
+</div>
+</div>
+</div>
+</div>
+
+
+
   <div class="footer-copyright" style="color: lightgrey">
     © SavvyGranny 2020
   </div>

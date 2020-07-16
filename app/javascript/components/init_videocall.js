@@ -9,14 +9,15 @@
 //     /* Copy the text inside the text field */
 //     document.execCommand("copy");
 // };
+import $ from 'jquery';
 
 const copy = () => {
+  if ($('#copy').length > 0) {
+    document.querySelector("#copy").addEventListener("click", copy);
     const copyText = document.querySelector("#invitation");
     copyText.select();
     document.execCommand("copy");
   }
-  
-  document.querySelector("#copy").addEventListener("click", copy);
+}
 
-  export { copy };
-
+export { copy };
