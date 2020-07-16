@@ -83,11 +83,12 @@
         </div>
       </div>
     <%# </div> %>
-    <%# <% content_for :after_js do %> %>
+    <% content_for :after_js do %>
     <script>
       scrollLastMessageIntoView();
       App['chatroom_<%= @chatroom.id %>'] = App.cable.subscriptions.create({ channel: 'ChatroomsChannel', chatroom_id: <%= @chatroom.id %> }, {
         received: (data) => {
+          console.log(data);
           if (data.current_user_id !== <%= current_user.id %>) {
             const messagesContainer = document.querySelector('.messages');
             messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
