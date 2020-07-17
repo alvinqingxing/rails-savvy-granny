@@ -125,7 +125,7 @@ for the 10th time this month. Now what?</div>
         :first, :last, required: true, checked: [false, 'I want to find a tutor'] %>
     </div>
     <div class="form-row">
-      <%= f.button :submit, "Sign up now", class: 'btn btn-primary media-body mb-3' %>
+      <%= f.button :submit, "Sign up now", class: 'btn btn-primary media-body mb-3', disabled: true %>
     </div>
     <div class="form-row">
       <%= link_to "Continue with facebook", omniauth_authorize_path(:user, :facebook), class: 'btn btn-secondary media-body' %>
