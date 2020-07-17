@@ -9,5 +9,7 @@ class MessagePolicy < ApplicationPolicy
     record.chatroom.booking.user_id == user.id || record.chatroom.booking.tutor_id == user.id
   end
 
-
+  def destroy?
+    record.sender_id = user.id
+  end
 end
